@@ -9,6 +9,10 @@ export default {
 	],
 	theme: {
 		extend: {
+			backgroundImage:
+			{
+				'ca_pattern': "url('/images/gggrain.svg')"
+			},
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',

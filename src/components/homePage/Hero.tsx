@@ -15,10 +15,10 @@ const Hero = () => {
 
             {/* Hero Content */}
             <div className="relative z-10 px-6 w-full flex flex-col justify-center  h-full">
-                <div className="w-[80%] mx-auto gap-5 flex flex-col ">
+                <div className="w-[90%] md:w-[80%] mx-auto  md:gap-5 flex flex-col ">
                     {/* Animated Title */}
                     <motion.h1
-                        className="text-[30px] font-subheading font-[400] leading-tight mt-10"
+                        className="text-[20px] md:text-[30px] font-subheading font-[400] leading-tight mt-10"
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
@@ -33,7 +33,7 @@ const Hero = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <span className="block mb-4">Experience top-quality</span>
+                        <span className="block md:mb-4 mb-2">Experience top-quality</span>
                         <span className="block">dental care with a gentle touch.</span>
                     </motion.p>
 

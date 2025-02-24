@@ -11,42 +11,42 @@ const Services = (props: Props) => {
         {
             title: 'Surgical',
             description: 'Our surgical services are designed to meet the unique needs of each individual, ensuring that you receive the best possible care.',
-            imageSrc: '/images/dental-implants-surgery-concept-pen-tool-created-clipping-path-included-jpeg-easy-composite (1).jpg',
+            imageSrc: '/images/smile.jpg',
             alt: 'Surgical Service Image'
         },
         {
             title: 'Cosmetic',
             description: 'Enhance your smile with cosmetic dentistry treatments such as teeth whitening, veneers, and more.',
-            imageSrc: '/images/dental-implants-surgery-concept-pen-tool-created-clipping-path-included-jpeg-easy-composite (1).jpg',
+            imageSrc: '/images/dental_chair_care.jpg',
             alt: 'Cosmetic Dentistry Image'
         },
         {
             title: 'Orthodontics',
             description: 'Get the smile you’ve always wanted with orthodontic treatments like braces and Invisalign.',
-            imageSrc: '/images/dental-implants-surgery-concept-pen-tool-created-clipping-path-included-jpeg-easy-composite (1).jpg',
+            imageSrc: '/images/smile.jpg',
             alt: 'Orthodontics Image'
         },
         {
             title: 'Pediatric Dentistry',
             description: 'We offer gentle and caring dental services for children to ensure they develop healthy smiles from an early age.',
-            imageSrc: '/images/dental-implants-surgery-concept-pen-tool-created-clipping-path-included-jpeg-easy-composite (1).jpg',
+            imageSrc: '/images/dental_chair_care.jpg',
             alt: 'Pediatric Dentistry Image'
         },
         {
             title: 'Preventive Care',
             description: 'We provide preventive services such as regular checkups, cleanings, and x-rays to keep your teeth and gums healthy.',
-            imageSrc: '/images/dental-implants-surgery-concept-pen-tool-created-clipping-path-included-jpeg-easy-composite (1).jpg',
+            imageSrc: '/images/smile.jpg',
             alt: 'Preventive Care Image'
         },
     ];
 
     return (
-        <div className='w-full md:min-h-[100vh] py-8 bg-[#F4F6F3]'>
+        <div className='w-screen md:min-h-[100vh] py-8 bg-[#F4F6F3]'>
             <div className="w-[90%] mx-auto items-center">
-                <p className='text-[100px] font-[800] text-[#d7e0e9] text-center'>
+                <p className='text-[80px] md:text-[100px] font-[800] text-[#d7e0e9] text-center'>
                     Services
                 </p>
-                <h1 className="text-5xl font-heading -mt-14 text-[#104B82] font-[400] text-center">
+                <h1 className="text-3xl md:text-5xl font-heading -mt-10 md:-mt-14 text-[#104B82] font-[400] text-center">
                     Tailored treatments just for you
                 </h1>
                 <p className='text-center font-subheading text-xl md:max-w-2xl mx-auto mt-10 mb-8'>
@@ -55,11 +55,11 @@ const Services = (props: Props) => {
                 </p>
 
                 {/* Map over the services array to create service cards */}
-                <div className='w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+                <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 justify-center'>
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            className='w-[400px] p-4 hover:bg-white hover:shadow-lg rounded-t-[33px] cursor-pointer hover:-translate-y-5 transition-all duration-300 ease-in-out'
+                            className='w-[340px] lg:w-[400px] mx-auto p-4 hover:bg-white hover:shadow-md rounded-t-[13px] cursor-pointer hover:-translate-y-6 transition-all duration-300 ease-in-out'
                             initial={{ opacity: 0, y: 50 }}  // Initial position and opacity
                             animate={{ opacity: 1, y: 0 }}   // Final position and opacity
                             transition={{
@@ -75,7 +75,7 @@ const Services = (props: Props) => {
                                 alt={service.alt}
                                 width={380}
                                 height={400}
-                                className='rounded-t-[33px] h-[380px]'
+                                className='rounded-t-[6px] w-[340px] lg:w-[380px] h-[320px] bg-contain'
                             />
                             <h2 className='text-[#104B82] text-2xl font-semibold my-3'>{service.title}</h2>
                             <p className='text-lg font-subheading mb-6'>{service.description}</p>
@@ -86,7 +86,7 @@ const Services = (props: Props) => {
                     ))}
                 </div>
 
-                <div className='flex justify-center mt-8 mb-5'>
+                <div className='flex justify-center mt-12 mb-5'>
                     <motion.div
                         whileHover={{ scale: 1.05 }}   // Hover animation for the button
                         whileTap={{ scale: 0.95 }}    // Tap effect

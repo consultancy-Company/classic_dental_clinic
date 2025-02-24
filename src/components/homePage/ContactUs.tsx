@@ -13,9 +13,9 @@ const ContactUs = (props: Props) => {
                     "linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('/images/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg')",
             }}
         >
-            <div className='w-[80%] mx-auto my-auto flex items-end justify-end px-3 h-full'>
+            <div className='w-[84%] mx-auto my-auto flex items-center md:items-end justify-end lg:px-3 h-full'>
                 <motion.div
-                    className='bg-[#F4F6F3] p-16 flex flex-col gap-4 rounded-tl-[40px] rounded-br-[40px]'
+                    className='bg-[#F4F6F3] py-16 lg:px-16 px-12 flex flex-col gap-4 rounded-tl-[40px] rounded-br-[40px]'
                     initial={{ opacity: 0, y: 50 }} // Initial state: off-screen and invisible
                     animate={{ opacity: 1, y: 0 }} // Final state: visible and in place
                     transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition effect
@@ -42,6 +42,26 @@ const ContactUs = (props: Props) => {
                             viewport={{ once: true }}
                         >
                             <IoMdCheckmark className='mr-2' size={20} /> We offer affordable rates for all patients
+                        </motion.p>
+                        <motion.p
+                            className='flex text-lg items-center text-gray-700'
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                            viewport={{ once: true }}
+
+                        >
+                            <IoMdCheckmark className='mr-2' size={20} /> No hidden charges, transparent pricing
+                        </motion.p>
+                        <motion.p
+                            className='flex text-lg items-center text-gray-700'
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                            viewport={{ once: true }}
+
+                        >
+                            <IoMdCheckmark className='mr-2' size={20} /> No hidden charges, transparent pricing
                         </motion.p>
                         <motion.p
                             className='flex text-lg items-center text-gray-700'
