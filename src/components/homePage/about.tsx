@@ -1,55 +1,88 @@
 import Image from 'next/image'
 import React from 'react'
-import { FaHeart } from 'react-icons/fa6';
 import { IoMdCheckmark } from "react-icons/io";
+import { motion } from 'framer-motion';
+
 const About = () => {
     return (
-        <div 
-            className='w-full h-[100vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center' 
+        <div
+            className='w-full md:h-[100vh] bg-cover bg-center bg-no-repeat flex flex-col justify-center py-8'
             style={{ backgroundImage: "url('/images/image0_0.jpg')" }}
         >
-            <div className='w-[90%] mx-auto flex flex-wrap lg:flex-nowrap justify-between items-center border-2 rounded-3xl p-8'>
-                
+            <motion.div 
+                className='w-[80%] mx-auto md:flex md:flex-wrap lg:flex-nowrap justify-between items-center border-2 rounded-3xl px-8 py-10'
+                initial={{ opacity: 0, y: -50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }} // Trigger the animation once when it's in view
+            >
                 {/* Left Content Section */}
-                <div className='w-[50%] text-white'>
-                    <h2 className='text-4xl font-extrabold mb-5'>🦷 Dentistry Done Right – Because Your Smile Matters!</h2>
-                    <p className='text-lg leading-relaxed'>
-                        We welcome patients of all ages, from <strong>curious 3-year-olds</strong> to <strong>wise seniors</strong>. 
-                        Our expert team is committed to <strong>exceptional care, lifelong relationships, and stress-free experiences</strong> 
+                <motion.div 
+                    className='md:w-[50%] text-white'
+                    initial={{ opacity: 0, y: -50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+                    viewport={{ once: true }}
+                >
+                    <h2 className='md:text-4xl text-3xl font-extrabold mb-5'>
+                        🦷 World-Class Specialists | Painless Treatments | Personalized Care
+                    </h2>
+                    <p className='md:text-lg text-base leading-relaxed'>
+                        We welcome patients of all ages, from <strong>curious 3-year-olds</strong> to <strong>wise seniors</strong>.
+                        Our expert team is committed to <strong>exceptional care, lifelong relationships, and stress-free experiences</strong>
                         in a warm, welcoming environment.
                     </p>
 
                     {/* Key Benefits List with Icons */}
-                    <ul className='mt-6 space-y-3 text-lg'>
+                    <motion.ul 
+                        className='mt-6 space-y-3 text-base'
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+                        viewport={{ once: true }}
+                    >
                         <li className='flex items-center'>
-                            <IoMdCheckmark className='text-[#dd9639] mr-2' size={30} /> <strong>Transparent & Honest Pricing</strong> – No surprises, just fair treatment.
+                            <IoMdCheckmark className='text-[#dd9639] mr-2' size={30} /> <strong>Transparent & Honest Pricing</strong>
                         </li>
                         <li className='flex items-center'>
-                            <IoMdCheckmark className='text-[#dd9639] mr-2' size={30}/> <strong>Unmatched Warranty</strong> – We stand by our work with a guarantee.
+                            <IoMdCheckmark className='text-[#dd9639] mr-2' size={30} /> <strong>Unmatched Warranty</strong>
                         </li>
                         <li className='flex items-center'>
-                            <IoMdCheckmark className='text-[#dd9639] mr-2' size={30}/> <strong>FREE Lifetime Whitening!</strong> – Keep your smile shining, always.
+                            <IoMdCheckmark className='text-[#dd9639] mr-2' size={30} /> <strong>FREE Lifetime Whitening!</strong>
                         </li>
-                    </ul>
+                    </motion.ul>
 
-                    <p className='mt-6 italic text-xl flex'><FaHeart className='text-orange-500 ' size={30} /> <strong>Your Comfort, Our Priority!</strong> From painless treatments to cutting-edge technology, we ensure a gentle and satisfying dental experience.</p>
-
-                </div>
+                    <motion.p 
+                        className='mt-6 md:text-sm flex items-center border-l-4 border-[#dd9639] px-4 italic text-lg'
+                        initial={{ opacity: 0, y: -50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+                        viewport={{ once: true }}
+                    >
+                        &#x201F; Your Comfort, Our Priority! From painless treatments to cutting-edge technology, we ensure a gentle and satisfying dental experience. &#x201F;
+                    </motion.p>
+                </motion.div>
 
                 {/* Right Image Section */}
-                <div className='flex-shrink-0 mt-6 lg:mt-0'>
+                <motion.div 
+                    className='flex-shrink-0 mt-6 lg:mt-0 md:w-[45%] self-start h-full relative'
+                    initial={{ opacity: 0, y: -50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+                    viewport={{ once: true }}
+                >
                     <Image
-                        src={"/images/d1.jpg"}
+                        src={"/images/atikah-akhtar-XJptUS8nbhs-unsplash.jpg"}
                         alt='Expert Dentist'
                         width={300}
                         height={300}
-                        className='shadow-lg w-[400px] h-[300px]'
+                        className='shadow-lg w-full h-full rounded-lg'
                         priority
                     />
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </div>
     )
 }
 
-export default About
+export default About;

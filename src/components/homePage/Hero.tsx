@@ -11,11 +11,11 @@ const Hero = () => {
             style={{ backgroundImage: "url('/images/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg')" }}
         >
             {/* Black Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+            <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
             {/* Hero Content */}
             <div className="relative z-10 px-6 w-full flex flex-col justify-center  h-full">
-                <div className="w-[90%] mx-auto gap-5 flex flex-col ">
+                <div className="w-[80%] mx-auto gap-5 flex flex-col ">
                     {/* Animated Title */}
                     <motion.h1
                         className="text-[30px] font-subheading font-[400] leading-tight mt-10"
