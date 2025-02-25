@@ -22,7 +22,7 @@ const Footer = () => {
         <div className='w-[85%] grid md:grid-cols-2 lg:grid-cols-4 mx-auto  gap-8'>
 
           {/* Left Section - Contact Info */}
-          <div className='w-full md:w-1/4 space-y-5'>
+          <div className='w-full  space-y-5'>
             <h2 className='text-3xl font-bold'>Classic Dental</h2>
             <p className='text-gray-300'>Providing quality dental care with compassion and expertise.</p>
 
@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
 
           {/* Center Left - Services */}
-          <div className='w-full md:w-1/4'>
+          <div className='w-full '>
             <h3 className='text-2xl font-semibold mb-4'>Our Services</h3>
             <ul className='space-y-3 text-gray-300'>
               <li><a href='#' className='hover:text-[#dd9639] transition-all duration-200'>Teeth Whitening</a></li>
@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
 
           {/* Center Right - Quick Links */}
-          <div className='w-full md:w-1/4'>
+          <div className='w-full '>
             <h3 className='text-2xl font-semibold mb-4'>Quick Links</h3>
             <ul className='space-y-3 text-gray-300'>
               <li><a href='#' className='hover:text-[#dd9639] transition-all duration-200'>Home</a></li>
@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
 
           {/* Right Section - Social Media */}
-          <div className='w-full md:w-1/4'>
+          <div className='w-full '>
             <h3 className='text-2xl font-semibold mb-4'>Follow Us</h3>
             <div className='flex gap-4'>
               <a href="#" className='p-3 bg-[#dd9639] rounded-full hover:bg-white hover:text-[#104B82] transition-all duration-300 ease-in-out'>
