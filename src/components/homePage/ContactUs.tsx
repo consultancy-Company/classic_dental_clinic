@@ -13,7 +13,7 @@ const ContactUs = (props: Props) => {
                     "linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('/images/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg')",
             }}
         >
-            <div className='w-[84%] mx-auto my-auto flex items-center md:items-end justify-end lg:px-3 h-full'>
+            <div className='w-[84%] mx-auto my-auto flex items-center md:items-end justify-center md:justify-end lg:px-3 h-full'>
                 <motion.div
                     className='bg-[#F4F6F3] py-16 lg:px-16 px-12 flex flex-col gap-4 rounded-tl-[40px] rounded-br-[40px]'
                     initial={{ opacity: 0, y: 50 }} // Initial state: off-screen and invisible

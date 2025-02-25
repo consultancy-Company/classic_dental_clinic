@@ -8,7 +8,7 @@ const YourDentist = () => {
     return (
         <div className='w-full bg-[#Fff] min-h-[60vh] pt-10 pb-20'>
             <motion.div 
-                className='w-[80%] mx-auto flex flex-col sm:flex-col-reverse lg:flex-row justify-between items-center'
+                className='md:w-[80%] mx-auto px-5 flex flex-col-reverse lg:flex-row justify-between items-center'
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -16,17 +16,17 @@ const YourDentist = () => {
             >
                 {/* Left Content Section */}
                 <motion.div 
-                    className='lg:w-[50%]'
+                    className='lg:w-[50%] '
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                     viewport={{ once: true }}
                 >
-                    <p className='text-[80px] md:text-[100px] font-[800] text-[#d7e0e9] flex md:flex-col'>
+                    <p className='text-[68px] lg:text-[100px] font-[800] text-[#d7e0e9]  flex md:flex-col'>
                         Your <span className='md:-mt-[70px]'>Dentist</span> 
                     </p>
-                    <h1 className='text-5xl  md:-mt-14 -mt-10 text-[#104B82] font-semibold'>Dr. Abel Mekonn</h1>
-                    <p className='font-heading text-[16px] md:text-[20px] mt-8'>
+                    <h1 className='text-3xl md:text-5xl  md:-mt-14 -mt-9 text-[#104B82] text-center font-semibold'>Dr. Abel Mekonn</h1>
+                    <p className='font-heading text-[16px] md:text-[20px] mt-8 w-full'>
                         Dr. Abel is passionate about providing patient-focused care. He offers the full scope of oral healthcare treatments here in our local dental office. From routine care to surgical treatments and cosmetic touch-ups, he places you in control of every decision about your smile.
                     </p>
 
@@ -55,7 +55,7 @@ const YourDentist = () => {
                         alt="Your Dentist"
                         width={500}
                         height={500}
-                        className='border-2 rounded-lg'
+                        className=''
                     />
                 </motion.div>
             </motion.div>
