@@ -21,7 +21,7 @@ export default function Home() {
       setLoading(false);  // Skip loader on repeat visits
     } else {
       localStorage.setItem("visited", "true");
-      setTimeout(() => setLoading(false), 1000);  // Show loader for 2 seconds on first visit
+      setTimeout(() => setLoading(false), 1200);  // Show loader for 2 seconds on first visit
     }
   }, []);
 
