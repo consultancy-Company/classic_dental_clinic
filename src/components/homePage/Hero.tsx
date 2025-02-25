@@ -56,12 +56,20 @@ const Hero = () => {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.7, duration: 1 }}
                     >
+                        <h4 className="flex items-center gap-3 text-lg font-medium hover:text-[#dd9639] w-fit mb-4">
+                            <div className="bg-[#104B82] h-[40px] w-[40px] hover:text-[#dd9639] flex items-center justify-center rounded-full">
+                                <FaPhoneVolume size={20} />
+                            </div>
+                            <a href="tel:+251909696945" className="transition-colors duration-300">
+                                (+251) 909696945
+                            </a>
+                        </h4>
                         <h4 className="flex items-center gap-3 text-lg font-medium hover:text-[#dd9639] w-fit">
                             <div className="bg-[#104B82] h-[40px] w-[40px] hover:text-[#dd9639] flex items-center justify-center rounded-full">
                                 <FaPhoneVolume size={20} />
                             </div>
-                            <a href="tel:+251911131333" className="transition-colors duration-300">
-                                (+251) 911131333
+                            <a href="tel:+251909696946" className="transition-colors duration-300">
+                                (+251) 909696946
                             </a>
                         </h4>
 
@@ -70,7 +78,7 @@ const Hero = () => {
                                 <FaLocationDot size={20} />
                             </div>
                             <p>
-                                Bole Medhanialm
+                                Bisrate Gebrale , Adot cinema ,Adiss Ababa
                             </p>
                         </h4>
                     </motion.div>

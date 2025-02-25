@@ -29,7 +29,7 @@ const VisitUs = (props: Props) => {
               </div>
               <div>
                 <h4 className='font-heading font-semibold text-2xl'>Address:</h4>
-                Classic Specialty Dental Center, <br /> Addis Ababa, Ethiopia
+                Classic Specialty Dental Center, <br />Bisrate Gebrale , Adot cinema ,Addis Ababa, Ethiopia
               </div>
             </div>
 
@@ -51,7 +51,7 @@ const VisitUs = (props: Props) => {
               </div>
               <div>
                 <h4 className='font-heading font-semibold text-2xl'>Working Hours:</h4>
-                Mon - Fri: 9:00 AM - 6:00 PM
+                Mon - Sun: 2:00 AM - 12:00 PM
               </div>
             </div>
 
@@ -62,7 +62,7 @@ const VisitUs = (props: Props) => {
               </div>
               <div>
                 <h4 className='font-heading font-semibold text-2xl'>Email:</h4>
-                contact@classicdental.com
+                ethioclassic24@gmail.com
               </div>
             </div>
 
