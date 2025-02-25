@@ -19,7 +19,7 @@ const Footer = () => {
 
       {/* Footer Section */}
       <footer className='w-full bg-[#15334e] text-white items-center py-12'>
-        <div className='w-[85%] grid md:grid-cols-2 lg:grid-col-4 mx-auto  gap-8'>
+        <div className='w-[85%] grid md:grid-cols-2 lg:grid-cols-4 mx-auto  gap-8'>
 
           {/* Left Section - Contact Info */}
           <div className='w-full md:w-1/4 space-y-5'>
