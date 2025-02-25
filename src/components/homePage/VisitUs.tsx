@@ -1,9 +1,8 @@
 import React from 'react'
 import { FaMapMarked, FaPhoneAlt, FaClock, FaEnvelope } from 'react-icons/fa'
 
-type Props = {}
 
-const VisitUs = (props: Props) => {
+const VisitUs = () => {
   return (
     <div className='w-full md:min-h-[100vh] flex py-8 bg-[#Fff] items-center'>
       <div className='w-[90%] mx-auto h-full flex justify-between my-auto pt-10'>

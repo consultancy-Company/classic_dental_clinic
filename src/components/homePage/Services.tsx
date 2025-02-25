@@ -3,9 +3,8 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { motion } from 'framer-motion'  // Import framer-motion
 
-type Props = {}
 
-const Services = (props: Props) => {
+const Services = () => {
     // Array of services data
     const services = [
         {

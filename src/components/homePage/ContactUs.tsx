@@ -3,9 +3,8 @@ import { Button } from '../ui/button'
 import { IoMdCheckmark } from 'react-icons/io'
 import { motion } from 'framer-motion'  // Import framer-motion
 
-type Props = {}
 
-const ContactUs = (props: Props) => {
+const ContactUs = () => {
     return (
         <div className='min-h-[84vh] w-full counters bg-cover bg-fixed bg-no-repeat py-8 flex flex-col justify-center '
             style={{

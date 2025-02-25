@@ -1,13 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { Dialog } from "@headlessui/react"
-import { Bars3Icon, XMarkIcon, PlusIcon, MinusIcon } from "@heroicons/react/24/outline"
+import { Bars3Icon, PlusIcon, MinusIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "../ui/button"
 import { IoIosArrowDown } from "react-icons/io";
-import { IoClose } from "react-icons/io5";
 
 
 const navigation = [
@@ -102,7 +100,7 @@ const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
     const [openSections, setOpenSections] = React.useState<Record<string, boolean>>({});
 
-    const toggleSection = (section: any) => {
+    const toggleSection = (section:string) => {
         setOpenSections((prev) => ({
             ...prev,
             [section]: !prev[section]

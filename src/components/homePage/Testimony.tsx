@@ -3,9 +3,8 @@ import { BiSolidQuoteAltRight } from "react-icons/bi";
 import { IoStarSharp } from "react-icons/io5";
 import { motion } from "framer-motion";
 
-type Props = {}
 
-const Testimony = (props: Props) => {
+const Testimony = () => {
     return (
         <div className='w-full md:min-h-[100vh] flex py-8 bg-[#Fff] items-center'>
             <div className='w-[90%] mx-auto h-full lg:flex justify-between my-auto pt-10'>

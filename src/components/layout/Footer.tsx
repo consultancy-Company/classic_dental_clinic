@@ -2,9 +2,7 @@ import React from 'react'
 import { FaFacebookF, FaInstagram, FaTwitter, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { Button } from '../ui/button'
 
-type Props = {}
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <>
       {/* Call to Action Section */}
