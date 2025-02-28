@@ -8,7 +8,7 @@ const WhyChooseUs = () => {
     return (
         <div className='w-full bg-[#F4F6F3] min-h-[60vh] pt-10 pb-20'>
             <motion.div
-                className='w-[80%] mx-auto flex flex-col sm:flex-col lg:flex-row justify-between items-center'
+                className='w-[90%]  mx-auto flex flex-col sm:flex-col lg:flex-row justify-between items-center'
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}

@@ -100,7 +100,7 @@ const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
     const [openSections, setOpenSections] = React.useState<Record<string, boolean>>({});
 
-    const toggleSection = (section:string) => {
+    const toggleSection = (section: string) => {
         setOpenSections((prev) => ({
             ...prev,
             [section]: !prev[section]
@@ -112,17 +112,19 @@ const Header = () => {
             <nav aria-label="Global" className="flex flex-col">
                 <div className="flex items-center justify-between shadow-md  bg-[#ffffff]  px-8 lg:px-14 pt-2">
                     {/* Logo */}
-                    <div className="flex">
-                        <Link href="/" className="-m-1.5 p-1.5 flex gap-2 items-center">
-                            <Image
-                                alt="Dental Clinic Logo"
-                                src="/images/logo/sisay one1.tif.jpg"
-                                className="h-24 w-auto"
-                                width={120}
-                                height={40}
-                            />
-                            <h1 className="font-serif text-2xl font-semibold flex flex-col text-[#104b82]"><span className="text-[#dd9639] text-3xl">Classic</span>  Specialty </h1>
-                        </Link>
+                    <div className="flex items-center gap-2">
+                        <div
+                            style={{
+                                backgroundImage: "url('/images/logo/sisay-one1.tif.jpg')",
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                width: "96px",
+                                height: "96px",
+                            }}
+                        ></div>
+                        <h1 className="font-serif text-2xl font-semibold flex flex-col text-[#104b82]">
+                            <span className="text-[#dd9639] text-3xl">Classic</span> Specialty
+                        </h1>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -205,7 +207,7 @@ const Header = () => {
                 {/* Mobile navigation  */}
                 {
                     mobileMenuOpen && (
-                        <div className="inset-y-0 right-0 z-50 shadow-lg  bg-white px-8 sm:max-w-sm text-xl font-semibold border-t-4 border-[#104B82] md:hidden w-[80%] mx-auto max-h-[600px] overflow-y-scroll transition-all duration-300 ease-in">
+                        <div className="inset-y-0 right-0 z-50 shadow-lg  bg-white px-8 sm:max-w-sm text-xl font-semibold border-t-4 border-[#104B82] lg:hidden w-[80%] mx-auto max-h-[600px] overflow-y-scroll transition-all duration-300 ease-in">
                             <div className="">
                                 <div className="space-y-2  ">
                                     {navigation.map((item) => (

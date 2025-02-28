@@ -10,7 +10,7 @@ const About = () => {
             style={{ backgroundImage: "url('/images/image0_0.jpg')" }}
         >
             <motion.div 
-                className='w-[90%] md:w-[80%] mx-auto md:flex md:flex-wrap lg:flex-nowrap justify-between items-center border-2 rounded-3xl px-8 py-10'
+                className='w-[90%] lg:w-[80%] mx-auto md:flex md:flex-wrap lg:flex-nowrap justify-between items-center border-2 rounded-3xl px-8 py-10'
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}

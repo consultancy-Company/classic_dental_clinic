@@ -22,10 +22,10 @@ const YourDentist = () => {
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
                     viewport={{ once: true }}
                 >
-                    <p className='text-[68px] lg:text-[100px] font-[800] text-[#d7e0e9]  flex md:flex-col'>
-                        Your <span className='md:-mt-[70px]'>Dentist</span> 
+                    <p className='text-[68px] lg:text-[100px] font-[800] text-[#d7e0e9] justify-center  flex lg:flex-col'>
+                        Your <span className='lg:-mt-[70px]'>Dentist</span> 
                     </p>
-                    <h1 className='text-3xl md:text-5xl  md:-mt-14 -mt-9 text-[#104B82] text-center font-semibold'>Dr. Abel Mekonn</h1>
+                    <h1 className='text-3xl md:text-5xl  lg:-mt-14 -mt-9 text-[#104B82]  font-semibold'>Dr. Abel Mekonn</h1>
                     <p className='font-heading text-[16px] md:text-[20px] mt-8 w-full'>
                         Dr. Abel is passionate about providing patient-focused care. He offers the full scope of oral healthcare treatments here in our local dental office. From routine care to surgical treatments and cosmetic touch-ups, he places you in control of every decision about your smile.
                     </p>
