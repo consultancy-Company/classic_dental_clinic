@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { Button } from '../ui/button'
 import { MdOutlineMan4 } from "react-icons/md";
@@ -5,6 +7,8 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const YourDentist = () => {
+    // let's get is the device is a mobile device
+    const isLargeDevice = window.innerWidth >= 1024;
     return (
         <div className='w-full bg-[#Fff] min-h-[60vh] pt-10 pb-20'>
             <motion.div 
@@ -45,7 +49,7 @@ const YourDentist = () => {
                 {/* Right Image Section */}
                 <motion.div 
                     className='relative'
-                    initial={{ opacity: 0, x: 50 }}
+                    initial={{ opacity: 0, x: isLargeDevice ? 50 : 0 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
                     viewport={{ once: true }}
