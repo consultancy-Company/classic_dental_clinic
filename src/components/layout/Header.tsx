@@ -3,7 +3,6 @@
 import * as React from "react"
 import { Bars3Icon, PlusIcon, MinusIcon } from "@heroicons/react/24/outline"
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "../ui/button"
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -207,7 +206,7 @@ const Header = () => {
                 {/* Mobile navigation  */}
                 {
                     mobileMenuOpen && (
-                        <div className="inset-y-0 right-0 z-50 shadow-lg  bg-white px-8 sm:max-w-sm text-xl font-semibold border-t-4 border-[#104B82] lg:hidden w-[80%] mx-auto max-h-[600px] overflow-y-scroll transition-all duration-300 ease-in">
+                        <div className="inset-y-0 right-0 z-50 shadow-lg  bg-white px-8  text-xl font-semibold border-t-4 border-[#104B82] lg:hidden w-[80%] mx-auto max-h-[600px] overflow-y-scroll transition-all duration-300 ease-in">
                             <div className="">
                                 <div className="space-y-2  ">
                                     {navigation.map((item) => (
