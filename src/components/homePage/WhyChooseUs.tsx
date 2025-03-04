@@ -7,11 +7,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const WhyChooseUs = () => {
-    // let's get is the device is a mobile device
-    const isLargeDevice = window.innerWidth >= 1024;
 
     return (
-        <div className='w-full bg-[#F4F6F3] min-h-[60vh] pt-10 pb-20'>
+        <div className='w-full bg-[#F4F6F3] min-h-[60vh] pt-10 pb-20 overflow-x-hidden'>
             <motion.div
                 className='w-[90%]  mx-auto flex flex-col sm:flex-col lg:flex-row justify-between items-center'
                 initial={{ opacity: 0, y: 50 }}
@@ -22,7 +20,7 @@ const WhyChooseUs = () => {
                 {/* Left Content Section */}
                 <motion.div
                     className='relative'
-                    initial={{ opacity: 0, x: isLargeDevice ? 50 : 0}}
+                    initial={{ opacity: 0, x: 50}}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
                     viewport={{ once: true }}
