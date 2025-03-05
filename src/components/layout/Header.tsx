@@ -107,164 +107,208 @@ const Header = () => {
     };
 
     return (
-        <header className="fixed w-screen inset-x-0 top-0 z-50 transition-all duration-500 ">
-            <nav aria-label="Global" className="flex flex-col">
-                <div className="flex items-center justify-between shadow-md  bg-[#ffffff]  px-8 lg:px-14 pt-2">
-                    {/* Logo */}
-                    <div className="flex items-center gap-2">
-                        <div
-                            style={{
-                                backgroundImage: "url('/images/logo/sisay-one1.tif.jpg')",
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                width: "96px",
-                                height: "96px",
-                            }}
-                        ></div>
-                        <h1 className="font-serif text-2xl font-semibold flex flex-col text-[#104b82]">
-                            <span className="text-[#dd9639] text-3xl">Classic</span> Specialty
-                        </h1>
-                    </div>
+      <header className="fixed w-screen inset-x-0 top-0 z-50 transition-all duration-500 ">
+        <nav aria-label="Global" className="flex flex-col">
+          <div className="flex items-center justify-between shadow-md  bg-[#ffffff]  px-8 lg:px-14 pt-2">
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <div
+                style={{
+                  backgroundImage: "url('/images/logo/sisay-one1.tif.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  width: "96px",
+                  height: "96px",
+                }}
+              ></div>
+              <h1 className="font-serif text-2xl font-semibold flex flex-col text-[#104b82]">
+                <span className="text-[#dd9639] text-3xl">Classic</span>{" "}
+                Specialty
+              </h1>
+            </div>
 
-                    {/* Mobile Menu Button */}
-                    <div className="flex lg:hidden">
-                        <button
-                            type="button"
-                            onClick={() => setMobileMenuOpen((prev) => !prev)}
-                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 transition-all ease-linear duration-300"
+            {/* Mobile Menu Button */}
+            <div className="flex lg:hidden">
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen((prev) => !prev)}
+                className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 transition-all ease-linear duration-300"
+              >
+                {mobileMenuOpen ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="size-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18 18 6M6 6l12 12"
+                    />
+                  </svg>
+                ) : (
+                  <Bars3Icon aria-hidden="true" className="w-6 h-6" />
+                )}
+              </button>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex lg:gap-x-8 items-center text-xl  font-semibold">
+              {navigation.map((item) =>
+                item.isDropdown ? (
+                  <div key={item.name} className="group inline-block relative">
+                    <p className=" text-gray-900 hover:text-primary-500 cursor-pointer ">
+                      {item.name}
+                    </p>
+                    {/* Main dropdown menu */}
+                    <ul className="absolute left-0 hidden text-gray-700  group-hover:block transition-all shadow-lg duration-300 ease-in-out border-t-4  border-[#104B82] ">
+                      {item.subSections?.map((subSection) => (
+                        <li
+                          key={subSection.name}
+                          className="relative group/item bg-white min-w-[290px] "
                         >
-                            {
-                                mobileMenuOpen ? (
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
-                                    </svg>
-                                ) : (
-                                    <Bars3Icon aria-hidden="true" className="w-6 h-6" />
-                                )
-                            }
-                        </button>
-                    </div>
+                          <Link
+                            href={subSection.href}
+                            className="rounded-t  block whitespace-no-wrap transition-all duration-200 ease-in-out "
+                          >
+                            <p className="text-lg font-medium text-gray-900 group-hover/item:bg-gray-100  hover:bg-gray-100 px-5 py-2 flex justify-between gap-3">
+                              {subSection.name}
+                              {subSection.subServices && (
+                                <IoIosArrowDown
+                                  size={20}
+                                  className="group-hover/item:rotate-180 transition-all duration-300"
+                                />
+                              )}
+                            </p>
+                          </Link>
+                          {/* Show subServices when hovering over subSection */}
+                          {subSection.subServices && (
+                            <ul className="absolute hidden text-gray-700 group-hover/item:block top-0 left-[290px] shadow-xl transition-all duration-200 ease-in-out border-t-4 border-[#104B82] min-w-[240px]">
+                              {subSection.subServices?.map((subService) => (
+                                <li key={subService.name}>
+                                  <Link
+                                    href={subService.href}
+                                    className="bg-white text-lg font-medium text-gray-900 hover:bg-gray-100 py-2 px-8 block  transition-all duration-200 ease-in-out "
+                                  >
+                                    {subService.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-900 hover:text-primary-500"
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
+              <div>
+                <Link href={"/"}>
+                  <Button variant="classic_primary" className="">
+                    Request Appointment
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden lg:flex lg:gap-x-8 items-center text-xl  font-semibold">
-                        {navigation.map((item) => (
-                            item.isDropdown ? (
-                                <div key={item.name} className="group inline-block relative">
-                                    <p className=" text-gray-900 hover:text-primary-500 cursor-pointer ">
-                                        {item.name}
-                                    </p>
-                                    {/* Main dropdown menu */}
-                                    <ul className="absolute left-0 hidden text-gray-700  group-hover:block transition-all shadow-lg duration-300 ease-in-out border-t-4  border-[#104B82] ">
-                                        {item.subSections?.map((subSection) => (
-                                            <li key={subSection.name} className="relative group/item bg-white min-w-[290px] ">
-                                                <Link
-                                                    href={subSection.href}
-                                                    className="rounded-t  block whitespace-no-wrap transition-all duration-200 ease-in-out "
-                                                >
-                                                    <p className="text-lg font-medium text-gray-900 group-hover/item:bg-gray-100  hover:bg-gray-100 px-5 py-2 flex justify-between gap-3">
-                                                        {subSection.name}
-                                                        {subSection.subServices && (
-                                                            <IoIosArrowDown size={20} className="group-hover/item:rotate-180 transition-all duration-300" />
-                                                        )}
-                                                    </p>
-                                                </Link>
-                                                {/* Show subServices when hovering over subSection */}
-                                                {subSection.subServices && (
-                                                    <ul className="absolute hidden text-gray-700 group-hover/item:block top-0 left-[290px] shadow-xl transition-all duration-200 ease-in-out border-t-4 border-[#104B82] min-w-[240px]">
-                                                        {subSection.subServices?.map((subService) => (
-                                                            <li key={subService.name}>
-                                                                <Link
-                                                                    href={subService.href}
-                                                                    className="bg-white text-lg font-medium text-gray-900 hover:bg-gray-100 py-2 px-8 block  transition-all duration-200 ease-in-out "
-                                                                >
-                                                                    {subService.name}
-                                                                </Link>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                )}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+          {/* Mobile navigation  */}
+          {mobileMenuOpen && (
+            <div className="inset-y-0 right-0 z-50 shadow-lg  bg-white px-8  text-xl font-semibold border-t-4 border-[#104B82] lg:hidden w-[80%] mx-auto max-h-[600px] overflow-y-scroll transition-all duration-300 ease-in">
+              <div className="">
+                <div className="space-y-2  ">
+                  {navigation.map((item) =>
+                    item.isDropdown ? (
+                      <div
+                        key={item.name}
+                        className="space-y-2 cursor-pointer border-b-2"
+                      >
+                        <div className="flex justify-between items-center hover:bg-gray-50 px-2 py-2">
+                          <p className="text-gray-900">{item.name}</p>
+                          <button
+                            onClick={() => toggleSection(item.name)}
+                            className="text-gray-700 hover:bg-gray-100 rounded-md p-2"
+                          >
+                            {openSections[item.name] ? (
+                              <MinusIcon className="h-5 w-5" />
                             ) : (
-                                <Link key={item.name} href={item.href} className="text-gray-900 hover:text-primary-500">
-                                    {item.name}
-                                </Link>
-                            )
-                        ))}
-                        <div>
-                            <Link href={"/"}>
-                                <Button className="h-[70px] px-8 hover:bg-[#dd9639] bg-[#104B82] rounded-none shadow-md text-xl">
-                                    Request Appointment
-                                </Button>
-                            </Link>
+                              <PlusIcon className="h-5 w-5" />
+                            )}
+                          </button>
                         </div>
-                    </div>
-                </div>
-
-                {/* Mobile navigation  */}
-                {
-                    mobileMenuOpen && (
-                        <div className="inset-y-0 right-0 z-50 shadow-lg  bg-white px-8  text-xl font-semibold border-t-4 border-[#104B82] lg:hidden w-[80%] mx-auto max-h-[600px] overflow-y-scroll transition-all duration-300 ease-in">
-                            <div className="">
-                                <div className="space-y-2  ">
-                                    {navigation.map((item) => (
-                                        item.isDropdown ? (
-                                            <div key={item.name} className="space-y-2 cursor-pointer border-b-2">
-                                                <div className="flex justify-between items-center hover:bg-gray-50 px-2 py-2">
-                                                    <p className="text-gray-900">{item.name}</p>
-                                                    <button
-                                                        onClick={() => toggleSection(item.name)}
-                                                        className="text-gray-700 hover:bg-gray-100 rounded-md p-2"
-                                                    >
-                                                        {openSections[item.name] ? <MinusIcon className="h-5 w-5" /> : <PlusIcon className="h-5 w-5" />}
-                                                    </button>
-                                                </div>
-                                                {openSections[item.name] && (
-                                                    <div className="pl-4 space-y-2">
-                                                        {item.subSections.map((subSection) => (
-                                                            <div key={subSection.name}>
-                                                                <div className="flex justify-between text-lg px-3 py-2 text-gray-900 hover:bg-gray-50 border-b-2">
-                                                                    <Link href={subSection.href}>{subSection.name}</Link>
-                                                                    {subSection.subServices && (
-                                                                        <button
-                                                                            onClick={() => toggleSection(subSection.name)}
-                                                                            className="text-gray-700 hover:bg-gray-100 rounded-md p-2"
-                                                                        >
-                                                                            {openSections[subSection.name] ? <MinusIcon className="h-5 w-5" /> : <PlusIcon className="h-5 w-5" />}
-                                                                        </button>
-                                                                    )}
-                                                                </div>
-                                                                {subSection.subServices && openSections[subSection.name] && (
-                                                                    <div className="pl-6 space-y-2  text-[16px]">
-                                                                        {subSection.subServices.map((subService) => (
-                                                                            <Link key={subService.name} href={subService.href} className="block border-b-2   last:border-0 px-3 py-2 text-gray-800 hover:bg-gray-50">
-                                                                                {subService.name}
-                                                                            </Link>
-                                                                        ))}
-                                                                    </div>
-                                                                )}
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ) : (
-                                            <Link key={item.name} href={item.href} className="block py-3 px-2 text-gray-900 hover:bg-gray-50 border-b-2 last:border-0">
-                                                {item.name}
-                                            </Link>
-                                        )
-                                    ))}
+                        {openSections[item.name] && (
+                          <div className="pl-4 space-y-2">
+                            {item.subSections.map((subSection) => (
+                              <div key={subSection.name}>
+                                <div className="flex justify-between text-lg px-3 py-2 text-gray-900 hover:bg-gray-50 border-b-2">
+                                  <Link href={subSection.href}>
+                                    {subSection.name}
+                                  </Link>
+                                  {subSection.subServices && (
+                                    <button
+                                      onClick={() =>
+                                        toggleSection(subSection.name)
+                                      }
+                                      className="text-gray-700 hover:bg-gray-100 rounded-md p-2"
+                                    >
+                                      {openSections[subSection.name] ? (
+                                        <MinusIcon className="h-5 w-5" />
+                                      ) : (
+                                        <PlusIcon className="h-5 w-5" />
+                                      )}
+                                    </button>
+                                  )}
                                 </div>
-                            </div>
-                        </div>
+                                {subSection.subServices &&
+                                  openSections[subSection.name] && (
+                                    <div className="pl-6 space-y-2  text-[16px]">
+                                      {subSection.subServices.map(
+                                        (subService) => (
+                                          <Link
+                                            key={subService.name}
+                                            href={subService.href}
+                                            className="block border-b-2   last:border-0 px-3 py-2 text-gray-800 hover:bg-gray-50"
+                                          >
+                                            {subService.name}
+                                          </Link>
+                                        )
+                                      )}
+                                    </div>
+                                  )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className="block py-3 px-2 text-gray-900 hover:bg-gray-50 border-b-2 last:border-0"
+                      >
+                        {item.name}
+                      </Link>
                     )
-                }
-            </nav>
-            {/* Mobile Menu Dialog */}
-        </header>
-    )
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+        </nav>
+        {/* Mobile Menu Dialog */}
+      </header>
+    );
 }
 
 export default Header
