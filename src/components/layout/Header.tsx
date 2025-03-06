@@ -114,9 +114,10 @@ const Header = () => {
                     <div className="flex items-center gap-2">
                         <div
                             style={{
-                                backgroundImage: "url('/images/logo/sisay-one1.tif.jpg')",
-                                backgroundSize: "cover",
+                                backgroundImage: "url('/images/logo/logo-1.png')",
+                                backgroundSize: "contain",
                                 backgroundPosition: "center",
+                                backgroundRepeat: "no-repeat",
                                 width: "96px",
                                 height: "96px",
                             }}
