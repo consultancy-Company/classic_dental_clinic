@@ -30,7 +30,7 @@ export default function Home() {
       {loading ? (
         <Loader />  // Show loader only on first visit
       ) : (
-        <>
+        <div className="overflow-x-hidden">
           <Layout>
             <HeroSection
               title="Your Trusted Classic Specialty"
@@ -54,7 +54,7 @@ export default function Home() {
             <Testimony />
             <VisitUs />
           </Layout>
-        </>
+        </div>
       )}
     </>
   );
