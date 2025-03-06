@@ -21,7 +21,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
 
         // this is our custom vaiant
-        classic_primary: "h-10 px-6 hover:bg-[#dd9639] bg-[#104B82] rounded-full shadow-md semibold text-white transform transition duration-500 hover:scale-105",
+        classic_primary: " px-8 hover:bg-[#dd9639] bg-[#104B82]  shadow-md semibold text-white transform transition duration-500 hover:scale-105",
       },
       size: {
         default: "h-9 px-4 py-2",
