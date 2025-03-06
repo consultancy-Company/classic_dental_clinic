@@ -32,7 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Hero Content */}
             <div className="relative z-10 px-6 w-full flex flex-col justify-center h-full">
-                <div className="w-[90%] md:w-[80%] mx-auto md:gap-5 flex flex-col">
+                <div className="w-[90%] md:w-[80%] mx-auto md:gap-5 flex flex-col justify-center">
                     {/* Animated Title */}
                     <motion.h1
                         className="text-[20px] md:text-[30px] font-subheading font-[400] leading-tight mt-10"
@@ -45,7 +45,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     
                     {/* Animated Subtitle */}
                     <motion.p
-                        className="text-3xl md:text-4xl lg:text-[57px] mb-10 font-heading max-w-3xl leading-relaxed"
+                        className="text-2xl md:text-4xl lg:text-[57px] mb-10 font-heading max-w-3xl leading-relaxed"
                         initial={{ opacity: 0, x: -100 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1 }}

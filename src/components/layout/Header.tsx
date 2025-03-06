@@ -118,12 +118,12 @@ const Header = () => {
                                 backgroundSize: "contain",
                                 backgroundPosition: "center",
                                 backgroundRepeat: "no-repeat",
-                                width: "96px",
-                                height: "96px",
+                                width: "70px",
+                                height: "70px",
                             }}
                         ></div>
-                        <h1 className="font-serif text-2xl font-semibold flex flex-col text-[#104b82]">
-                            <span className="text-[#dd9639] text-3xl">Classic</span>{" "}
+                        <h1 className="font-serif text-xl md:text-2xl font-semibold flex flex-col text-[#104b82]">
+                            <span className="text-[#dd9639] text-2xl md:text-3xl">Classic</span>{" "}
                             Specialty
                         </h1>
                     </div>
