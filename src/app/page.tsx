@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import About from "@/components/homePage/about";
 import ContactUs from "@/components/homePage/ContactUs";
-import Hero from "@/components/homePage/Hero";
 import Services from "@/components/homePage/Services";
 import Testimony from "@/components/homePage/Testimony";
 import VisitUs from "@/components/homePage/VisitUs";
@@ -10,6 +9,7 @@ import WhyChooseUs from "@/components/homePage/WhyChooseUs";
 import YourDentist from "@/components/homePage/YourDentist";
 import Loader from "@/components/Loader";  // Import the Loader component
 import Layout from "@/components/layout/Layout";
+import HeroSection from "@/components/Hero";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,20 @@ export default function Home() {
       ) : (
         <>
           <Layout>
-            <Hero />
+            <HeroSection
+              title="Your Trusted Classic Specialty"
+              subtitle={
+                <>
+                  <span className="block md:mb-4 mb-2">Experience top-quality</span>
+                  <span className="block">dental care with a gentle touch.</span>
+                </>
+              }
+              buttonText="Request Appointment"
+              backgroundImage="/images/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg"
+              phoneNumbers={["+251909696945", "+251909696946"]}
+              location="Bisrate Gebrale, Adot Cinema, Addis Ababa"
+            />
+
             <About />
             <Services />
             <ContactUs />
