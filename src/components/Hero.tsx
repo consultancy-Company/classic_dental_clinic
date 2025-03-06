@@ -45,7 +45,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     
                     {/* Animated Subtitle */}
                     <motion.p
-                        className="text-2xl md:text-4xl lg:text-[57px] mb-10 font-heading max-w-3xl leading-relaxed"
+                        className="text-3xl md:text-4xl lg:text-[57px] mb-10 font-heading max-w-3xl leading-relaxed"
                         initial={{ opacity: 0, x: -100 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1 }}

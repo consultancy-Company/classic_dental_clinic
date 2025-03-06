@@ -36,7 +36,7 @@ export default function Home() {
               title="Your Trusted Classic Specialty"
               subtitle={
                 <>
-                  <span className="block md:mb-4 mb-2">Experience top-quality</span>
+                  <span className="block md:mb-4 mt-2 md:mt-0">Experience top-quality</span>
                   <span className="block">dental care with a gentle touch.</span>
                 </>
               }

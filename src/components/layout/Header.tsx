@@ -109,7 +109,7 @@ const Header = () => {
     return (
         <header className="fixed w-screen inset-x-0 top-0 z-50 transition-all duration-500 ">
             <nav aria-label="Global" className="flex flex-col">
-                <div className="flex items-center justify-between shadow-md  bg-[#ffffff]  px-8 lg:px-14 pt-2">
+                <div className="flex items-center justify-between shadow-md  bg-[#ffffff]  px-8 lg:px-14 pb-1 pt-2">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
                         <div
