@@ -21,13 +21,20 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
 
         // this is our custom vaiant
-        classic_primary: "h-10 px-6 hover:bg-[#dd9639] bg-[#104B82] rounded-full shadow-md semibold text-white transform transition duration-500 hover:scale-105",
+        classic_primary:
+          "h-10 px-6 hover:bg-[#dd9639] bg-[#104B82] rounded-full shadow-md semibold text-white transform transition duration-500 hover:scale-105",
+        classic_secondary:
+          "h-10 py-4 px-6 hover:bg-[#dd9639] bg-[#104B82] rounded-none shadow-md text-lg transition-all duration-500 rounded-2xl",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
+
+        // these are new sizes for clicnic
+        xl: "h-12 py-4 px-6",
+        "2xl": "h-16 py-5 px-8",
       },
     },
     defaultVariants: {
@@ -35,7 +42,7 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
