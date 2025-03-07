@@ -9,7 +9,6 @@ import VisitUs from "@/components/homePage/VisitUs";
 import WhyChooseUs from "@/components/homePage/WhyChooseUs";
 import YourDentist from "@/components/homePage/YourDentist";
 import Loader from "@/components/Loader";  // Import the Loader component
-import Layout from "@/components/layout/Layout";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -31,7 +30,6 @@ export default function Home() {
         <Loader />  // Show loader only on first visit
       ) : (
         <div className="overflow-x-hidden">
-          <Layout>
             <Hero />
             <About />
             <Services />
@@ -40,7 +38,6 @@ export default function Home() {
             <WhyChooseUs />
             <Testimony />
             <VisitUs />
-          </Layout>
         </div>
       )}
     </>
