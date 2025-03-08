@@ -109,20 +109,21 @@ const Header = () => {
     return (
         <header className="fixed w-screen inset-x-0 top-0 z-50 transition-all duration-500 ">
             <nav aria-label="Global" className="flex flex-col">
-                <div className="flex items-center justify-between shadow-md  bg-[#ffffff]  px-8 lg:px-14 pt-2">
+                <div className="flex items-center justify-between shadow-md  bg-[#ffffff]  px-8 lg:px-14 pb-1 pt-2">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
                         <div
                             style={{
-                                backgroundImage: "url('/images/logo/sisay-one1.tif.jpg')",
-                                backgroundSize: "cover",
+                                backgroundImage: "url('/images/logo/logo-1.png')",
+                                backgroundSize: "contain",
                                 backgroundPosition: "center",
-                                width: "96px",
-                                height: "96px",
+                                backgroundRepeat: "no-repeat",
+                                width: "70px",
+                                height: "70px",
                             }}
                         ></div>
-                        <h1 className="font-serif text-2xl font-semibold flex flex-col text-[#104b82]">
-                            <span className="text-[#dd9639] text-3xl">Classic</span>{" "}
+                        <h1 className="font-serif text-xl md:text-2xl font-semibold flex flex-col text-[#104b82]">
+                            <span className="text-[#dd9639] text-2xl md:text-3xl">Classic</span>{" "}
                             Specialty
                         </h1>
                     </div>
@@ -215,7 +216,7 @@ const Header = () => {
                         )}
                         <div>
                             <Link href={"/"}>
-                                <Button variant="classic_primary" className="">
+                                <Button variant="classic_primary" className="h-[50px]">
                                     Request Appointment
                                 </Button>
                             </Link>

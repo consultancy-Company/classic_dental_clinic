@@ -30,19 +30,20 @@ export default function Home() {
         <Loader />  // Show loader only on first visit
       ) : (
         <>
-          <HeroSection
-            title="Your Trusted Classic Specialty"
-            subtitle={
-              <>
-                <span className="block md:mb-4 mb-2">Experience top-quality</span>
-                <span className="block">dental care with a gentle touch.</span>
-              </>
-            }
-            buttonText="Request Appointment"
-            backgroundImage="/images/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg"
-            phoneNumbers={["+251909696945", "+251909696946"]}
-            location="Bisrate Gebrale, Adot Cinema, Addis Ababa"
-          />
+          <Layout>
+            <HeroSection
+              title="Your Trusted Classic Specialty"
+              subtitle={
+                <>
+                  <span className="block md:mb-4 mt-2 md:mt-0">Experience top-quality</span>
+                  <span className="block">dental care with a gentle touch.</span>
+                </>
+              }
+              buttonText="Request Appointment"
+              backgroundImage="/images/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg"
+              phoneNumbers={["+251909696945", "+251909696946"]}
+              location="Bisrate Gebrale, Adot Cinema, Addis Ababa"
+            />
 
           <About />
           <Services />
