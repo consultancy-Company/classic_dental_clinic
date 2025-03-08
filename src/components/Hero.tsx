@@ -32,7 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Hero Content */}
             <div className="relative z-10 px-6 w-full flex flex-col justify-center h-full">
-                <div className="w-[90%] md:w-[80%] mx-auto md:gap-5 flex flex-col justify-center items-center">
+                <div className="w-[90%] md:w-[80%] mx-auto md:gap-5 flex flex-col justify-center ">
                     {/* Animated Title */}
                     <motion.h1
                         className="text-[20px] md:text-[30px] font-subheading font-[400] leading-tight mt-10"
