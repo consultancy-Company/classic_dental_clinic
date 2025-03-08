@@ -34,8 +34,8 @@ export default function Home() {
               title="Your Trusted Classic Specialty"
               subtitle={
                 <>
-                  <span className="block md:mb-4 mt-2 md:mt-0">Experience top-quality</span>
-                  <span className="block">dental care with a gentle touch.</span>
+                  <span className="block md:mb-4 mt-2 md:mt-0 ">Experience top-quality</span>
+                  <span className="block mb-10">dental care with a gentle touch.</span>
                 </>
               }
               buttonText="Request Appointment"
@@ -47,10 +47,10 @@ export default function Home() {
           <About />
           <Services />
           <ContactUs />
-          <YourDentist />
+          <YourDentist isHidden={false}/>
           <WhyChooseUs />
           <Testimony />
-          <VisitUs />
+          <VisitUs  />
         </>
       )}
     </>

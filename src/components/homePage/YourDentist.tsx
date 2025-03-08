@@ -6,9 +6,15 @@ import { MdOutlineMan4 } from "react-icons/md";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const YourDentist = () => {
+interface YourDentistProps {
+    isHidden?: boolean;
+}
+
+const YourDentist : React.FC<YourDentistProps> = ({
+    isHidden
+}) => {
     return (
-        <div className='w-full bg-[#Fff] min-h-[60vh] pt-10 pb-20 overflow-x-hidden'>
+        <div className='w-full bg-[#Fff] min-h-[85vh] pt-10 pb-20 overflow-x-hidden'>
             <motion.div 
                 className='md:w-[80%] mx-auto px-5 flex flex-col-reverse lg:flex-row justify-between items-center'
                 initial={{ opacity: 0, y: 50 }}
@@ -33,7 +39,9 @@ const YourDentist = () => {
                     </p>
 
                     {/* Animated Button */}
-                    <motion.div 
+                    {
+                        !isHidden && 
+                        <motion.div 
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
@@ -42,6 +50,7 @@ const YourDentist = () => {
                             About Us
                         </Button>
                     </motion.div>
+                    }
                 </motion.div>
 
                 {/* Right Image Section */}
