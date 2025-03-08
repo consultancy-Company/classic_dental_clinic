@@ -30,7 +30,6 @@ export default function Home() {
         <Loader />  // Show loader only on first visit
       ) : (
         <>
-          <Layout>
             <HeroSection
               title="Your Trusted Classic Specialty"
               subtitle={
