@@ -4,7 +4,7 @@ import { FaMapMarked, FaPhoneAlt, FaClock, FaEnvelope } from 'react-icons/fa'
 
 const VisitUs = () => {
   return (
-    <div className='w-full md:min-h-[100vh] flex py-8 bg-[#F4F6F3] items-center'>
+    <div className='w-full md:min-h-[100vh] flex py-8 items-center'>
       <div className='w-[90%] mx-auto h-full flex justify-between my-auto pt-10'>
 
         {/* Left Section - Contact Information */}

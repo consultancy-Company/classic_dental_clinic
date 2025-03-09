@@ -1,5 +1,7 @@
 'use client'
 import AboutUs from '@/components/about/about_us'
+import JoinUs from '@/components/about/JoinUs'
+import MeetOurTeam from '@/components/about/MeetOurTeam'
 import HeroSection from '@/components/Hero'
 import ContactUs from '@/components/homePage/ContactUs'
 import Services from '@/components/homePage/Services'
@@ -27,10 +29,11 @@ const page = () => {
             />
             <AboutUs />
             <ContactUs />
-            <Services />
             <YourDentist isHidden={true}/>
-            <WhyChooseUs />
+            <MeetOurTeam />
+            <JoinUs />
             <Testimony />
+            <WhyChooseUs />
             <VisitUs />
         </>
     )

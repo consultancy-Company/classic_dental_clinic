@@ -43,13 +43,12 @@ export default function Home() {
               phoneNumbers={["+251909696945", "+251909696946"]}
               location="Bisrate Gebrale, Adot Cinema, Addis Ababa"
             />
-
           <About />
+          <Testimony />
           <Services />
           <ContactUs />
           <YourDentist isHidden={false}/>
           <WhyChooseUs />
-          <Testimony />
           <VisitUs  />
         </>
       )}
