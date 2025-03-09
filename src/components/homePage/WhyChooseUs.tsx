@@ -73,7 +73,7 @@ const WhyChooseUs = () => {
                         whileTap={{ scale: 0.95 }}
                     >
                         <Button className='bg-[#104B82] w-fit hover:bg-[#dd9639] rounded-none shadow-md text-xl px-8 py-8 border-none mt-10 flex'>
-                            Learn More
+                            Book now 
                         </Button>
                     </motion.div>
                 </motion.div>

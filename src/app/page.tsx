@@ -8,7 +8,6 @@ import VisitUs from "@/components/homePage/VisitUs";
 import WhyChooseUs from "@/components/homePage/WhyChooseUs";
 import YourDentist from "@/components/homePage/YourDentist";
 import Loader from "@/components/Loader";  // Import the Loader component
-import Layout from "@/components/layout/Layout";
 import HeroSection from "@/components/Hero";
 
 export default function Home() {
@@ -31,13 +30,12 @@ export default function Home() {
         <Loader />  // Show loader only on first visit
       ) : (
         <>
-          <Layout>
             <HeroSection
               title="Your Trusted Classic Specialty"
               subtitle={
                 <>
-                  <span className="block md:mb-4 mt-2 md:mt-0">Experience top-quality</span>
-                  <span className="block">dental care with a gentle touch.</span>
+                  <span className="block md:mb-4 mt-2 md:mt-0 ">Experience top-quality</span>
+                  <span className="block mb-10">dental care with a gentle touch.</span>
                 </>
               }
               buttonText="Request Appointment"
@@ -45,15 +43,13 @@ export default function Home() {
               phoneNumbers={["+251909696945", "+251909696946"]}
               location="Bisrate Gebrale, Adot Cinema, Addis Ababa"
             />
-
-            <About />
-            <Services />
-            <ContactUs />
-            <YourDentist />
-            <WhyChooseUs />
-            <Testimony />
-            <VisitUs />
-          </Layout>
+          <About />
+          <Testimony />
+          <Services />
+          <ContactUs />
+          <YourDentist isHidden={false}/>
+          <WhyChooseUs />
+          <VisitUs  />
         </>
       )}
     </>

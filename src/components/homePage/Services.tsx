@@ -45,13 +45,13 @@ const Services = () => {
                 <p className='text-[80px] md:text-[100px] font-[800] text-[#d7e0e9] text-center'>
                     Services
                 </p>
-                <h1 className="text-3xl md:text-5xl font-heading -mt-10 md:-mt-14 text-[#104B82] font-[400] text-center">
+                <h1 className="text-3xl md:text-5xl font-heading -mt-10 mb-14 md:-mt-14 text-[#104B82] font-[400] text-center">
                     Tailored treatments just for you
                 </h1>
-                <p className='text-center font-subheading text-xl md:max-w-2xl mx-auto mt-10 mb-8'>
+                {/* <p className='text-center font-subheading text-xl md:max-w-2xl mx-auto mt-10 mb-8'>
                     Our services are designed to meet the unique needs of each individual, ensuring that you receive the best
                     possible care.
-                </p>
+                </p> */}
 
                 {/* Map over the services array to create service cards */}
                 <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 justify-center'>
