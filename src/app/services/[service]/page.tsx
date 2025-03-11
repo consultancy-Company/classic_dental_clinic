@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 
 import JoinUs from '@/components/about/JoinUs';
@@ -6,7 +5,7 @@ import HeroSection from '@/components/Hero';
 import ContactUs from '@/components/homePage/ContactUs';
 import VisitUs from '@/components/homePage/VisitUs';
 
-import FAQComponent from '@/components/commonUi/faq'
+import FAQComponent from '@/components/commonUi/faq';
 
 const faqs = [
   {
@@ -25,15 +24,17 @@ const faqs = [
   },
 ];
 
-const page = () => {
+const Service = async ({params}:{params:Promise<{service:string}>}) => {
+    const { service } = await params;
   return (
     <>
       <HeroSection
         title="Service Excellence Redefined"
         subtitle={
           <>
-            <span className="block md:mb-2 mt-2 md:mt-0 text-[50px]">
-              Experience Unmatched Quality and
+            <span className="block md:mb-2 mt-2 md:mt-0 text-5xl text-[#dd9639] ">
+              {/* Experience Unmatched Quality and    */}
+              {service} Services
             </span>
             <span className="block text-[50px] leading-[50px]">
               Innovation in Every Offering.
@@ -54,4 +55,4 @@ const page = () => {
   );
 }
 
-export default page
+export default Service;
