@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 
 import JoinUs from '@/components/about/JoinUs';
@@ -6,7 +5,11 @@ import HeroSection from '@/components/Hero';
 import ContactUs from '@/components/homePage/ContactUs';
 import VisitUs from '@/components/homePage/VisitUs';
 
-import FAQComponent from '@/components/commonUi/faq'
+import FAQComponent from '@/components/commonUi/faq';
+import GetStarted from '@/components/services/GetStarted';
+import ForYou from '@/components/services/ForYou';
+import AllSolutions from '@/components/services/AllSolutions';
+import ReachOut from '@/components/services/ReachOut';
 
 const faqs = [
   {
@@ -25,15 +28,22 @@ const faqs = [
   },
 ];
 
-const page = () => {
+// convert string to sentence case fist letter uppercase
+const toSentenceCase = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+};
+
+const Service = async ({params}:{params:Promise<{service:string}>}) => {
+    const { service } = await params;
   return (
     <>
       <HeroSection
         title="Service Excellence Redefined"
         subtitle={
           <>
-            <span className="block md:mb-2 mt-2 md:mt-0 text-[50px]">
-              Experience Unmatched Quality and
+            <span className="inline-block md:mb-2 mt-2 md:mt-0 text-5xl py-3 md:px-3 bg-black/50 text-[#dd9639] ">
+              {/* Experience Unmatched Quality and    */}
+              {toSentenceCase(service)} Services
             </span>
             <span className="block text-[50px] leading-[50px]">
               Innovation in Every Offering.
@@ -45,13 +55,21 @@ const page = () => {
         phoneNumbers={["+251909696945", "+251909696946"]}
         location="Bisrate Gebrale, Adot Cinema, Addis Ababa"
       />
+
+      <AllSolutions />
+     <GetStarted title="Get Started" subtitle="3 Simple steps for achieving your best smile" />
+
       <ContactUs />
       <JoinUs />
+      <ForYou />
 
       <FAQComponent faqs={faqs} title="Frequently Asked Questions" />
       <VisitUs />
+
+{/* this component is only shown on mobile and tablet */}
+      <ReachOut />
     </>
   );
 }
 
-export default page
+export default Service;

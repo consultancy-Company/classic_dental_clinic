@@ -19,10 +19,10 @@ type TFaq = {
 
 const FAQComponent = ({ title, faqs, classes }: TFaq) => {
   return (
-    <div className="max-w-7xl mx-auto flex flex-col lg:flex-row p-4 py-10">
+    <div className="max-w-7xl mx-auto px-3 flex justify-center items-center flex-col lg:flex-row py-32 ">
       {/* Left Section */}
-      <div className="lg:w-1/2 lg:pr-8 pl-10 my-5 md:my-0">
-        <h2 className={`text-xl md:text-5xl font-bold ${classes}`}>{title}</h2>
+      <div className="lg:w-1/2 lg:pr-8 md:pl-10 my-5 md:my-0">
+        <h2 className={`text-5xl font-bold text-classic_yellow ${classes}`}>{title}</h2>
         <p className="my-10 text-lg">
           More questions? We’re ready to help. Give us a call at {" "} 
           <a href={`tel: 720 730-9140`}> 

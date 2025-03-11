@@ -24,7 +24,7 @@ const buttonVariants = cva(
         classic_primary: " px-8 hover:bg-[#dd9639] bg-[#104B82]  shadow-md semibold text-white transform transition duration-500 hover:scale-105",
       },
       size: {
-        default: "h-9 px-4 py-2",
+        default: "h-[50px] px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
