@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import About from "@/components/homePage/about";
 import ContactUs from "@/components/homePage/ContactUs";
-import Services from "@/components/homePage/Services";
+import ServicesList from "@/components/homePage/Services";
 import Testimony from "@/components/homePage/Testimony";
 import VisitUs from "@/components/homePage/VisitUs";
 import WhyChooseUs from "@/components/homePage/WhyChooseUs";
@@ -45,7 +45,7 @@ export default function Home() {
             />
           <About />
           <Testimony />
-          <Services />
+          <ServicesList isHidden={false}/>
           <ContactUs />
           <YourDentist isHidden={false}/>
           <WhyChooseUs />

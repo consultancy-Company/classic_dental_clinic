@@ -3,8 +3,15 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { motion } from 'framer-motion'  // Import framer-motion
 
+interface ServiceListProps {
+    isHidden?: boolean;
+}
 
-const Services = () => {
+
+
+const ServicesList : React.FC<ServiceListProps> = ({
+    isHidden 
+}) => {
     // Array of services data
     const services = [
         {
@@ -85,7 +92,8 @@ const Services = () => {
                     ))}
                 </div>
 
-                <div className='flex justify-center mt-12 mb-5'>
+                {
+                    !isHidden && <div className='flex justify-center mt-12 mb-5'>
                     <motion.div
                         whileHover={{ scale: 1.05 }}   // Hover animation for the button
                         whileTap={{ scale: 0.95 }}    // Tap effect
@@ -96,9 +104,10 @@ const Services = () => {
                         </Button>
                     </motion.div>
                 </div>
+                }
             </div>
         </div>
     )
 }
 
-export default Services;
+export default ServicesList;

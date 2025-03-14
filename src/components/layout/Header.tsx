@@ -10,7 +10,7 @@ import { IoIosArrowDown } from "react-icons/io";
 const navigation = [
     {
         name: "About Us",
-        href: "#",
+        href: "/about",
         isDropdown: true,
         subSections: [
             { name: "Careers", href: "/about/careers" },
@@ -21,7 +21,7 @@ const navigation = [
     },
     {
         name: "Services",
-        href: "#",
+        href: "/services",
         isDropdown: true,
         subSections: [
             {
@@ -109,9 +109,9 @@ const Header = () => {
     return (
         <header className="fixed w-screen inset-x-0 top-0 z-50 transition-all duration-500 ">
             <nav aria-label="Global" className="flex flex-col">
-                <div className="flex items-center justify-between shadow-md  bg-[#ffffff]  px-8 lg:px-14 pb-1 pt-2">
+                <div className="flex items-center justify-between shadow-md  bg-[#FFF]  px-8 lg:px-14 pb-1 pt-2">
                     {/* Logo */}
-                    <div className="flex items-center gap-2">
+                    <Link href={"/"} className="flex items-center gap-2">
                         <div
                             style={{
                                 backgroundImage: "url('/images/logo/logo-1.png')",
@@ -126,7 +126,7 @@ const Header = () => {
                             <span className="text-[#dd9639] text-2xl md:text-3xl">Classic</span>{" "}
                             Specialty
                         </h1>
-                    </div>
+                    </Link>
 
                     {/* Mobile Menu Button */}
                     <div className="flex lg:hidden">
@@ -161,9 +161,9 @@ const Header = () => {
                         {navigation.map((item) =>
                             item.isDropdown ? (
                                 <div key={item.name} className="group inline-block relative">
-                                    <p className=" text-gray-900 hover:text-primary-500 cursor-pointer ">
+                                    <Link href={item.href} className=" text-gray-900 hover:text-primary-500 cursor-pointer ">
                                         {item.name}
-                                    </p>
+                                    </Link>
                                     {/* Main dropdown menu */}
                                     <ul className="absolute left-0 hidden text-gray-700  group-hover:block transition-all shadow-lg duration-300 ease-in-out border-t-4  border-[#104B82] ">
                                         {item.subSections?.map((subSection) => (

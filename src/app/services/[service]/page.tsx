@@ -33,15 +33,15 @@ const toSentenceCase = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 };
 
-const Service = async ({params}:{params:Promise<{service:string}>}) => {
-    const { service } = await params;
+const Service = async ({ params }: { params: Promise<{ service: string }> }) => {
+  const { service } = await params;
   return (
     <>
       <HeroSection
         title="Service Excellence Redefined"
         subtitle={
           <>
-            <span className="inline-block md:mb-2 mt-2 md:mt-0 text-5xl py-3 md:px-3 bg-black/50 text-[#dd9639] ">
+            <span className="inline-block md:mb-2 mt-2 md:mt-0 text-5xl py-3   text-white ">
               {/* Experience Unmatched Quality and    */}
               {toSentenceCase(service)} Services
             </span>
@@ -57,7 +57,7 @@ const Service = async ({params}:{params:Promise<{service:string}>}) => {
       />
 
       <AllSolutions />
-     <GetStarted title="Get Started" subtitle="3 Simple steps for achieving your best smile" />
+      <GetStarted title="Get Started" subtitle="3 Simple steps for achieving your best smile" />
 
       <ContactUs />
       <JoinUs />
@@ -66,7 +66,7 @@ const Service = async ({params}:{params:Promise<{service:string}>}) => {
       <FAQComponent faqs={faqs} title="Frequently Asked Questions" />
       <VisitUs />
 
-{/* this component is only shown on mobile and tablet */}
+      {/* this component is only shown on mobile and tablet */}
       <ReachOut />
     </>
   );
