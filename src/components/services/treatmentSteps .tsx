@@ -25,19 +25,20 @@ const TreatmentSteps = ({ treatmentName }: Props) => {
             { threshold: 0.6 } // Step becomes active when 60% visible
         );
 
-        stepsRef.current.forEach((step) => {
+        const currentSteps = stepsRef.current;
+        currentSteps.forEach((step) => {
             if (step) observer.observe(step);
         });
 
         return () => {
-            stepsRef.current.forEach((step) => {
+            currentSteps.forEach((step) => {
                 if (step) observer.unobserve(step);
             });
         };
     }, []);
 
     return (
-        <div className="max-w-3xl mx-auto p-6 bg-white">
+        <div className="max-w-3xl mx-auto px-12 py-20 bg-white">
             <h1 className="text-2xl font-bold mb-6 text-center text-gray-800">
                 Treatment Steps
             </h1>
@@ -58,16 +59,16 @@ const TreatmentSteps = ({ treatmentName }: Props) => {
                                 {/* Vertical line with animation */}
                                 {index !== steps.length - 1 && (
                                     <div
-                                        className={`absolute left-[23px] top-[50px] h-[60px] w-[3px] transition-all duration-600 ${activeStep !== null && activeStep >= index ? "bg-[#DD9639]" : "bg-gray-300"
+                                        className={`absolute left-[23px] top-[50px] h-[60px] w-[3px] transition-all duration-1000 ${activeStep !== null && activeStep >= index ? "bg-[#DD9639]" : "bg-gray-300"
                                             }`}
                                     ></div>
                                 )}
 
                                 {/* Step number (circle) with animation */}
                                 <div
-                                    className={`h-[50px] w-[50px] rounded-full flex justify-center items-center text-lg font-bold shadow-md transition-all duration-300 ${activeStep !== null && activeStep >= index
-                                            ? "bg-[#DD9639] text-white"
-                                            : "bg-gray-300 text-gray-700"
+                                    className={`h-[50px] w-[50px] rounded-full flex justify-center items-center text-lg font-bold shadow-md transition-all duration-1000 ${activeStep !== null && activeStep >= index
+                                        ? "bg-[#DD9639] text-white"
+                                        : "bg-gray-300 text-gray-700"
                                         }`}
                                 >
                                     {index + 1}
