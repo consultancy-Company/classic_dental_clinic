@@ -78,125 +78,118 @@ export const servicesData = [
 
 export const treatmentSteps = {
   "Check-ups": [
-    "Initial Examination",
-    "X-rays (if necessary)",
-    "Oral Health Assessment",
-    "Discussion of Findings",
-    "Treatment Recommendations"
+    "🔍 Initial Examination - A thorough dental check-up to assess overall oral health.",
+    "📸 X-rays (if necessary) - Capturing images to check for hidden dental issues.",
+    "🦷 Oral Health Assessment - Evaluating teeth, gums, and potential concerns.",
+    "💬 Discussion of Findings - Reviewing results and explaining any concerns.",
+    "📋 Treatment Recommendations - Providing a personalized plan for optimal oral care."
   ],
   "Fillings": [
-    "Initial Examination",
-    "Numbing the Area",
-    "Removal of Decay",
-    "Filling Placement",
-    "Polishing and Bite Adjustment"
+    "🔍 Initial Examination - Checking the affected tooth and assessing decay.",
+    "💉 Numbing the Area - Applying local anesthesia for a pain-free procedure.",
+    "🦷 Removal of Decay - Cleaning out cavities to prepare for the filling.",
+    "⚡ Filling Placement - Restoring the tooth with a durable filling material.",
+    "✨ Polishing and Bite Adjustment - Ensuring a comfortable and natural feel."
   ],
   "Cleanings": [
-    "Initial Examination",
-    "Plaque and Tartar Removal",
-    "Teeth Polishing",
-    "Fluoride Treatment (if applicable)",
-    "Oral Hygiene Recommendations"
+    "🔍 Initial Examination - Checking oral health before the cleaning process.",
+    "🪥 Plaque and Tartar Removal - Eliminating buildup to prevent gum disease.",
+    "✨ Teeth Polishing - Smoothing the enamel for a fresh and clean finish.",
+    "🦷 Fluoride Treatment (if applicable) - Strengthening teeth against decay.",
+    "📖 Oral Hygiene Recommendations - Guidance on maintaining a healthy smile."
   ],
   "Root Canal Treatment": [
-    "Initial Consultation & X-rays",
-    "Numbing the Area",
-    "Cleaning and Shaping the Root Canals",
-    "Filling the Canals",
-    "Placing a Crown (if needed)",
-    "Follow-up Appointment"
+    "🔍 Initial Consultation & X-rays - Assessing infection and planning treatment.",
+    "💉 Numbing the Area - Ensuring a pain-free root canal procedure.",
+    "🛠 Cleaning and Shaping the Root Canals - Removing infection and preparing the area.",
+    "⚡ Filling the Canals - Sealing with a biocompatible material to prevent reinfection.",
+    "🦷 Placing a Crown (if needed) - Restoring strength and function to the tooth.",
+    "📅 Follow-up Appointment - Monitoring healing and ensuring successful treatment."
   ],
   "Teeth Whitening": [
-    "Initial Consultation",
-    "Teeth Cleaning",
-    "Application of Whitening Agent",
-    "Light Activation (if applicable)",
-    "Post-Treatment Care Instructions"
+    "🔍 Initial Consultation - Evaluating suitability for whitening treatment.",
+    "🦷 Teeth Cleaning - Removing plaque for even whitening results.",
+    "✨ Application of Whitening Agent - Applying professional-grade whitening gel.",
+    "💡 Light Activation (if applicable) - Enhancing the whitening process with LED light.",
+    "📖 Post-Treatment Care Instructions - Guidance on maintaining a bright smile."
   ],
   "Veneers": [
-    "Initial Consultation",
-    "Teeth Preparation",
-    "Impressions & Temporary Veneers",
-    "Custom Veneer Fabrication",
-    "Final Veneer Placement"
+    "🔍 Initial Consultation - Discussing aesthetic goals and treatment options.",
+    "🦷 Teeth Preparation - Reshaping teeth for veneer placement.",
+    "🛠 Impressions & Temporary Veneers - Creating models for custom veneers.",
+    "🦷 Custom Veneer Fabrication - Designing natural-looking porcelain veneers.",
+    "✨ Final Veneer Placement - Bonding veneers for a beautiful, lasting smile."
   ],
   "Braces": [
-    "Orthodontic Evaluation",
-    "Impressions & X-rays",
-    "Placement of Braces",
-    "Regular Adjustments",
-    "Braces Removal & Retainer Fitting"
+    "🦷 Orthodontic Evaluation - Assessing misalignment and bite issues.",
+    "📸 Impressions & X-rays - Capturing detailed images for treatment planning.",
+    "🛠 Placement of Braces - Attaching brackets and wires for alignment.",
+    "📅 Regular Adjustments - Tightening braces periodically to shift teeth.",
+    "🎉 Braces Removal & Retainer Fitting - Revealing a straight smile and maintaining it with retainers."
   ],
   "Invisalign": [
-    "Initial Consultation",
-    "Digital Scanning & Treatment Planning",
-    "Receiving Custom Aligners",
-    "Wearing Aligners & Periodic Check-ups",
-    "Final Adjustments & Retainer Fitting"
+    "🔍 Initial Consultation - Determining eligibility for clear aligners.",
+    "🖥 Digital Scanning & Treatment Planning - Creating a custom treatment roadmap.",
+    "🦷 Receiving Custom Aligners - Getting a series of clear, removable aligners.",
+    "📅 Wearing Aligners & Periodic Check-ups - Gradually shifting teeth with routine monitoring.",
+    "🎉 Final Adjustments & Retainer Fitting - Achieving final results and maintaining alignment."
   ],
   "Implants": [
-    "Initial Consultation & X-rays",
-    "Tooth Extraction (if needed)",
-    "Bone Grafting (if necessary)",
-    "Implant Placement Surgery",
-    "Healing & Osseointegration",
-    "Abutment Placement",
-    "Final Crown Placement"
+    "🔍 Initial Consultation & X-rays - Evaluating bone structure and planning treatment.",
+    "🦷 Tooth Extraction (if needed) - Removing the damaged tooth before implantation.",
+    "🦴 Bone Grafting (if necessary) - Strengthening the jawbone for implant support.",
+    "⚙️ Implant Placement Surgery - Surgically inserting the titanium post.",
+    "🕰 Healing & Osseointegration - Allowing the implant to fuse with the bone.",
+    "🛠 Abutment Placement - Attaching the connector for the crown.",
+    "👑 Final Crown Placement - Completing the restoration for a natural look and function."
   ],
   "Crowns": [
-    "Initial Consultation",
-    "Tooth Preparation & Impression",
-    "Temporary Crown Placement",
-    "Custom Crown Fabrication",
-    "Final Crown Cementation"
+    "🔍 Initial Consultation - Assessing the tooth for crown placement.",
+    "🦷 Tooth Preparation & Impression - Shaping the tooth and taking a precise mold.",
+    "⚙️ Temporary Crown Placement - Protecting the tooth while the crown is made.",
+    "🛠 Custom Crown Fabrication - Crafting a strong, custom-fit crown.",
+    "👑 Final Crown Cementation - Securing the permanent crown for a lasting restoration."
   ],
   "Bridges": [
-    "Initial Consultation",
-    "Preparation of Adjacent Teeth",
-    "Impressions & Temporary Bridge Placement",
-    "Custom Bridge Fabrication",
-    "Final Bridge Placement"
+    "🔍 Initial Consultation - Evaluating missing teeth and discussing bridge options.",
+    "🦷 Preparation of Adjacent Teeth - Reshaping supporting teeth for bridge placement.",
+    "📸 Impressions & Temporary Bridge Placement - Creating a custom fit.",
+    "🛠 Custom Bridge Fabrication - Crafting a durable, natural-looking bridge.",
+    "👑 Final Bridge Placement - Securing the bridge for a complete smile."
   ],
   "Gum Disease Treatment": [
-    "Initial Examination & Diagnosis",
-    "Deep Cleaning (Scaling & Root Planing)",
-    "Medications or Antimicrobial Therapy",
-    "Surgical Treatment (if necessary)",
-    "Ongoing Maintenance & Follow-ups"
+    "🔍 Initial Examination & Diagnosis - Identifying gum infection severity.",
+    "🪥 Deep Cleaning (Scaling & Root Planing) - Removing bacteria below the gum line.",
+    "💊 Medications or Antimicrobial Therapy - Treating infection to promote healing.",
+    "🦷 Surgical Treatment (if necessary) - Advanced procedures for severe cases.",
+    "📅 Ongoing Maintenance & Follow-ups - Preventing recurrence with regular care."
   ],
   "Wisdom Teeth Removal": [
-    "Initial Examination & X-rays",
-    "Numbing the Area or Sedation",
-    "Tooth Extraction",
-    "Stitching (if necessary)",
-    "Post-Operative Care & Recovery"
+    "🔍 Initial Examination & X-rays - Assessing wisdom tooth position and risks.",
+    "💉 Numbing the Area or Sedation - Ensuring comfort during the extraction.",
+    "🦷 Tooth Extraction - Removing the impacted or problematic wisdom teeth.",
+    "🛠 Stitching (if necessary) - Closing the area to aid healing.",
+    "📋 Post-Operative Care & Recovery - Managing discomfort and ensuring proper healing."
   ],
   "Child Check-ups": [
-    "Initial Examination",
-    "Oral Health Education",
-    "Teeth Cleaning",
-    "Fluoride Application",
-    "Discussion with Parents on Oral Care"
+    "🔍 Initial Examination - Gentle assessment of children's oral health.",
+    "📖 Oral Health Education - Teaching kids about proper brushing and flossing.",
+    "🪥 Teeth Cleaning - Removing plaque and polishing teeth.",
+    "🦷 Fluoride Application - Strengthening enamel for cavity prevention.",
+    "👨‍👩‍👧 Discussion with Parents on Oral Care - Providing guidance for home care."
   ],
   "Dentures": [
-    "Initial Consultation & Impressions",
-    "Custom Denture Fabrication",
-    "Fitting & Adjustments",
-    "Final Denture Placement",
-    "Follow-up for Comfort & Fit"
-  ],
-  "Teeth Cleaning": [
-    "Initial Examination",
-    "Plaque & Tartar Removal",
-    "Teeth Polishing",
-    "Fluoride Treatment",
-    "Oral Hygiene Instructions"
+    "🔍 Initial Consultation & Impressions - Evaluating fit and taking measurements.",
+    "🛠 Custom Denture Fabrication - Creating natural-looking, comfortable dentures.",
+    "🦷 Fitting & Adjustments - Ensuring comfort and function.",
+    "✨ Final Denture Placement - Completing the smile restoration.",
+    "📅 Follow-up for Comfort & Fit - Checking and refining the fit as needed."
   ],
   "Emergency Check-ups": [
-    "Immediate Assessment",
-    "Pain Management",
-    "X-rays (if needed)",
-    "Emergency Treatment",
-    "Follow-up Appointment"
+    "🚨 Immediate Assessment - Rapid evaluation of the dental emergency.",
+    "💊 Pain Management - Providing relief and addressing discomfort.",
+    "📸 X-rays (if needed) - Diagnosing the issue with imaging.",
+    "🛠 Emergency Treatment - Addressing the problem promptly.",
+    "📅 Follow-up Appointment - Ensuring full recovery and further care."
   ]
 };
