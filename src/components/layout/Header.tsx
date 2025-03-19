@@ -25,43 +25,43 @@ const navigation = [
         subSections: [
             {
                 name: "General Dentistry",
-                href: "/services/general-dentistry",
+                href: "/services",
                 subServices: [
-                    { name: "Check-ups", href: "/services/general-dentistry/check-ups" },
-                    { name: "Fillings", href: "/services/general-dentistry/fillings" },
-                    { name: "Cleanings", href: "/services/general-dentistry/cleanings" }
+                    { name: "Check-ups", href: "/services/check-ups" },
+                    { name: "Fillings", href: "/services/fillings" },
+                    { name: "Cleanings", href: "/services/cleanings" }
                 ]
             },
             {
                 name: "Endodontics",
-                href: "/services/endodontics",
+                href: "/services",
                 subServices: [
-                    { name: "Root Canal Treatment", href: "/services/endodontics/root-canal" }
+                    { name: "Root Canal Treatment", href: "/services/root-canal" }
                 ]
             },
             {
                 name: "Cosmetic Dentistry",
-                href: "/services/cosmetic-dentistry",
+                href: "/services",
                 subServices: [
-                    { name: "Teeth Whitening", href: "/services/cosmetic-dentistry/teeth-whitening" },
-                    { name: "Veneers", href: "/services/cosmetic-dentistry/veneers" }
+                    { name: "Teeth Whitening", href: "/services/teeth-whitening" },
+                    { name: "Veneers", href: "/services/veneers" }
                 ]
             },
             {
                 name: "Orthodontics",
-                href: "/services/orthodontics",
+                href: "/services",
                 subServices: [
-                    { name: "Braces", href: "/services/orthodontics/braces" },
-                    { name: "Invisalign", href: "/services/orthodontics/invisalign" }
+                    { name: "Braces", href: "/services/braces" },
+                    { name: "Invisalign", href: "/services/invisalign" }
                 ]
             },
             {
                 name: "Restorative Dentistry",
-                href: "/services/restorative-dentistry",
+                href: "/services",
                 subServices: [
-                    { name: "Implants", href: "/services/restorative-dentistry/implants" },
-                    { name: "Crowns", href: "/services/restorative-dentistry/crowns" },
-                    { name: "Bridges", href: "/services/restorative-dentistry/bridges" }
+                    { name: "Implants", href: "/services/implants" },
+                    { name: "Crowns", href: "/services/crowns" },
+                    { name: "Bridges", href: "/services/bridges" }
                 ]
             },
             {
