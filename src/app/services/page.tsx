@@ -5,13 +5,14 @@ import About from '@/components/homePage/about'
 import ContactUs from '@/components/homePage/ContactUs'
 import ServicesList from '@/components/homePage/Services'
 import Testimony from '@/components/homePage/Testimony'
+import Layout from '@/components/layout/Layout'
 import TreatmentSteps from '@/components/services/treatmentSteps '
 import React from 'react'
 
 
 const page = (props: Props) => {
     return (
-        <div>
+        <Layout>
             <HeroSection
                 title="About Our Dental Practice"
                 subtitle={
@@ -33,7 +34,7 @@ const page = (props: Props) => {
             <ContactUs />
             <Testimony />
 
-        </div>
+        </Layout>
     )
 }
 
