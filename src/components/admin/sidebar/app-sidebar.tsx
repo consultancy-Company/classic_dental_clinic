@@ -2,12 +2,21 @@
 
 import * as React from "react"
 import {
-    BookOpen,
-    Bot,
-    Settings2,
-    SquareTerminal,
-    LayoutDashboard,
-    Users
+    LayoutDashboardIcon,
+    UsersIcon,
+    CalendarIcon,
+    StethoscopeIcon,
+    ClipboardListIcon,
+    FileTextIcon,
+    DatabaseIcon,
+    SettingsIcon,
+    HelpCircleIcon,
+    SearchIcon,
+    UserPlusIcon,
+    FileCodeIcon,
+    ArrowUpCircleIcon,
+    BoxIcon,
+    Stethoscope
 } from "lucide-react"
 
 import { NavMain } from "./nav-main"
@@ -20,100 +29,118 @@ import {
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar"
+import { NavSecondary } from "./nav-secondary"
+import { NavProjects } from "./nav-projects"
+import { title } from "process"
+import { url } from "inspector"
 
 // This is sample data.
 const data = {
     user: {
-        name: "shadcn",
-        email: "m@example.com",
-        avatar: "/avatars/shadcn.jpg",
+        name: "Admin",
+        email: "admin@hospital.com",
+        avatar: "/avatars/admin.jpg",
     },
     navMain: [
         {
             title: "Dashboard",
             url: "#",
-            icon: LayoutDashboard,
-            isActive: true,
+            icon: LayoutDashboardIcon,
+        },
+
+    ],
+    navManagement: [
+        {
+            title: "Medical Records",
+            icon: FileTextIcon,
+            url: "#",
             items: [
                 {
-                    title: "History",
-                    url: "#", 
-                },
-                {
-                    title: "Starred",
+                    title: "Active Records",
                     url: "#",
                 },
                 {
-                    title: "Settings",
+                    title: "Archived Records",
                     url: "#",
                 },
             ],
         },
         {
-            title: "Models",
+            title: "Inventory",
+            icon: DatabaseIcon,
             url: "#",
-            icon: Bot,
             items: [
                 {
-                    title: "Genesis",
+                    title: "Dental Supplies",
                     url: "#",
                 },
                 {
-                    title: "Explorer",
-                    url: "#",
-                },
-                {
-                    title: "Quantum",
+                    title: "Equipment",
                     url: "#",
                 },
             ],
         },
         {
-            title: "Documentation",
+            title: "Staff Management",
+            icon: UserPlusIcon,
             url: "#",
-            icon: BookOpen,
             items: [
                 {
-                    title: "Introduction",
+                    title: "Doctors",
                     url: "#",
                 },
                 {
-                    title: "Get Started",
-                    url: "#",
-                },
-                {
-                    title: "Tutorials",
-                    url: "#",
-                },
-                {
-                    title: "Changelog",
+                    title: "Nurses & Assistants",
                     url: "#",
                 },
             ],
         },
+    ],
+    navSecondary: [
         {
             title: "Settings",
             url: "#",
-            icon: Settings2,
-            items: [
-                {
-                    title: "General",
-                    url: "#",
-                },
-                {
-                    title: "Team",
-                    url: "#",
-                },
-                {
-                    title: "Billing",
-                    url: "#",
-                },
-                {
-                    title: "Limits",
-                    url: "#",
-                },
-            ],
+            icon: SettingsIcon,
         },
+        {
+            title: "Get Help",
+            url: "#",
+            icon: HelpCircleIcon,
+        },
+        {
+            title: "Search",
+            url: "#",
+            icon: SearchIcon,
+        },
+    ],
+    clinic: [
+        {
+            title: "Appointments",
+            url: "#",
+            icon: CalendarIcon,
+        },
+        {
+            title: "Patients",
+            url: "#",
+            icon:Stethoscope,
+        },
+        {
+            title: "Billing",
+            url: "#",
+            icon: ClipboardListIcon,
+        },
+        {
+            title:"Staff list",
+            url:"#",
+            icon: UsersIcon,
+        }
+    ],
+    physicalAssets: [
+        {
+            title:"Stocks",
+            url:"#",
+            icon:BoxIcon
+        }
     ]
 }
 
@@ -125,6 +152,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarHeader>
             <SidebarContent>
                 <NavMain items={data.navMain} />
+                <NavMain items={data.clinic} name="Clinical"/>
+                <NavMain items={data.physicalAssets} name="Physical Assets"/>
+                {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
             </SidebarContent>
             <SidebarFooter>
                 <NavUser user={data.user} />
@@ -133,3 +163,4 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </Sidebar>
     )
 }
+
