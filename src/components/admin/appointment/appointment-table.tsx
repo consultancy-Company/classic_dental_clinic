@@ -179,7 +179,7 @@ export const columns: ColumnDef<Appointment>[] = [
     },
 ]
 
-export function DataTable() {
+export function AppointmentTable() {
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
     const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
