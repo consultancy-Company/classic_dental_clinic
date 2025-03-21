@@ -22,8 +22,8 @@ const AppointmentList = (props: Props) => {
                     <Ellipsis />
                 </div>
                 {appointments.map((appointment, index) => (
-                    <div key={index}>
-                        <div className='flex justify-between mb-3'>
+                    <div key={index} className='mb-3'>
+                        <div className='flex justify-between mb-2'>
                             <div className='flex flex-col'>
                                 <p className='text-[18px]'>{appointment.name}</p>
                                 <span className='text-gray-600'>{appointment.type}</span>
@@ -32,9 +32,7 @@ const AppointmentList = (props: Props) => {
                                 <p>{appointment.date}</p>
                                 <span>{appointment.time}</span>
                             </div>
-                            <Button className='bg-green-500 hover:bg-green-600 text-white font-semibold h-9 self-center'>
-                                Accept
-                            </Button>
+                            
                         </div>
                         {index < appointments.length - 1 && <Separator />}
                     </div>

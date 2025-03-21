@@ -11,11 +11,12 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import Link from "next/link"
 
 export function NavMain({
-    items,name
+    items, name
 }: {
-    name?:string
+    name?: string
     items: {
         title: string
         url: string
@@ -25,13 +26,15 @@ export function NavMain({
     return (
         <SidebarGroup>
             <SidebarGroupContent className="flex flex-col gap-2">
-            {name && <SidebarGroupLabel><span className="text-[14px] -mb-2">{name}</span></SidebarGroupLabel>}
+                {name && <SidebarGroupLabel><span className="text-[14px] -mb-2">{name}</span></SidebarGroupLabel>}
                 <SidebarMenu>
                     {items.map((item) => (
                         <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton tooltip={item.title} >
-                                {item.icon && <item.icon />}
-                                <span className="text-[16px]">{item.title}</span>
+                                <Link href={item.url} className="flex items-center gap-2">
+                                    {item.icon && <item.icon />}
+                                    <span className="text-[16px]">{item.title}</span>
+                                </Link>
                             </SidebarMenuButton>
                         </SidebarMenuItem>
                     ))}

@@ -116,7 +116,7 @@ const data = {
     clinic: [
         {
             title: "Appointments",
-            url: "#",
+            url: "appointment",
             icon: CalendarIcon,
         },
         {
