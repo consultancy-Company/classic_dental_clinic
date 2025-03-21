@@ -235,9 +235,6 @@ export function AppointmentTable() {
                     }
                     className="max-w-sm"
                 />
-                <Button size="lg" className="bg-green-600 hover:bg-green-600 font-semibold">
-                    Add Appointment
-                </Button>
             </div>
             <div className="rounded-md border">
                 <Table>

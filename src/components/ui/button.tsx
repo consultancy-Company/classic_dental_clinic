@@ -19,12 +19,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-
-        // this is our custom vaiant
-        classic_primary: " px-8 hover:bg-[#dd9639] bg-[#104B82]  shadow-md semibold text-white transform transition duration-500 hover:scale-105",
       },
       size: {
-        default: "h-[50px] px-4 py-2",
+        default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",

@@ -35,7 +35,7 @@ function SectionCard({ title, value, description, icon, badge }: CardProps) {
                     {value}
                     {badge && (
                         <div className="right-4 top-4">
-                            <Badge variant="outline" className={`flex gap-1 rounded-lg text-xs bg-${badge.color}-100 border-${badge.borderColor}-300 text-${badge.textColor}-500`}>
+                            <Badge variant="outline" className={`flex gap-1 rounded-lg text-xs bg-[#2e6fa1] border-[#569ace] text-white`}>
                                 {badge.icon}
                                 {badge.text}
                             </Badge>
@@ -58,7 +58,7 @@ interface SectionCardsProps {
 
 export function SectionCards({ data }: SectionCardsProps) {
     return (
-        <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:px-6">
+        <div className="grid grid-cols-1 gap-4  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
             {data.map((card, index) => (
                 <SectionCard key={index} {...card} />
             ))}

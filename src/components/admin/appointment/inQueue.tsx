@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { ClipboardPlus } from 'lucide-react'
+import { Check, ClipboardPlus, Plus } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
@@ -52,9 +52,9 @@ const InQueue = (props: Props) => {
                     </div>
                 </CardContent>
                 <Separator className='my-3 px-4' />
-                <CardFooter className='flex justify-between items-center'>
-                    <Button variant="outline"> Cancel</Button>
-                    <Button>Deploy</Button>
+                <CardFooter className='flex justify-between items-center '>
+                    <Button variant="outline" className='text-[18px] hover:bg-red-600 hover:text-white transition-color ease-linear duration-300 font-semibold px-10'><Plus size={44} strokeWidth={2.75}  className='rotate-45 text-lg'/> Cancel</Button>
+                    <Button className='bg-[#0E4E81] hover:bg-[#0E4E81] transition-all ease-linear text-[18px] font-semibold px-10'> <Check size={44} strokeWidth={2.75} />Accept</Button>
                 </CardFooter>
             </Card>
         </div>
