@@ -26,13 +26,13 @@ export function NavMain({
     return (
         <SidebarGroup>
             <SidebarGroupContent className="flex flex-col gap-2">
-                {name && <SidebarGroupLabel><span className="text-[14px] -mb-2">{name}</span></SidebarGroupLabel>}
+                {name && <SidebarGroupLabel><span className="text-[14px]">{name}</span></SidebarGroupLabel>}
                 <SidebarMenu>
                     {items.map((item) => (
                         <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton tooltip={item.title} >
-                                <Link href={item.url} className="flex items-center gap-2">
-                                    {item.icon && <item.icon />}
+                                <Link href={item.url.startsWith('/admin') ? item.url : `/admin${item.url}`} className="flex items-center gap-2">
+                                    {item.icon && <item.icon size={24}/>}
                                     <span className="text-[16px]">{item.title}</span>
                                 </Link>
                             </SidebarMenuButton>

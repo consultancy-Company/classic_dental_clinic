@@ -3,9 +3,7 @@
 import * as React from "react"
 import {
     LayoutDashboardIcon,
-    UsersIcon,
     CalendarIcon,
-    StethoscopeIcon,
     ClipboardListIcon,
     FileTextIcon,
     DatabaseIcon,
@@ -13,10 +11,9 @@ import {
     HelpCircleIcon,
     SearchIcon,
     UserPlusIcon,
-    FileCodeIcon,
-    ArrowUpCircleIcon,
     BoxIcon,
-    Stethoscope
+    Stethoscope,
+    User
 } from "lucide-react"
 
 import { NavMain } from "./nav-main"
@@ -29,10 +26,7 @@ import {
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar"
-import { NavSecondary } from "./nav-secondary"
-import { NavProjects } from "./nav-projects"
-import { title } from "process"
-import { url } from "inspector"
+import { FaUser } from "react-icons/fa"
 
 // This is sample data.
 const data = {
@@ -47,7 +41,6 @@ const data = {
             url: "#",
             icon: LayoutDashboardIcon,
         },
-
     ],
     navManagement: [
         {
@@ -115,30 +108,35 @@ const data = {
     ],
     clinic: [
         {
+            title: "Dashboard",
+            url: "#",
+            icon: LayoutDashboardIcon,
+        },
+        {
             title: "Appointments",
-            url: "appointment",
+            url: "/appointment",
             icon: CalendarIcon,
         },
         {
             title: "Patients",
-            url: "#",
+            url: "/patients",
             icon:Stethoscope,
         },
         {
             title: "Billing",
-            url: "#",
+            url: "/billing",
             icon: ClipboardListIcon,
         },
         {
             title:"Staff list",
-            url:"#",
-            icon: UsersIcon,
+            url:"/staff",
+            icon: User,
         }
     ],
     physicalAssets: [
         {
             title:"Stocks",
-            url:"#",
+            url:"/stocks",
             icon:BoxIcon
         }
     ]
@@ -151,8 +149,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <TeamSwitcher />
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.navMain} />
-                <NavMain items={data.clinic} name="Clinical"/>
+                <NavMain items={data.clinic}/>
                 <NavMain items={data.physicalAssets} name="Physical Assets"/>
                 {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
             </SidebarContent>
