@@ -122,7 +122,6 @@ const Page = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-
             {/* Show Appointment Form when showForm is true */}
             <AppointmentForm show={showForm} setShow={setShowForm} />
         </div>

@@ -235,9 +235,6 @@ export function PatientTable() {
                     }
                     className="max-w-sm"
                 />
-                <Button size="lg" className="bg-green-600 hover:bg-green-600 font-semibold">
-                    Add Patient
-                </Button>
             </div>
             <div className="rounded-md border">
                 <Table>

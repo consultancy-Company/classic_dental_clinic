@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import * as React from "react";
-import {  format } from "date-fns";
+import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -32,6 +32,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { IoClose } from "react-icons/io5";
+import { Separator } from "@/components/ui/separator";
 
 const appointmentSchema = z.object({
     name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -48,7 +49,7 @@ interface AppointmentFormProps {
     setShow: React.Dispatch<React.SetStateAction<boolean>>; // State updater function to hide form
 }
 
-export function AppointmentForm({ show , setShow} : AppointmentFormProps) {
+export function AppointmentForm({ show, setShow }: AppointmentFormProps) {
     const form = useForm({
         resolver: zodResolver(appointmentSchema),
         defaultValues: {
@@ -71,16 +72,19 @@ export function AppointmentForm({ show , setShow} : AppointmentFormProps) {
 
 
     return (
-        <Card className="w-[500px] mx-auto p-6 fixed top-0 right-0 mt-10 mr-3 ">
-            <button className="flex justify-end">
-                <IoClose size={30} onClick={() => setShow(false)} />
-            </button>
-            <CardHeader>
-                <CardTitle>Book an Appointment</CardTitle>
+        <Card className="w-[500px] mx-auto px-3 pt-6 fixed top-0 right-0 mt-8 mr-3 ">
+            <CardHeader >
+                <div className="flex justify-between">
+                    <CardTitle>Book an Appointment</CardTitle>
+                    <button className="flex justify-end">
+                        <IoClose size={30} onClick={() => setShow(false)} />
+                    </button>
+                </div>
             </CardHeader>
+            <Separator />
             <CardContent>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 mt-3">
                         <div className="flex justify-between gap-5">
                             <FormField
                                 control={form.control}
@@ -132,7 +136,10 @@ export function AppointmentForm({ show , setShow} : AppointmentFormProps) {
                                     <FormItem className="w-1/2">
                                         <FormLabel>Reason</FormLabel>
                                         <FormControl>
-                                            <Select {...field}>
+                                            <Select
+                                                onValueChange={field.onChange}
+                                                defaultValue={field.value}
+                                            >
                                                 <SelectTrigger>
                                                     <SelectValue placeholder="Select a reason" />
                                                 </SelectTrigger>

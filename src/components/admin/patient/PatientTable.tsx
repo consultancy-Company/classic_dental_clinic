@@ -36,12 +36,15 @@ import {
     useReactTable,
 } from "@tanstack/react-table"
 import {
+    ArrowUpDown,
     ChevronLeftIcon,
     ChevronRightIcon,
     ChevronsLeftIcon,
     ChevronsRightIcon,
+    CopyIcon,
     Edit,
     Eye,
+    MoreHorizontal,
     PlusIcon,
 } from "lucide-react"
 import { z } from "zod"
@@ -70,50 +73,43 @@ import {
     TabsContent,
 } from "@/components/ui/tabs"
 import Image from "next/image"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
+import { Separator } from "@radix-ui/react-separator"
 
 export const schema = z.object({
     id: z.number(),
     name: z.string(),
+    email: z.string(),
     header: z.string(),
     type: z.string(),
     status: z.string(),
     target: z.string(),
     limit: z.string(),
     reviewer: z.string(),
+    phone: z.string(),
 })
 
 export const columns: ColumnDef<z.infer<typeof schema>>[] = [
     {
-        id: "select",
-        header: ({ table }) => (
-            <div className="flex items-center justify-center">
-                <Checkbox
-                    checked={
-                        table.getIsAllPageRowsSelected() ||
-                        (table.getIsSomePageRowsSelected() && "indeterminate")
-                    }
-                    onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-                    aria-label="Select all"
-                />
-            </div>
+        accessorKey: "id",
+        header: ({ column }) => (
+            <button
+                onClick={() =>
+                    column.toggleSorting(column.getIsSorted() === "asc")
+                }
+                className="flex items-center gap-2 font-bold"
+            >
+                Id
+                <ArrowUpDown size={16}/>
+            </button>
         ),
-        cell: ({ row }) => (
-            <div className="flex items-center justify-center">
-                <Checkbox
-                    checked={row.getIsSelected()}
-                    onCheckedChange={(value) => row.toggleSelected(!!value)}
-                    aria-label="Select row"
-                />
-            </div>
-        ),
-        enableSorting: false,
-        enableHiding: false,
+        cell: ({ row }) => <div>{row.getValue("id")}</div>,
     },
     {
         accessorKey: "name",
         header: "Name",
         cell: ({ row }) =>
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center">
                 <div>
                     <Image
                         src={"https://randomuser.me/api/portraits/women/2.jpg"}
@@ -124,53 +120,114 @@ export const columns: ColumnDef<z.infer<typeof schema>>[] = [
                     />
                 </div>
                 <div>
-                    <p className="text-lg font-heading">{row.getValue("name")}</p>
-                    <p className="text-[12px]">Next appointment 20-jan 3:00pm</p>
+                    <p className="text-lg font-subheading font-medium">{row.getValue("name")}</p>
                 </div>
             </div>,
     },
     {
-        accessorKey: "id",
-        header: "Id",
-        cell: ({ row }) => <div>{row.getValue("id")}</div>,
+        accessorKey: "age",
+        header: "Age",
+        cell: ({ row }) => <div className="font-subheading font-[500]">{row.getValue("age")}</div>,
     },
     {
         accessorKey: "gender",
         header: "Gender",
-        cell: ({ row }) => <div>{row.getValue("gender")}</div>,
+        cell: ({ row }) => <div className="font-subheading font-[500]">{row.getValue("gender")}</div>,
     },
     {
-        accessorKey: "age",
-        header: "Age",
-        cell: ({ row }) => <div>{row.getValue("age")}</div>,
+        header: "Contact Info",
+        cell: ({ row }) => (
+            <div className="space-y-1">
+                <div className="font-subheading font-[500]">{row.original.email}</div>
+                <div className="font-subheading font-[500] ">{row.original.phone}</div>
+            </div>
+        ),
     },
     {
-        accessorKey: "phone",
-        header: "Phone",
-        cell: ({ row }) => <div>{row.getValue("phone")}</div>,
+        accessorKey: "lastVisited",
+        header: "Last visit",
+        cell: ({ row }) => <div>{row.getValue("lastVisited")}</div>,
     },
     {
-        accessorKey: "case",
-        header: "Case",
-        cell: ({ row }) => <div>{row.getValue("case")}</div>,
+        accessorKey: "appointmentDate",
+        header: "Appointment",
+        cell: ({ row }) => <div>{row.getValue("appointmentDate")}</div>,
+    },
+    {
+        accessorKey: "dueDate",
+        header: "Due date",
+        cell: ({ row }) => <div>{row.getValue("dueDate")}</div>,
+    },
+    {
+        accessorKey: "dueStatus",
+        header: "Due status",
+        cell: ({ row }) => {
+            const status = row.getValue("dueStatus");
+            if (status == "partiallyPaid") {
+                return (
+                    <div className="text-center -z-10">
+                        <p className=" bg-blue-100 text-center py-1 rounded-lg text-blue-600 font-[500]">Partially paid </p>
+                    </div>
+                )
+            }
+            if (status == "Pending") {
+                return (
+                    <div className="text-center -z-10">
+                        <p className=" bg-yellow-100 text-center py-1 rounded-lg text-yellow-600 font-[500]">Pending</p>
+                    </div>
+                )
+            }
+            if (status == "Paid") {
+                return (
+                    <div className="text-center -z-10">
+                        <p className=" bg-green-100 text-center py-1 rounded-lg text-green-600 font-[500]">Paid </p>
+                    </div>
+                )
+            }
+            if (status == "Overdue") {
+                return (
+                    <div className="text-center -z-10">
+                        <p className=" bg-blue-100 text-center py-1 rounded-lg text-blue-600 font-[500]">Overdue </p>
+                    </div>
+                )
+            }
+        }
     },
     {
         id: "actions",
         enableHiding: false,
-        cell: () => {
+        cell: ({ row }) => {
+            const patient = row.original
+
             return (
-                <div className="flex justify-center items-center space-x-4 ">
-                    <button className="p-2 rounded-lg hover:bg-gray-200 transition">
-                        <Eye className="text-blue-500 text-2xl hover:text-blue-600" />
-                    </button>
-                    <button className="p-2 rounded-lg hover:bg-gray-200 transition">
-                        <Edit className="text-blue-500 text-2xl hover:text-blue-600" />
-                    </button>
-                </div>
-            );
+                <DropdownMenu >
+                    <DropdownMenuTrigger asChild>
+                        <Button variant="ghost" className="h-8 w-8 p-0 -z-0">
+                            <span className="sr-only">Open menu</span>
+                            <MoreHorizontal />
+                        </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="z-50 p-3 hover:cursor-pointer bg-[#FFFFFF] bg-opacity-100 rounded-lg shadow-lg border-2 space-y-3">
+                        <DropdownMenuItem
+                            className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none hover:border-none rounded-md"
+                            onClick={() => {
+                                if (typeof window !== 'undefined') {
+                                    navigator.clipboard.writeText(patient.id)
+                                }
+                            }}
+                        >
+                            Copy patient ID <CopyIcon size={20} />
+                        </DropdownMenuItem>
+                        <Separator />
+                        <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none hover:border-none rounded-md">View patient details</DropdownMenuItem>
+                        <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none hover:border-none rounded-md">Edit patient details</DropdownMenuItem>
+                        <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none hover:border-none rounded-md">Delete patient</DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+            )
         },
-    }
-    
+    },
+
 ]
 function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
     const { transform, transition, setNodeRef, isDragging } = useSortable({
@@ -282,32 +339,21 @@ export function DataTable({
             defaultValue="outline"
             className="flex w-full flex-col justify-start gap-6"
         >
-            <div className="flex items-center justify-between ">
-                <Label htmlFor="view-selector" className="sr-only">
-                    View
-                </Label>
-
-                
-            </div>
             <TabsContent
                 value="outline"
                 className="relative flex flex-col gap-4 overflow-auto"
             >
-                <div className="flex justify-between">
+                <div className="flex justify-between ">
+                    <p>Total patients </p>
                     <input
                         placeholder="Filter by id or name..."
                         value={filterValue}
                         onChange={(e) => {
                             setFilterValue(e.target.value);
                         }}
-                        className="outline-none w-[50%] focus:outline-none border-2 border-gray-300 px-3 py-2 rounded-lg"
+                        className="outline-none w-[40%]  focus:outline-none border-2 border-gray-300 px-4 py-2 rounded-lg"
                     />
-                    <div className="flex items-center gap-2">
-                    <Button variant="outline" className="bg-[#104D7E] hover:bg-[#1c5e94]  text-white hover:text-white h-9 transition-colors duration-300 ease-linear">
-                        <PlusIcon />
-                        <span className="hidden lg:inline">Add Patient</span>
-                    </Button>
-                </div>
+
                 </div>
                 <div className="overflow-hidden rounded-lg border">
                     <DndContext
