@@ -72,9 +72,9 @@ import {
     Tabs,
     TabsContent,
 } from "@/components/ui/tabs"
-import Image from "next/image"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Separator } from "@radix-ui/react-separator"
+import Image from "next/image"
 
 export const schema = z.object({
     id: z.number(),
@@ -100,7 +100,7 @@ export const columns: ColumnDef<z.infer<typeof schema>>[] = [
                 className="flex items-center gap-2 font-bold"
             >
                 Id
-                <ArrowUpDown size={16}/>
+                <ArrowUpDown size={16} />
             </button>
         ),
         cell: ({ row }) => <div>{row.getValue("id")}</div>,
@@ -198,32 +198,38 @@ export const columns: ColumnDef<z.infer<typeof schema>>[] = [
         enableHiding: false,
         cell: ({ row }) => {
             const patient = row.original
-
             return (
-                <DropdownMenu >
-                    <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" className="h-8 w-8 p-0 -z-0">
-                            <span className="sr-only">Open menu</span>
-                            <MoreHorizontal />
-                        </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="z-50 p-3 hover:cursor-pointer bg-[#FFFFFF] bg-opacity-100 rounded-lg shadow-lg border-2 space-y-3">
-                        <DropdownMenuItem
-                            className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none hover:border-none rounded-md"
-                            onClick={() => {
-                                if (typeof window !== 'undefined') {
-                                    navigator.clipboard.writeText(patient.id)
-                                }
-                            }}
+                <div className="z-50">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="h-8 w-8 p-0">
+                                <span className="sr-only">Open menu</span>
+                                <MoreHorizontal />
+                            </Button>
+                        </DropdownMenuTrigger>
+
+                        <DropdownMenuContent
+                            align="end"
+                            side="bottom"
+                            className="z-[9999] p-3 bg-white rounded-lg shadow-lg border-2 space-y-3"
                         >
-                            Copy patient ID <CopyIcon size={20} />
-                        </DropdownMenuItem>
-                        <Separator />
-                        <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none hover:border-none rounded-md">View patient details</DropdownMenuItem>
-                        <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none hover:border-none rounded-md">Edit patient details</DropdownMenuItem>
-                        <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none hover:border-none rounded-md">Delete patient</DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
+                            <DropdownMenuItem
+                                className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none rounded-md"
+                                onClick={() => {
+                                    if (typeof window !== 'undefined') {
+                                        navigator.clipboard.writeText(patient.id)
+                                    }
+                                }}
+                            >
+                                Copy patient ID <CopyIcon size={20} />
+                            </DropdownMenuItem>
+                            <Separator />
+                            <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none rounded-md">View patient details</DropdownMenuItem>
+                            <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none rounded-md">Edit patient details</DropdownMenuItem>
+                            <DropdownMenuItem className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none rounded-md">Delete patient</DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
             )
         },
     },
@@ -337,7 +343,7 @@ export function DataTable({
     return (
         <Tabs
             defaultValue="outline"
-            className="flex w-full flex-col justify-start gap-6"
+            className="flex w-full flex-col justify-start gap-6 "
         >
             <TabsContent
                 value="outline"
@@ -353,7 +359,6 @@ export function DataTable({
                         }}
                         className="outline-none w-[40%]  focus:outline-none border-2 border-gray-300 px-4 py-2 rounded-lg"
                     />
-
                 </div>
                 <div className="overflow-hidden rounded-lg border">
                     <DndContext

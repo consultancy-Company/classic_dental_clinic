@@ -56,8 +56,7 @@
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
-  ;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -73,7 +72,9 @@
 
     --sidebar-border: 220 13% 91%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%}
+    --sidebar-ring: 217.2 91.2% 59.8%
+  }
+
   .dark {
 
     --background: 240 10% 3.9%;
@@ -122,8 +123,7 @@
 
     --chart-4: 280 65% 60%;
 
-    --chart-5: 340 75% 55%
-  ;
+    --chart-5: 340 75% 55%;
 
     --sidebar-background: 240 5.9% 10%;
 
@@ -139,7 +139,8 @@
 
     --sidebar-border: 240 3.7% 15.9%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%}
+    --sidebar-ring: 217.2 91.2% 59.8%
+  }
 }
 
 
@@ -148,6 +149,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -158,11 +160,15 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: 'Times New Roman', serif;
 }
 
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   font-family: 'Red Hat Text', sans-serif;
 }
 
@@ -174,25 +180,29 @@ h4, h5, h6 {
   letter-spacing: -3px;
   margin: 0;
 }
-.special-heading + p {
+
+.special-heading+p {
   font-size: 20px;
   text-align: center;
 }
+
 @media (max-width: 767px) {
   .special-heading {
     font-size: 60px;
   }
-  .special-heading + p {
+
+  .special-heading+p {
     margin-top: -20px;
   }
 }
 
 @keyframes scroll {
   0% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
+
   100% {
-      transform: translateX(-100%);
+    transform: translateX(-100%);
   }
 }
 
@@ -206,10 +216,19 @@ h4, h5, h6 {
   display: flex;
   animation: scroll 15s linear infinite;
 }
+
 @keyframes moveGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animate-gradient {
@@ -223,7 +242,13 @@ h4, h5, h6 {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.table-container {
+  position: relative;
+  overflow: visible !important;
 }
