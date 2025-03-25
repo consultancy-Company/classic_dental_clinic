@@ -9,8 +9,8 @@ import PatientForm from '@/components/admin/forms/patientForm'
 
 type Props = {}
 
-const page = (props: Props) => {
-    const [showForm, setShowForm] = useState(true); // State to manage form visibility
+const Page = (props: Props) => {
+    const [showForm, setShowForm] = useState(false); // State to manage form visibility
 
     const cardData = [
         {
@@ -43,28 +43,29 @@ const page = (props: Props) => {
         },
     ];
     return (
-        <div className="flex flex-col gap-5 py-4 md:gap-6 md:py-6 px-4 lg:px-6">
-            <div className='flex justify-between mt-3'>
-                <div>
-                    <h1 className='text-2xl font-semibold'>Patients Lists</h1>
-                    <p className='text-gray-500'>Here are the update patient list last 7 days </p>
+        <>
+            <div className={`flex flex-col gap-5 py-4 md:gap-6 md:py-6 px-4 lg:px-6 ${showForm ? 'opacity-50 pointer-events-none' : ''}`}>
+                <div className='flex justify-between mt-3'>
+                    <div>
+                        <h1 className='text-2xl font-semibold'>Patients Lists</h1>
+                        <p className='text-gray-500'>Here are the update patient list last 7 days </p>
+                    </div>
+                    <div className='flex gap-3'>
+                        <Button
+                            size="lg"
+                            className="bg-[#0E4E81] hover:bg-[#0E4E81] font-semibold"
+                            onClick={() => setShowForm(!showForm)} // Toggle form visibility
+                        >
+                            {showForm ? "Close Form" : "Add patient"}
+                        </Button>
+                    </div>
                 </div>
-                <div className='flex gap-3'>
-                    <Button
-                        size="lg"
-                        className="bg-[#0E4E81] hover:bg-[#0E4E81] font-semibold"
-                    // onClick={() => setShowForm(!showForm)} // Toggle form visibility
-                    >
-                        {/* {showForm ? "Close Form" : "Add Appointment"} */} Add patient
-                    </Button>
-                </div>
+                <SectionCards data={cardData} />
+                <DataTable data={data} />
             </div>
-            <SectionCards data={cardData} />
-            <DataTable data={data} />
-            <PatientForm show={showForm} setShow={setShowForm} />
-
-        </div>
+            {showForm && <PatientForm show={showForm} setShow={setShowForm} />}
+        </>
     )
 }
 
-export default page
+export default Page

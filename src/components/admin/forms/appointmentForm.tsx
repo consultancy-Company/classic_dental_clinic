@@ -170,12 +170,18 @@ export function AppointmentForm({ show, setShow }: AppointmentFormProps) {
                                                 <PopoverTrigger asChild>
                                                     <Button variant="outline" className="w-full justify-start text-left font-normal">
                                                         <CalendarIcon className="mr-2" />
-                                                        {selectedDate ? format(selectedDate, "PPP") : <span>Pick a date</span>}
+                                                        {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
                                                     </Button>
                                                 </PopoverTrigger>
                                                 <PopoverContent align="start" className="flex w-auto flex-col space-y-2 p-2">
                                                     <div className="rounded-md border">
-                                                        <Calendar mode="single" selected={selectedDate} onSelect={setSelectedDate} />
+                                                        <Calendar
+                                                            mode="single"
+                                                            selected={field.value}
+                                                            onSelect={(date) => {
+                                                                field.onChange(date);
+                                                            }}
+                                                        />
                                                     </div>
                                                 </PopoverContent>
                                             </Popover>

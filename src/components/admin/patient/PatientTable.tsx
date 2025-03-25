@@ -350,8 +350,7 @@ export function DataTable({
                 className="relative flex flex-col gap-4 overflow-auto"
             >
                 <div className="flex justify-between ">
-                    <p>Total patients </p>
-                    <input
+                    <Input
                         placeholder="Filter by id or name..."
                         value={filterValue}
                         onChange={(e) => {
