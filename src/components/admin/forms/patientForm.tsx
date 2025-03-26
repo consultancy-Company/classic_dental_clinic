@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { UserPlus } from "lucide-react";
+import { ClipboardIcon, PhoneCall, User, UserPlus } from "lucide-react";
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { format } from "date-fns";
@@ -26,12 +26,18 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast"
 import { ToastAction } from "@/components/ui/toast"
+import { FaTooth } from "react-icons/fa";
 interface PatientFormProps {
   show: boolean;
   setShow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const sections = ["General Info", "Medical History", "Emergency Contact", "Dental Info"];
+const sections = [
+  { title: "General Info", icon: <User size={24} /> },
+  { title: "Medical History", icon: <ClipboardIcon size={24} /> },
+  { title: "Emergency Contact", icon: <PhoneCall size={24} /> },
+  { title: "Dental Info", icon: <FaTooth size={24} /> }
+];
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -144,22 +150,39 @@ const PatientForm = ({ show, setShow }: PatientFormProps) => {
 
         {/* Section Navigation */}
         <CardContent>
-          <div className="flex justify-between mt-4">
+          <div className="relative flex justify-between mt-4  m-auto">
+            {/* Line connecting all steps */}
+            <div className="absolute top-4 left-20 w-[75%] mx-auto h-1 bg-gray-300">
+              {/* Active Progress Line */}
+              <div
+                className="h-1 bg-blue-600 transition-all duration-300"
+                style={{ width: `${(step / (sections.length - 2)) * 100}%` }}
+              ></div>
+            </div>
+
+            {/* Steps */}
             {sections.map((section, index) => (
-              <div key={index} className="flex flex-col items-center gap-2">
-                <UserPlus
-                  size={24}
-                  strokeWidth={3}
-                  className={`h-8 w-8 rounded-full p-2 text-white ${index === step ? "bg-blue-600" : "bg-gray-400 border-dotted border-2 border-red-400"
+              <div key={index} className="relative flex flex-col items-center gap-2 w-full">
+                {/* Step Circle */}
+                <div
+                  className={`h-8 w-8 flex items-center justify-center rounded-full p-2 z-10 ${index <= step ? "bg-blue-600 text-white" : "bg-gray-400 text-white"
                     }`}
-                />
-                <span className={`text-sm ${index === step ? "font-bold text-blue-600" : "text-gray-500"}`}>
-                  {section}
+                >
+                  {section.icon}
+                </div>
+
+                {/* Step Title */}
+                <span
+                  className={`text-sm ${index <= step ? "font-bold text-blue-600" : "text-gray-500"
+                    }`}
+                >
+                  {section.title}
                 </span>
               </div>
             ))}
           </div>
         </CardContent>
+
 
         {/* Form Sections */}
         <CardContent className={" overflow-y-auto"}>
