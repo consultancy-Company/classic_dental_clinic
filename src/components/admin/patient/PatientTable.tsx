@@ -75,6 +75,7 @@ import {
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Separator } from "@radix-ui/react-separator"
 import Image from "next/image"
+import Link from "next/link"
 
 export const schema = z.object({
     id: z.number(),
@@ -109,7 +110,7 @@ export const columns: ColumnDef<z.infer<typeof schema>>[] = [
         accessorKey: "name",
         header: "Name",
         cell: ({ row }) =>
-            <div className="flex gap-2 items-center">
+            <Link href={`/admin/patients/${row.original.id}`} className="flex gap-2 items-center">
                 <div>
                     <Image
                         src={"https://randomuser.me/api/portraits/women/2.jpg"}
@@ -122,7 +123,7 @@ export const columns: ColumnDef<z.infer<typeof schema>>[] = [
                 <div>
                     <p className="text-lg font-subheading font-medium">{row.getValue("name")}</p>
                 </div>
-            </div>,
+            </Link>,
     },
     {
         accessorKey: "age",

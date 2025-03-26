@@ -152,11 +152,11 @@ const PatientForm = ({ show, setShow }: PatientFormProps) => {
         <CardContent>
           <div className="relative flex justify-between mt-4  m-auto">
             {/* Line connecting all steps */}
-            <div className="absolute top-4 left-20 w-[75%] mx-auto h-1 bg-gray-300">
+            <div className="absolute top-4 left-20 w-[75%] mx-auto h-1 ">
               {/* Active Progress Line */}
               <div
                 className="h-1 bg-blue-600 transition-all duration-300"
-                style={{ width: `${(step / (sections.length - 2)) * 100}%` }}
+                style={{ width: `${(step / (sections.length - 1)) * 100}%` }}
               ></div>
             </div>
 
@@ -164,11 +164,13 @@ const PatientForm = ({ show, setShow }: PatientFormProps) => {
             {sections.map((section, index) => (
               <div key={index} className="relative flex flex-col items-center gap-2 w-full">
                 {/* Step Circle */}
-                <div
-                  className={`h-8 w-8 flex items-center justify-center rounded-full p-2 z-10 ${index <= step ? "bg-blue-600 text-white" : "bg-gray-400 text-white"
-                    }`}
-                >
-                  {section.icon}
+                <div className="h-10 w-10 rounded-full bg-[#ffffff] flex justify-center items-center">
+                  <div
+                    className={`h-8 w-8  flex items-center justify-center rounded-full p-2 z-10 ${index <= step ? "bg-blue-600 text-white" : "bg-gray-400 text-white"
+                      }`}
+                  >
+                    {section.icon}
+                  </div>
                 </div>
 
                 {/* Step Title */}
