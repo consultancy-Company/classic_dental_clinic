@@ -26,7 +26,7 @@ import {
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar"
-import { FaUser } from "react-icons/fa"
+import { FaRegUser} from "react-icons/fa"
 
 // This is sample data.
 const data = {
@@ -130,7 +130,7 @@ const data = {
         {
             title:"Staff list",
             url:"/staff",
-            icon: User,
+            icon: FaRegUser ,
         }
     ],
     physicalAssets: [
@@ -149,7 +149,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <TeamSwitcher />
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.clinic}/>
+
+                <NavMain items={data.clinic} name="Clinic"/>
                 <NavMain items={data.physicalAssets} name="Physical Assets"/>
                 {/* <NavSecondary items={data.navSecondary} className="mt-auto" /> */}
             </SidebarContent>

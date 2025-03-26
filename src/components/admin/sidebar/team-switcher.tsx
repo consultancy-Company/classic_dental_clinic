@@ -27,27 +27,15 @@ export function TeamSwitcher() {
             <SidebarMenuItem>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <SidebarMenuButton
-                            size="xl"
-                            className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                        >
-                            <div className="flex aspect-square  items-center justify-center rounded-lg  text-sidebar-primary-foreground">
-                                <Image 
-                                    src={"/images/logo/logo-1.png"}
-                                    width={100}
-                                    height={100}
-                                    alt="logo"
-                                    className="bg-cover"
-                                />
-                            </div>
-                            {/* <div className="grid flex-1 text-left text-sm leading-tight">
-                                <span className="truncate font-semibold">
-                                    Classic dental
-                                </span>
-                            </div> */}
-                        </SidebarMenuButton>
+                        <Image
+                            src={"/images/logo/logo-1.png"}
+                            width={100}
+                            height={100}
+                            alt="logo"
+                            className="bg-cover mb-3"
+                        />
                     </DropdownMenuTrigger>
-                    
+
                 </DropdownMenu>
             </SidebarMenuItem>
         </SidebarMenu>
