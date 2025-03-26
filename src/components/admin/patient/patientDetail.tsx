@@ -107,21 +107,21 @@ const PatientDetail = (props: Props) => {
               <CardContent className="flex-1 pb-0">
                 <ChartContainer
                   config={chartConfig}
-                  className="mx-auto aspect-square max-h-[200px]"
+                  className="mx-auto aspect-square max-h-[150px]" // Decrease max height
                 >
                   <RadialBarChart
                     data={chartData}
                     startAngle={-100}
                     endAngle={150}
-                    innerRadius={80}
-                    outerRadius={120}
+                    innerRadius={60} // Decrease inner radius
+                    outerRadius={100} // Decrease outer radius
                   >
                     <PolarGrid
                       gridType="circle"
                       radialLines={false}
                       stroke="none"
                       className="first:fill-muted last:fill-background"
-                      polarRadius={[86, 74]}
+                      polarRadius={[66, 54]} // Adjust grid size accordingly
                     />
                     <RadialBar dataKey="visitors" background cornerRadius={10} />
                     <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
@@ -138,14 +138,14 @@ const PatientDetail = (props: Props) => {
                                 <tspan
                                   x={viewBox.cx}
                                   y={viewBox.cy}
-                                  className="fill-foreground text-4xl font-bold"
+                                  className="fill-foreground text-3xl font-bold" // Decrease text size
                                 >
                                   {chartData[0].visitors.toLocaleString()}
                                 </tspan>
                                 <tspan
                                   x={viewBox.cx}
-                                  y={(viewBox.cy || 0) + 24}
-                                  className="fill-muted-foreground"
+                                  y={(viewBox.cy || 0) + 20} // Adjust text spacing
+                                  className="fill-muted-foreground text-sm"
                                 >
                                   Days
                                 </tspan>
@@ -158,13 +158,13 @@ const PatientDetail = (props: Props) => {
                   </RadialBarChart>
                 </ChartContainer>
               </CardContent>
-              <CardContent className='self-center mr-4'>
+              <div className='flex-1 self-center mr-4'>
                 <p className='text-gray-500'>Start date joined</p>
                 <p className='font-semibold text-xl mb-3'>Jan 2 2025</p>
                 <Button variant="outline" className='px-6 flex items-center font-semibold text-[17px]'>
                   Extend <ArrowUpRight />
                 </Button>
-              </CardContent>
+              </div>
             </div>
           </Card>
         </div>
