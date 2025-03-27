@@ -4,6 +4,9 @@ import { ChartConfig, ChartContainer } from '@/components/ui/chart'
 import { ArrowUpRight, Cake, CalendarCheck, Home, Mail, Phone, VenusAndMars } from 'lucide-react'
 import React from 'react'
 import { Label, PolarGrid, PolarRadiusAxis, RadialBar, RadialBarChart } from 'recharts'
+import DentalHistoryTable from './dentalHistory'
+import MedicalDocument from './medicalDocument'
+import DentalWellBeingChart from './DentalWellBeingChart'
 
 const chartData = [
   { browser: "safari", visitors: 23, fill: "var(--color-safari)" },
@@ -21,83 +24,92 @@ const chartConfig = {
 
 const PatientDetail = (props: Props) => {
   return (
-    <div >
-      <div className='grid grid-cols-3 gap-3'>
-        <Card>
-          <CardHeader>
-            <p className='font-heading font-[600] text-xl '>General Information</p>
-          </CardHeader>
-          <CardContent>
-            <div className='flex gap-3 mb-7 items-center'>
-              <VenusAndMars />
-              <div>
-                <p className='text-sm text-gray-500'>Gender</p>
-                <p>Male</p>
-              </div>
-            </div>
-            <div className='flex gap-3 mb-7 items-center'>
-              <Cake />
-              <div>
-                <p className='text-sm text-gray-500'>Birth date</p>
-                <p>Jan-20-2000</p>
-              </div>
-            </div>
-            <div className='flex gap-3 mb-7 items-center'>
-              <Phone />
-              <div>
-                <p className='text-sm text-gray-500'>Phone Number</p>
-                <p>096637523542</p>
-              </div>
-            </div>
-            <div className='flex gap-3 mb-7 items-center'>
-              <Mail />
-              <div>
-                <p className='text-sm text-gray-500'>Mail</p>
-                <p>jhone@gmailcom</p>
-              </div>
-            </div>
-            <div className="flex gap-3 mb-7 items-center">
-              <Home />
-              <div>
-                <p className="text-sm text-gray-500">Address</p>
-                <p>1234 Elm St, Springfield</p>
-              </div>
-            </div>
-            <div className="flex gap-3 mb-7 items-center">
-              <CalendarCheck />
-              <div>
-                <p className="text-sm text-gray-500">Last Visit</p>
-                <p>Feb-10-2024</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="max-h-[540px] relative overflow-hidden">
-          <CardHeader  >
-            <p className="font-heading font-[600] text-xl">Appointment Schedule</p>
-          </CardHeader >
-          <div className="relative px-2">
-            <p className="absolute top-0 mt-2 left-[17px] h-[90%] border-2 border-dashed border-[#56a9ec]"></p>
-
-            {[...Array(4)].map((_, index) => (
-              <CardContent key={index} className={`${index === 3 ? "opacity-50" : ""}`}>
-                <div className="absolute left-[7px] flex items-center justify-center h-6 w-6 border-2 bg-[#ffffff] border-[#2e92e3] rounded-full">
-                  <div className="h-4 w-4 bg-[#2a91e6] rounded-full"></div>
+    <div className='flex justify-between gap-5'>
+      <div className='grid grid-cols-1 gap-3 w-[65%]'>
+        <div className='grid grid-cols-2 gap-3'>
+          <Card className='max-h-[540px]'>
+            <CardHeader>
+              <p className='font-heading font-[600] text-xl '>General Information</p>
+            </CardHeader>
+            <CardContent>
+              <div className='flex gap-3 mb-7 items-center'>
+                <VenusAndMars />
+                <div>
+                  <p className='text-sm text-gray-500'>Gender</p>
+                  <p>Male</p>
                 </div>
-                <p className="text-sm text-gray-500 px-2 mb-1">Jan-20-2024</p>
-                <Card>
-                  <CardHeader>
-                    Brace treatment
-                    <p className="text-sm text-gray-400">Follow-up for braces adjustment.</p>
-                  </CardHeader>
-                </Card>
-              </CardContent>
-            ))}
-          </div>
+              </div>
+              <div className='flex gap-3 mb-7 items-center'>
+                <Cake />
+                <div>
+                  <p className='text-sm text-gray-500'>Birth date</p>
+                  <p>Jan-20-2000</p>
+                </div>
+              </div>
+              <div className='flex gap-3 mb-7 items-center'>
+                <Phone />
+                <div>
+                  <p className='text-sm text-gray-500'>Phone Number</p>
+                  <p>096637523542</p>
+                </div>
+              </div>
+              <div className='flex gap-3 mb-7 items-center'>
+                <Mail />
+                <div>
+                  <p className='text-sm text-gray-500'>Mail</p>
+                  <p>jhone@gmailcom</p>
+                </div>
+              </div>
+              <div className="flex gap-3 mb-7 items-center">
+                <Home />
+                <div>
+                  <p className="text-sm text-gray-500">Address</p>
+                  <p>1234 Elm St, Springfield</p>
+                </div>
+              </div>
+              <div className="flex gap-3 mb-7 items-center">
+                <CalendarCheck />
+                <div>
+                  <p className="text-sm text-gray-500">Last Visit</p>
+                  <p>Feb-10-2024</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          <Card className="max-h-[540px] relative overflow-hidden">
+            <CardHeader  >
+              <p className="font-heading font-[600] text-xl">Appointment Schedule</p>
+            </CardHeader >
+            <div className="relative px-2">
+              <p className="absolute top-0 mt-2 left-[17px] h-[90%] border-2 border-dashed border-[#56a9ec]"></p>
 
-          {/* Fading overlay at the bottom */}
-          <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white via-white/70 to-transparent"></div>
-        </Card>
+              {[...Array(4)].map((_, index) => (
+                <CardContent key={index} className={` ${index === 3 ? "opacity-50" : ""}`}>
+                  <div className="absolute left-[7px] flex items-center justify-center h-6 w-6 border-2 bg-[#ffffff] border-[#2e92e3] rounded-full">
+                    <div className="h-4 w-4 bg-[#2a91e6] rounded-full"></div>
+                  </div>
+                  <p className="text-sm text-gray-500 px-2 mb-1">Jan-20-2024</p>
+                  <Card className='card-2 text-white'>
+                    <CardHeader className='text-lg font-semibold'>
+                      Brace treatment
+                      <p className="text-sm text-gray-200 font-normal">Follow-up for braces adjustment.</p>
+                    </CardHeader>
+                  </Card>
+                </CardContent>
+              ))}
+            </div>
+
+            {/* Fading overlay at the bottom */}
+            <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white via-white/70 to-transparent"></div>
+          </Card>
+        </div>
+        <div className='w-full'>
+          <DentalHistoryTable />
+        </div>
+
+      </div>
+      <div className='flex flex-col gap-4 w-[34%]'>
+        <MedicalDocument />
         <div >
           <Card className='pb-4'>
             <CardHeader className='font-heading font-[600] text-xl'>
@@ -168,6 +180,7 @@ const PatientDetail = (props: Props) => {
             </div>
           </Card>
         </div>
+        <DentalWellBeingChart />
       </div>
     </div>
   )

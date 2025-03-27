@@ -1,4 +1,6 @@
 "use client"
+import DentalHistoryTable from '@/components/admin/patient/dentalHistory'
+import MedicalDocument from '@/components/admin/patient/medicalDocument'
 import PatientDetail from '@/components/admin/patient/patientDetail'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
@@ -11,7 +13,7 @@ const page = (props: Props) => {
     return (
         <div className='flex flex-col gap-5 py-4 md:gap-6 md:py-6 px-4 lg:px-6 '>
             <div className='flex justify-between mt-3'>
-                <div  className="flex gap-2 items-center">
+                <div className="flex gap-2 items-center">
                     <div>
                         <Image
                             src={"https://randomuser.me/api/portraits/women/2.jpg"}
@@ -37,6 +39,7 @@ const page = (props: Props) => {
                 </div>
             </div>
             <PatientDetail />
+            
         </div>
     )
 }
