@@ -9,6 +9,7 @@ import WhyChooseUs from "@/components/homePage/WhyChooseUs";
 import YourDentist from "@/components/homePage/YourDentist";
 import Loader from "@/components/Loader";  // Import the Loader component
 import HeroSection from "@/components/Hero";
+import Layout from "@/components/layout/Layout";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -29,7 +30,7 @@ export default function Home() {
       {loading ? (
         <Loader />  // Show loader only on first visit
       ) : (
-        <>
+        <Layout>
             <HeroSection
               title="Your Trusted Classic Specialty"
               subtitle={
@@ -50,7 +51,7 @@ export default function Home() {
           <YourDentist isHidden={false}/>
           <WhyChooseUs />
           <VisitUs  />
-        </>
+        </Layout>
       )}
     </>
   );

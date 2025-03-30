@@ -65,11 +65,11 @@ const TreatmentSteps = ({ treatmentName }: Props) => {
                                     <div className={`absolute w-12 h-12 rounded-full top-0 flex items-center justify-center ${index % 2 === 0 ? '-left-4' : '-right-4'}`}>
                                         <FaCheckCircle size={24} className="text-[#104B82]" />
                                     </div>
-                                    <div className={`bg-white p-6 rounded-lg shadow-sm ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
-                                        <h3 className="font-semibold text-gray-700 flex items-center gap-2">
+                                    <div className={`bg-white p-6 rounded-lg shadow-md ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
+                                        <h3 className="text-2xl font-semibold text-gray-700 flex items-center gap-2">
                                             Step {index + 1}
                                         </h3>
-                                        <p className="text-gray-900 text-xl mt-2 font-body">{step}</p>
+                                        <p className="text-gray-600 mt-2">{step}</p>
                                     </div>
                                 </div>
                             </motion.div>
