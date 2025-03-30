@@ -26,7 +26,7 @@ const PatientDetail = (props: Props) => {
   return (
     <div className='flex justify-between gap-5'>
       <div className='grid grid-cols-1 gap-3 w-[65%]'>
-        <div className='grid grid-cols-2 gap-3'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
           <Card className='max-h-[540px]'>
             <CardHeader>
               <p className='font-heading font-[600] text-xl '>General Information</p>
@@ -109,10 +109,9 @@ const PatientDetail = (props: Props) => {
 
       </div>
       <div className='flex flex-col gap-4 w-[34%]'>
-        <MedicalDocument />
         <div >
           <Card className='pb-4'>
-            <CardHeader className='font-heading font-[600] text-xl'>
+            <CardHeader className='font-heading font-[600] text-xl pb-2'>
               Member dentalical
             </CardHeader>
             <div className='flex '>
@@ -181,6 +180,7 @@ const PatientDetail = (props: Props) => {
           </Card>
         </div>
         <DentalWellBeingChart />
+        <MedicalDocument />
       </div>
     </div>
   )

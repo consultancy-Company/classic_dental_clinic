@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import {
@@ -14,6 +14,8 @@ import {
 import {
     ChartConfig,
     ChartContainer,
+    ChartLegend,
+    ChartLegendContent,
     ChartTooltip,
     ChartTooltipContent,
 } from "@/components/ui/chart"
@@ -161,8 +163,8 @@ export function ChartAreaInteractive() {
     })
 
     return (
-        <Card className="@container/card">
-            <CardHeader className="relative">
+        <Card className="h-full flex flex-col">
+            <CardHeader className="relative flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row">
                 <CardTitle>Total Visitors</CardTitle>
                 <CardDescription>
                     <span className="@[540px]/card:block hidden">
@@ -170,123 +172,54 @@ export function ChartAreaInteractive() {
                     </span>
                     <span className="@[540px]/card:hidden">Last 3 months</span>
                 </CardDescription>
-                <div className="absolute right-4 top-4">
-                    <ToggleGroup
-                        type="single"
-                        value={timeRange}
-                        onValueChange={setTimeRange}
-                        variant="outline"
-                        className="@[767px]/card:flex hidden"
+                <Select value={timeRange} onValueChange={setTimeRange}>
+                    <SelectTrigger
+                        className="w-[160px] rounded-lg sm:ml-auto"
+                        aria-label="Select a value"
                     >
-                        <ToggleGroupItem value="90d" className="h-8 px-2.5">
+                        <SelectValue placeholder="Last 3 months" />
+                    </SelectTrigger>
+                    <SelectContent className="rounded-xl">
+                        <SelectItem value="90d" className="rounded-lg">
                             Last 3 months
-                        </ToggleGroupItem>
-                        <ToggleGroupItem value="30d" className="h-8 px-2.5">
+                        </SelectItem>
+                        <SelectItem value="30d" className="rounded-lg">
                             Last 30 days
-                        </ToggleGroupItem>
-                        <ToggleGroupItem value="7d" className="h-8 px-2.5">
+                        </SelectItem>
+                        <SelectItem value="7d" className="rounded-lg">
                             Last 7 days
-                        </ToggleGroupItem>
-                    </ToggleGroup>
-                    <Select value={timeRange} onValueChange={setTimeRange}>
-                        <SelectTrigger
-                            className="@[767px]/card:hidden flex w-40"
-                            aria-label="Select a value"
-                        >
-                            <SelectValue placeholder="Last 3 months" />
-                        </SelectTrigger>
-                        <SelectContent className="rounded-xl">
-                            <SelectItem value="90d" className="rounded-lg">
-                                Last 3 months
-                            </SelectItem>
-                            <SelectItem value="30d" className="rounded-lg">
-                                Last 30 days
-                            </SelectItem>
-                            <SelectItem value="7d" className="rounded-lg">
-                                Last 7 days
-                            </SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
+                        </SelectItem>
+                    </SelectContent>
+                </Select>
             </CardHeader>
-            <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
+            <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6 flex-grow">
                 <ChartContainer
                     config={chartConfig}
-                    className="aspect-auto h-[250px] w-full"
+                    className="aspect-auto w-full h-full"
                 >
-                    <AreaChart data={filteredData}>
-                        <defs>
-                            <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
-                                <stop
-                                    offset="5%"
-                                    stopColor="var(--color-desktop)"
-                                    stopOpacity={1.0}
-                                />
-                                <stop
-                                    offset="95%"
-                                    stopColor="var(--color-desktop)"
-                                    stopOpacity={0.1}
-                                />
-                            </linearGradient>
-                            <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
-                                <stop
-                                    offset="5%"
-                                    stopColor="var(--color-mobile)"
-                                    stopOpacity={0.8}
-                                />
-                                <stop
-                                    offset="95%"
-                                    stopColor="var(--color-mobile)"
-                                    stopOpacity={0.1}
-                                />
-                            </linearGradient>
-                        </defs>
+                    <BarChart accessibilityLayer data={filteredData}>
+                        <ChartLegend content={<ChartLegendContent />} />
+
                         <CartesianGrid vertical={false} />
                         <XAxis
-                            dataKey="date"
+                            dataKey="month"
                             tickLine={false}
+                            tickMargin={10}
                             axisLine={false}
-                            tickMargin={8}
-                            minTickGap={32}
-                            tickFormatter={(value) => {
-                                const date = new Date(value)
-                                return date.toLocaleDateString("en-US", {
-                                    month: "short",
-                                    day: "numeric",
-                                })
-                            }}
+                            tickFormatter={(value) => value.slice(0, 3)}
                         />
                         <ChartTooltip
                             cursor={false}
-                            content={
-                                <ChartTooltipContent
-                                    labelFormatter={(value) => {
-                                        return new Date(value).toLocaleDateString("en-US", {
-                                            month: "short",
-                                            day: "numeric",
-                                        })
-                                    }}
-                                    indicator="dot"
-                                />
-                            }
+                            content={<ChartTooltipContent indicator="dashed" />}
                         />
-                        <Area
-                            dataKey="mobile"
-                            type="natural"
-                            fill="url(#fillMobile)"
-                            stroke="var(--color-mobile)"
-                            stackId="a"
-                        />
-                        <Area
-                            dataKey="desktop"
-                            type="natural"
-                            fill="url(#fillDesktop)"
-                            stroke="var(--color-desktop)"
-                            stackId="a"
-                        />
-                    </AreaChart>
+
+                        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
+                        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+                    </BarChart>
                 </ChartContainer>
             </CardContent>
         </Card>
+
     )
 }
+

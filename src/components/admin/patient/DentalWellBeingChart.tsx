@@ -41,18 +41,17 @@ export default function DentalHealthChart() {
                     <XAxis
                         dataKey="month"
                         tickLine={false}
-                        tickMargin={10}
+                        tickMargin={8}
                         axisLine={false}
-                        tickFormatter={(value) => value.slice(0, 3)}
+                        tickFormatter={(value) => value.slice(0, 1)}
                     />
                     <ChartTooltip
                         cursor={false}
                         content={<ChartTooltipContent hideLabel />}
                     />
-                    <Bar dataKey="health" fill="var(--color-desktop)" radius={8} />
+                    <Bar dataKey="health" fill="var(--color-desktop)" radius={10} />
                 </BarChart>
             </ChartContainer>
-
         </Card>
     );
 }

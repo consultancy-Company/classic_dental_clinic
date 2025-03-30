@@ -2,47 +2,46 @@
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { ArrowRight, ClipboardPlus, Ellipsis } from 'lucide-react'
+import { Users, Ellipsis, ArrowRight } from 'lucide-react'
 import React from 'react'
 
 type Props = {}
 
-const appointments = [
-    { name: 'Abel Mekonn', type: 'Canal test', date: 'Tomorrow', time: '10:00 AM' },
-    { name: 'Sara Johnson', type: 'Teeth Cleaning', date: 'March 20', time: '2:00 PM' },
-    { name: 'John Doe', type: 'Root Canal', date: 'March 21', time: '11:00 AM' },
-    { name: 'Emily Smith', type: 'Braces Checkup', date: 'March 22', time: '3:30 PM' },
+const employees = [
+    { name: 'Abel Mekonn', position: 'Manager', department: 'Sales', contact: '987-654-3210' },
+    { name: 'Sara Johnson', position: 'Developer', department: 'Engineering', contact: '123-456-7890' },
+    { name: 'John Doe', position: 'HR Specialist', department: 'Human Resources', contact: '555-123-4567' },
+    { name: 'Emily Smith', position: 'Designer', department: 'Creative', contact: '222-333-4444' },
 ]
 
-const AppointmentList = (props: Props) => {
+const EmployeeList = (props: Props) => {
     return (
         <div>
             <Card className='p-6'>
                 <div className='flex justify-between mb-6'>
                     <p className='text-lg font-semibold flex gap-2'>
-                        <ClipboardPlus className='self-center text-base text-[#3383c8]' />
-                        Appointment List
+                        <Users className='self-center text-base text-[#3383c8]' />
+                        Employee List
                     </p>
                     <Ellipsis />
                 </div>
-                {appointments.map((appointment, index) => (
+                {employees.map((employee, index) => (
                     <div key={index} className='mb-4'>
                         <div className='flex justify-between mb-1'>
                             <div className='flex flex-col'>
-                                <p className='text-[17px]'>{appointment.name}</p>
-                                <span className='text-gray-600 text-sm'>{appointment.type}</span>
+                                <p className='text-[17px]'>{employee.name}</p>
+                                <span className='text-gray-600 text-sm'>{employee.position}</span>
+                                <span className='text-gray-600 text-sm'>{employee.department}</span>
                             </div>
                             <div className='flex flex-col items-center'>
-                                <p>{appointment.date}</p>
-                                <span>{appointment.time}</span>
+                                <p className='text-sm'>{employee.contact}</p>
                             </div>
-
                         </div>
                         <Separator />
                     </div>
                 ))}
                 <div className='flex items-center justify-center py-2'>
-                <Button
+                    <Button
                         className="card-bg font-semibold hover:scale-105 transition-all ease-in-out duration-300"
                         onClick={() => { window.location.href = "admin/patients" }}
                     >
@@ -54,4 +53,4 @@ const AppointmentList = (props: Props) => {
     )
 }
 
-export default AppointmentList
+export default EmployeeList

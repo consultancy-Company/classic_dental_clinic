@@ -36,21 +36,18 @@ import {
     useReactTable,
 } from "@tanstack/react-table"
 import {
+    ArrowRight,
     ArrowUpDown,
     ChevronLeftIcon,
     ChevronRightIcon,
     ChevronsLeftIcon,
     ChevronsRightIcon,
     CopyIcon,
-    Edit,
-    Eye,
     MoreHorizontal,
-    PlusIcon,
 } from "lucide-react"
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
@@ -72,7 +69,7 @@ import {
     Tabs,
     TabsContent,
 } from "@/components/ui/tabs"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Separator } from "@radix-ui/react-separator"
 import Image from "next/image"
 import Link from "next/link"
@@ -263,8 +260,10 @@ function DraggableRow({ row }: { row: Row<z.infer<typeof schema>> }) {
 
 export function DataTable({
     data: initialData,
+    isDashboard
 }: {
     data: z.infer<typeof schema>[]
+    isDashboard: boolean
 }) {
     const [data, setData] = React.useState(() => initialData);
     const [rowSelection, setRowSelection] = React.useState({});
@@ -276,7 +275,7 @@ export function DataTable({
     const [sorting, setSorting] = React.useState<SortingState>([])
     const [pagination, setPagination] = React.useState({
         pageIndex: 0,
-        pageSize: 10,
+        pageSize: isDashboard ? 5 : 10,
     })
     const sortableId = React.useId()
     const sensors = useSensors(
@@ -433,7 +432,7 @@ export function DataTable({
                                     />
                                 </SelectTrigger>
                                 <SelectContent side="top">
-                                    {[10, 20, 30, 40, 50].map((pageSize) => (
+                                    {[5, 10, 20, 30, 40, 50].map((pageSize) => (
                                         <SelectItem key={pageSize} value={`${pageSize}`}>
                                             {pageSize}
                                         </SelectItem>
@@ -488,6 +487,16 @@ export function DataTable({
                         </div>
                     </div>
                 </div>
+                {
+                    isDashboard && <div className="flex justify-center items-center py-3 w-full">
+                        <Button
+                            className="card-bg font-semibold hover:scale-105 transition-all ease-in-out duration-300"
+                            onClick={() => { window.location.href = "admin/patients" }}
+                        >
+                            All Patients <ArrowRight />
+                        </Button>
+                    </div>
+                }
             </TabsContent>
             <TabsContent
                 value="past-performance"
@@ -504,6 +513,7 @@ export function DataTable({
             >
                 <div className="aspect-video w-full flex-1 rounded-lg border border-dashed"></div>
             </TabsContent>
+
         </Tabs>
     )
 }
