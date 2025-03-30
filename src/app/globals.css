@@ -7,6 +7,47 @@
 
 @layer base {
   :root {
+    --primary-color: #407C82; /* Deep Teal */
+
+    --secondary-color: #1E6091; /* Rich Navy Blue */
+
+    --tertiary-color: #89C2D9; /* Sky Blue */
+
+    --primary-button-bg: #407C82; /* Teal */
+
+    --primary-button-hover-bg: #366A70; /* Darker Teal */
+
+    --secondary-button-bg: #1E6091; /* Navy Blue */
+
+    --secondary-button-hover-bg: #164A71; /* Darker Blue */
+
+    --outline-button-border: #407C82; /* Teal Border */
+
+    --disabled-button-bg: #BFD5D9; /* Faded Teal */
+
+    --button-text-color: #FFFFFF; /* White Text */
+
+    --category-1-color: #407C82; /* Teal */
+
+    --category-2-color: #1E6091; /* Navy Blue */
+
+    --category-3-color: #89C2D9; /* Sky Blue */
+
+    --category-4-color: #FFC857; /* Golden Yellow */
+
+    --category-5-color: #E09F3E; /* Warm Orange */
+
+    --category-6-color: #D72638; /* Red */
+  
+    --background-color: #F0F8FF; /* Alice Blue */
+
+    --card-bg-color: #E3F2FD; /* Light Powder Blue */
+
+    --primary-text-color: #1B1B1B; /* Deep Charcoal */
+
+    --secondary-text-color: #5A7184; /* Muted Blue-Gray */
+
+
 
     --background: 0 0% 100%;
 
@@ -54,7 +95,7 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: #BFD5D9;
 
     --sidebar-foreground: 240 5.3% 26.1%;
 
@@ -71,72 +112,6 @@
     --sidebar-ring: 217.2 91.2% 59.8%
   }
 
-  .dark {
-
-    --background: 240 10% 3.9%;
-
-    --foreground: 0 0% 98%;
-
-    --card: 240 10% 3.9%;
-
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 10% 3.9%;
-
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-
-    --primary-foreground: 240 5.9% 10%;
-
-    --secondary: 240 3.7% 15.9%;
-
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 3.7% 15.9%;
-
-    --muted-foreground: 240 5% 64.9%;
-
-    --accent: 240 3.7% 15.9%;
-
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 3.7% 15.9%;
-
-    --input: 240 3.7% 15.9%;
-
-    --ring: 240 4.9% 83.9%;
-
-    --chart-1: 220 70% 50%;
-
-    --chart-2: 160 60% 45%;
-
-    --chart-3: 30 80% 55%;
-
-    --chart-4: 280 65% 60%;
-
-    --chart-5: 340 75% 55%;
-
-    --sidebar-background: 240 5.9% 10%;
-
-    --sidebar-foreground: 240 4.8% 95.9%;
-
-    --sidebar-primary: 224.3 76.3% 48%;
-
-    --sidebar-primary-foreground: 0 0% 100%;
-
-    --sidebar-accent: 240 3.7% 15.9%;
-
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-
-    --sidebar-border: 240 3.7% 15.9%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%
-  }
 }
 
 
@@ -232,8 +207,6 @@ h6 {
   animation: moveGradient 4s ease infinite;
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
@@ -250,15 +223,17 @@ h6 {
 }
 
 .card-bg {
-  background: rgb(36, 145, 235);
-  background: linear-gradient(90deg, rgba(36, 145, 235, 1) 43%, rgba(0, 212, 255, 1) 100%);
+  background: rgb(0,128,128);
+background: linear-gradient(159deg, rgba(0,128,128,1) 0%, rgba(0,153,144,1) 100%);
 }
 
 .card-2 {
   background: rgb(30, 144, 255);
   background: linear-gradient(159deg, rgba(30, 144, 255, 1) 0%, rgba(153, 186, 221, 1) 100%);
 }
-.tooth{
-  color:rgb(30, 144, 255) ;
+
+.tooth {
+  color: rgb(30, 144, 255);
   color: linear-gradient(159deg, rgba(30, 144, 255, 1) 0%, rgba(153, 186, 221, 1) 100%);
 }
+

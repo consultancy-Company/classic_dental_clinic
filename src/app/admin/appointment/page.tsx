@@ -50,7 +50,7 @@ const Page = () => {
                 <h1 className='text-2xl font-semibold'>Appointments</h1>
                 <Button
                     size="lg"
-                    className="bg-[#0E4E81] hover:bg-[#0E4E81] font-semibold"
+                    className="bg-[#407C82] hover:bg-[#366A70] font-semibold"
                     onClick={() => setShowForm(!showForm)} // Toggle form visibility
                 >
                     {showForm ? "Close Form" : "Add Appointment"}

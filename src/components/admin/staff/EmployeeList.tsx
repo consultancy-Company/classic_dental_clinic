@@ -17,7 +17,7 @@ const employees = [
 const EmployeeList = (props: Props) => {
     return (
         <div>
-            <Card className='p-6'>
+            <Card className='p-6 min-h-[430px]'>
                 <div className='flex justify-between mb-6'>
                     <p className='text-lg font-semibold flex gap-2'>
                         <Users className='self-center text-base text-[#3383c8]' />
@@ -31,7 +31,7 @@ const EmployeeList = (props: Props) => {
                             <div className='flex flex-col'>
                                 <p className='text-[17px]'>{employee.name}</p>
                                 <span className='text-gray-600 text-sm'>{employee.position}</span>
-                                <span className='text-gray-600 text-sm'>{employee.department}</span>
+                                {/* <span className='text-gray-600 text-sm'>{employee.department}</span> */}
                             </div>
                             <div className='flex flex-col items-center'>
                                 <p className='text-sm'>{employee.contact}</p>

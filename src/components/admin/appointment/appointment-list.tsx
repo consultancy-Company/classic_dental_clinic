@@ -17,10 +17,10 @@ const appointments = [
 const AppointmentList = (props: Props) => {
     return (
         <div>
-            <Card className='p-6'>
+            <Card className='p-6 min-h-[410px]'>
                 <div className='flex justify-between mb-6'>
                     <p className='text-lg font-semibold flex gap-2'>
-                        <ClipboardPlus className='self-center text-base text-[#3383c8]' />
+                        <ClipboardPlus className='self-center text-base text-primary' />
                         Appointment List
                     </p>
                     <Ellipsis />
@@ -43,7 +43,7 @@ const AppointmentList = (props: Props) => {
                 ))}
                 <div className='flex items-center justify-center py-2'>
                 <Button
-                        className="card-bg font-semibold hover:scale-105 transition-all ease-in-out duration-300"
+                        className="bg-primary-button-bg hover:bg-primary-button-hover-bg text-button-text-color font-semibold hover:scale-105 transition-all ease-in-out duration-300"
                         onClick={() => { window.location.href = "admin/patients" }}
                     >
                         All Patients <ArrowRight />

@@ -6,6 +6,7 @@ import data from './data.json'
 import { AlertTriangleIcon, CalendarCheckIcon, CircleCheckBig, TrendingDownIcon, TrendingUpIcon, Users } from "lucide-react"
 import { PatientStatusChart } from "@/components/admin/sidebar/PatientStatusChart"
 import EmployeeList from "@/components/admin/staff/EmployeeList"
+import AdminHero from "@/components/admin/adminHero"
 
 export default function Page() {
     const cardData = [
@@ -13,28 +14,28 @@ export default function Page() {
             title: "Increased patient visits",
             value: 125,
             description: "Total Patients Today",
-            icon: <Users className="text-[#fff]" />,
+            icon: <Users className="text-primary" />,
             badge: { text: "+10%", icon: <TrendingUpIcon className="size-3" />, color: "green", textColor: "green", borderColor: "green" },
         },
         {
             title: "More patients booking in advance",
             value: 340,
             description: "Appointments Scheduled",
-            icon: <CalendarCheckIcon className="text-[#fff]" />,
+            icon: <CalendarCheckIcon />,
             badge: { text: "+5%", icon: <TrendingUpIcon className="size-3" />, color: "green", textColor: "green", borderColor: "green" },
         },
         {
             title: "More successful treatments",
             value: 210,
             description: "Completed Procedures",
-            icon: <CircleCheckBig className="text-[#fff]" />,
+            icon: <CircleCheckBig />,
             badge: { text: "+12%", icon: <TrendingUpIcon className="size-3" />, color: "green", textColor: "green", borderColor: "green" },
         },
         {
             title: "Immediate attention needed",
             value: 8,
             description: "Emergency Cases",
-            icon: <AlertTriangleIcon className="text-[#fff]" />,
+            icon: <AlertTriangleIcon />,
             badge: { text: "Critical", icon: <TrendingDownIcon className="size-3" />, color: "green", textColor: "green", borderColor: "green" },
         },
     ];
@@ -43,21 +44,22 @@ export default function Page() {
         <div className="flex flex-1 flex-col px-4 lg:px-6">
             <div className="@container/main flex flex-1 flex-col gap-2">
                 <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
+                    <AdminHero />
                     <SectionCards data={cardData} />
-                    <div className="flex justify-between gap-4 h-full">
-                        <div className="w-[70%]  h-full">
+                    <div className="md:flex justify-between gap-4 h-full">
+                        <div className="md:w-[70%]  md:h-full h-[100vh]">
                             <ChartAreaInteractive />
                         </div>
-                        <div className="w-[26%] h-full">
-                            <AppointmentList />
+                        <div className="md:w-[30%] h-full">
+                            <PatientStatusChart />
                         </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid md:grid-cols-2 gap-4 h-full">
                         <div>
                             <EmployeeList />
                         </div>
                         <div className="">
-                            <PatientStatusChart />
+                            <AppointmentList />
                         </div>
                     </div>
                     <div className="w-full">
