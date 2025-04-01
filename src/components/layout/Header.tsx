@@ -216,7 +216,7 @@ const Header = () => {
                         )}
                         <div>
                             <Link href={"/"}>
-                                <Button variant="classic_primary" className="h-[50px]">
+                                <Button variant="default" className="h-[50px]">
                                     Request Appointment
                                 </Button>
                             </Link>

@@ -58,7 +58,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 1 }}
                     >
-                        <Button className="h-[70px] mt-2 px-8 hover:bg-[#dd9639] bg-[#104B82] rounded-none shadow-md text-xl">
+                        <Button variant="default" className="h-[70px] mt-2 px-8  rounded-none shadow-md text-xl">
                             {buttonText}
                         </Button>
                     </motion.div>
@@ -71,7 +71,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     >
                         {phoneNumbers.map((phone, index) => (
                             <h4 key={index} className="flex items-center gap-3 text-lg font-medium hover:text-[#dd9639] w-fit mb-4">
-                                <div className="bg-[#104B82] h-[40px] w-[40px] hover:text-[#dd9639] flex items-center justify-center rounded-full">
+                                <div className="bg-primary h-[40px] w-[40px] hover:text-[#dd9639] flex items-center justify-center rounded-full">
                                     <FaPhoneVolume size={20} />
                                 </div>
                                 <a href={`tel:${phone}`} className="transition-colors duration-300">
@@ -81,7 +81,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                         ))}
                         {location && (
                             <h4 className="mt-4 flex items-center gap-3 text-lg font-medium hover:text-[#dd9639] w-fit">
-                                <div className="bg-[#104B82] h-[40px] w-[40px] flex items-center justify-center rounded-full">
+                                <div className="bg-primary h-[40px] w-[40px] flex items-center justify-center rounded-full">
                                     <FaLocationDot size={20} />
                                 </div>
                                 <p>{location}</p>

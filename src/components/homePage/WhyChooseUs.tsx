@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
                         alt="Why Choose Us"
                         width={500}
                         height={500}
-                        className='border-2 rounded-lg'
+                        className='border-2 rounded-lg inverted-radius'
                     />
                 </motion.div>
 
@@ -72,7 +72,7 @@ const WhyChooseUs = () => {
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Button className='bg-[#104B82] w-fit hover:bg-[#dd9639] rounded-none shadow-md text-xl px-8 py-8 border-none mt-10 flex'>
+                        <Button variant="default" className=' w-fit rounded-none shadow-md text-xl px-8 py-8 border-none mt-10 flex'>
                             Book now 
                         </Button>
                     </motion.div>

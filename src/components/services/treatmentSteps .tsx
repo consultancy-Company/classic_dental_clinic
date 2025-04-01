@@ -40,7 +40,7 @@ const TreatmentSteps = ({ treatmentName }: Props) => {
     }, []);
 
     return (
-        <div className="py-14 bg-gray-50">
+        <div className="py-14 ">
             <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
                 <motion.h2
                     initial={{ opacity: 0, y: 50 }}
@@ -52,7 +52,7 @@ const TreatmentSteps = ({ treatmentName }: Props) => {
                 </motion.h2>
                 <div className="relative w-[90%] md:w-[80%] mx-auto">
                     <div className="relative ">
-                        <div className="absolute ml-3 md:ml-0  md:block w-1 bg-[#104B82] h-full md:left-1/2 transform -translate-x-1/2"></div>
+                        <div className="absolute ml-3 md:ml-0  md:block w-1 bg-primary h-full md:left-1/2 transform -translate-x-1/2"></div>
                         {steps?.map((step, index) => (
                             <motion.div
                                 key={index}
@@ -63,7 +63,7 @@ const TreatmentSteps = ({ treatmentName }: Props) => {
                             >
                                 <div className="relative md:w-1/2 px-8 py-4">
                                     <div className={`absolute w-12 h-12 rounded-full top-0 flex items-center justify-center ${index % 2 === 0 ? '-left-4' : '-right-4'}`}>
-                                        <FaCheckCircle size={24} className="text-[#104B82]" />
+                                        <FaCheckCircle size={24} className="text-primary" />
                                     </div>
                                     <div className={`bg-white p-6 rounded-lg shadow-md ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
                                         <h3 className="text-2xl font-semibold text-gray-700 flex items-center gap-2">

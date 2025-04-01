@@ -29,30 +29,28 @@ const ServicesList : React.FC<ServiceListProps> = ({
         {
             title: 'Orthodontics',
             description: 'Get the smile you’ve always wanted with orthodontic treatments like braces and Invisalign.',
-            imageSrc: '/images/smile.jpg',
+            imageSrc: '/images/d2.jpg',
             alt: 'Orthodontics Image'
         },
         {
             title: 'Pediatric Dentistry',
             description: 'We offer gentle and caring dental services for children to ensure they develop healthy smiles from an early age.',
-            imageSrc: '/images/dental_chair_care.jpg',
+            imageSrc: '/images/d1.jpg',
             alt: 'Pediatric Dentistry Image'
         },
         {
             title: 'Preventive Care',
             description: 'We provide preventive services such as regular checkups, cleanings, and x-rays to keep your teeth and gums healthy.',
-            imageSrc: '/images/smile.jpg',
+            imageSrc: '/images/dental_chair_care.jpg',
             alt: 'Preventive Care Image'
         },
     ];
 
     return (
-        <div className='w-screen md:min-h-[100vh] py-8 bg-[#F4F6F3]'>
+        <div className='w-screen md:min-h-[100vh] py-8 bg-gray-50 '>
             <div className="w-[90%] mx-auto items-center">
-                <p className='text-[80px] md:text-[100px] font-[800] text-[#d7e0e9] text-center'>
-                    Services
-                </p>
-                <h1 className="text-3xl md:text-5xl font-heading -mt-10 mb-14 md:-mt-14 text-[#104B82] font-[400] text-center">
+                
+                <h1 className="text-3xl md:text-5xl font-heading mt-5  mb-14  text-[#104B82] font-[400] text-center">
                     Tailored treatments just for you
                 </h1>
                 {/* <p className='text-center font-subheading text-xl md:max-w-2xl mx-auto mt-10 mb-8'>
@@ -85,7 +83,7 @@ const ServicesList : React.FC<ServiceListProps> = ({
                             />
                             <h2 className='text-[#104B82] text-2xl font-semibold my-3'>{service.title}</h2>
                             <p className='text-lg font-subheading mb-6'>{service.description}</p>
-                            <Button className="h-[70px] px-8 hover:bg-[#dd9639] hover:text-white bg-[#F4F6F3] text-black border-2 border-[#dd9639] rounded-none text-xl">
+                            <Button variant="default" className="h-[70px] px-8 hover:bg-[#53898e] hover:text-white bg-[#F4F6F3] text-black border-2 border-[#53898e] rounded-none text-xl">
                                 Request Appointment
                             </Button>
                         </motion.div>
@@ -99,7 +97,7 @@ const ServicesList : React.FC<ServiceListProps> = ({
                         whileTap={{ scale: 0.95 }}    // Tap effect
                         viewport={{ once: true }}
                     >
-                        <Button className="h-[70px] px-8 hover:bg-[#dd9639] hover:text-white bg-[#F4F6F3] text-black border-2 border-[#dd9639] rounded-none text-xl">
+                        <Button className="h-[70px] px-8 hover:bg-[#53898e] hover:text-white bg-[#F4F6F3] text-black border-2 border-[#53898e] rounded-none text-xl">
                             View All Services
                         </Button>
                     </motion.div>
