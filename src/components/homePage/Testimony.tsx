@@ -42,7 +42,7 @@ const Testimony = () => {
                 >
                     <div className=' flex flex-col md:flex-row  items-center md:items-start gap-12'>
                         <motion.div
-                            className='px-7 py-14 flex-col flex gap-8 text-white  w-[350px] md:w-[410px] h-fit'
+                            className='px-7 py-14 flex-col flex gap-8 text-white  w-[350px] md:w-[410px] h-fit ' 
                             style={{ backgroundImage: "url('/images/image0_0.jpg')" }}
                             variants={{
                                 hidden: { opacity: 0, y: 50 },

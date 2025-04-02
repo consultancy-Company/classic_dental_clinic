@@ -9,8 +9,8 @@ interface ServiceListProps {
 
 
 
-const ServicesList : React.FC<ServiceListProps> = ({
-    isHidden 
+const ServicesList: React.FC<ServiceListProps> = ({
+    isHidden
 }) => {
     // Array of services data
     const services = [
@@ -44,12 +44,18 @@ const ServicesList : React.FC<ServiceListProps> = ({
             imageSrc: '/images/dental_chair_care.jpg',
             alt: 'Preventive Care Image'
         },
+        {
+            title: 'Cosmetic',
+            description: 'Enhance your smile with cosmetic dentistry treatments such as teeth whitening, veneers, and more.',
+            imageSrc: '/images/dental_chair_care.jpg',
+            alt: 'Cosmetic Dentistry Image'
+        },
     ];
 
     return (
-        <div className='w-screen md:min-h-[100vh] py-8 bg-gray-50 '>
+        <div className='w-screen md:min-h-[100vh] py-8 bg-[#F9FEFF] '>
             <div className="w-[90%] mx-auto items-center">
-                
+
                 <h1 className="text-3xl md:text-5xl font-heading mt-5  mb-14  text-[#104B82] font-[400] text-center">
                     Tailored treatments just for you
                 </h1>
@@ -59,7 +65,7 @@ const ServicesList : React.FC<ServiceListProps> = ({
                 </p> */}
 
                 {/* Map over the services array to create service cards */}
-                <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 justify-center'>
+                <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 justify-center '>
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
@@ -92,16 +98,16 @@ const ServicesList : React.FC<ServiceListProps> = ({
 
                 {
                     !isHidden && <div className='flex justify-center mt-12 mb-5'>
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}   // Hover animation for the button
-                        whileTap={{ scale: 0.95 }}    // Tap effect
-                        viewport={{ once: true }}
-                    >
-                        <Button className="h-[70px] px-8 hover:bg-[#53898e] hover:text-white bg-[#F4F6F3] text-black border-2 border-[#53898e] rounded-none text-xl">
-                            View All Services
-                        </Button>
-                    </motion.div>
-                </div>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}   // Hover animation for the button
+                            whileTap={{ scale: 0.95 }}    // Tap effect
+                            viewport={{ once: true }}
+                        >
+                            <Button className="h-[70px] px-8 hover:bg-[#53898e] hover:text-white bg-[#F4F6F3] text-black border-2 border-[#53898e] rounded-none text-xl">
+                                View All Services
+                            </Button>
+                        </motion.div>
+                    </div>
                 }
             </div>
         </div>

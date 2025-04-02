@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 const WhyChooseUs = () => {
 
     return (
-        <div className='w-full bg-[#F4F6F3] min-h-[60vh] pt-10 pb-20 overflow-x-hidden'>
+        <div className='w-full bg-[#F9FEFF] min-h-[60vh] pt-10 pb-20 overflow-x-hidden'>
             <motion.div
                 className='w-[90%]  mx-auto flex flex-col sm:flex-col lg:flex-row justify-between items-center'
                 initial={{ opacity: 0, y: 50 }}

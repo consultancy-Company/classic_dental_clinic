@@ -10,6 +10,7 @@ import GetStarted from '@/components/services/GetStarted';
 import ForYou from '@/components/services/ForYou';
 import AllSolutions from '@/components/services/AllSolutions';
 import ReachOut from '@/components/services/ReachOut';
+import Layout from '@/components/layout/Layout';
 
 const faqs = [
   {
@@ -36,7 +37,7 @@ const toSentenceCase = (str: string) => {
 const Service = async ({ params }: { params: Promise<{ service: string }> }) => {
   const { service } = await params;
   return (
-    <>
+    <Layout>
       <HeroSection
         title="Service Excellence Redefined"
         subtitle={
@@ -68,7 +69,7 @@ const Service = async ({ params }: { params: Promise<{ service: string }> }) => 
 
       {/* this component is only shown on mobile and tablet */}
       <ReachOut />
-    </>
+    </Layout>
   );
 }
 

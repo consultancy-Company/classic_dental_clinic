@@ -91,7 +91,6 @@ const navigation = [
             }
         ]
     },
-    { name: "Appointments", href: "/appointments" },
     { name: "Contact Us", href: "/contact" },
 ]
 
@@ -215,8 +214,8 @@ const Header = () => {
                             )
                         )}
                         <div>
-                            <Link href={"/"}>
-                                <Button variant="default" className="h-[50px]">
+                            <Link  href={"/appointment"}>
+                                <Button variant="default" className="h-[50px] md:ml-20">
                                     Request Appointment
                                 </Button>
                             </Link>
