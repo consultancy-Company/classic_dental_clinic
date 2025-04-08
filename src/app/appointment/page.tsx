@@ -12,44 +12,46 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { format } from 'date-fns';
 import { useState, useEffect } from 'react';
 import { Badge } from "@/components/ui/badge"
-import Image from 'next/image';
 import { PhoneInput } from "@/components/ui/phone-input";
-import { toast } from "@/hooks/use-toast";
+import { axiosInstance } from '@/utils/axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-type Props = {};
 
 const formSchema = z.object({
     firstName: z.string().min(2, 'First name is required'),
     lastName: z.string().min(2, 'Last name is required'),
-    phone: z.string().min(10, 'Phone number is required'),
+    phoneNumber: z.string().min(10, 'Phone number is required'),
     email: z.string().email('Invalid email'),
-    date: z.date({ required_error: 'Date is required' }),
-    time: z.string().min(1, 'Time is required')
+    requestedDate: z.date({ required_error: 'Date is required' }),
+    requestedTime: z.string().min(1, 'Time is required')
 });
 
-const Page = (props: Props) => {
+const Page = () => {
     const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
             firstName: '',
             lastName: '',
-            phone: '',
+            phoneNumber: '',
             email: '',
-            date: undefined,
-            time: ''
+            requestedDate: undefined,
+            requestedTime: ''
         }
     });
-    const openTime = 2;
-    const closeTime = 11;
-    const timeSlots = Array.from({ length: (closeTime - openTime) * 2 + 1 }, (_, i) => {
+    const openTime = 2; // in 24h format (e.g., 14 for 2PM)
+    const closeTime = 11; // in 24h format (e.g., 23 for 11PM)
+
+    const rawTimeSlots = Array.from({ length: (closeTime - openTime) * 2 }, (_, i) => {
         const hour = openTime + Math.floor(i / 2);
         const minute = i % 2 === 0 ? '00' : '30';
-        const period = hour < 12 ? 'AM' : 'PM';
-        const formattedHour = hour % 12 === 0 ? 12 : hour % 12; // Convert to 12-hour format
-        return `${formattedHour}:${minute} ${period}`;
+        return `${hour.toString().padStart(2, '0')}:${minute}`; // Format as HH:mm
     });
-
+    
+    // Ensure all values are unique and trimmed
+    const timeSlots = Array.from(new Set(rawTimeSlots.map(slot => slot.trim())));
+    
     const [showToast, setShowToast] = useState(false);
 
     useEffect(() => {
@@ -64,10 +66,25 @@ const Page = (props: Props) => {
     }, [showToast]);
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-        const formattedDate = values.date ? format(values.date, 'yyyy-MM-dd') : '';
-
-        console.log({ ...values, date: formattedDate });
-        setShowToast(true);
+        const formattedDate = values.requestedDate ? format(values.requestedDate, 'yyyy-MM-dd') : '';
+        const formattedTime = values.requestedTime; // Assuming the time is already in `HH:mm` format
+    
+        const appointmentData = {
+            ...values,
+            requestedDate: formattedDate, // Ensure it's in `yyyy-MM-dd` format
+            requestedTime: formattedTime, // Ensure it's in `HH:mm` format
+        };
+    
+        axiosInstance
+            .post('/appointment/guest', appointmentData)
+            .then((response) => {
+                console.log('Appointment booked successfully:', response.data);
+                toast.success('Your appointment has been booked successfully.');
+            })
+            .catch((error) => {
+                console.error('Error booking appointment:', error);
+                toast.success('Failed to book your appointment. Please try again.');
+            });
     }
 
     return (
@@ -111,7 +128,7 @@ const Page = (props: Props) => {
                                             </FormItem>
                                         )} />
 
-                                        <FormField control={form.control} name='phone' render={({ field }) => (
+                                        <FormField control={form.control} name='phoneNumber' render={({ field }) => (
                                             <FormItem>
                                                 <FormLabel>Phone</FormLabel>
                                                 <FormControl>
@@ -132,7 +149,7 @@ const Page = (props: Props) => {
                                         )} />
                                     </div>
 
-                                    <FormField control={form.control} name='date' render={({ field }) => (
+                                    <FormField control={form.control} name='requestedDate' render={() => (
                                         <FormItem className='w-full flex flex-col justify-center'>
                                             <FormLabel className='text-primary mt-3 self-center text-center text-lg font-subheading'>Pick your suitable date </FormLabel>
                                             <FormControl className='w-full'>
@@ -140,7 +157,7 @@ const Page = (props: Props) => {
                                                     selected={selectedDate}
                                                     onSelect={setSelectedDate}
                                                     onDayClick={(date) => {
-                                                        form.setValue('date', date);
+                                                        form.setValue('requestedDate', date);
                                                         setSelectedDate(date);
                                                     }}
                                                     className="h-full w-full flex"
@@ -158,16 +175,16 @@ const Page = (props: Props) => {
                                         </FormItem>
                                     )} />
 
-                                    <FormField control={form.control} name='time' render={({ field }) => (
+                                    <FormField control={form.control} name='requestedTime' render={({ field }) => (
                                         <FormItem className='w-full flex flex-col justify-center mb-10'>
                                             <FormLabel className='text-primary  self-center text-center text-lg font-subheading'>Pick available time </FormLabel>
                                             <FormControl>
                                                 <div className='flex flex-wrap gap-3 mb-10'>
-                                                    {timeSlots.map((slot) => (
+                                                    {timeSlots.map((slot,index) => (
                                                         <Badge
-                                                            key={slot}
+                                                            key={`time-slot-${index}`} // Ensure a unique key by prefixing with "slot-"
                                                             variant={field.value === slot ? 'default' : 'outline'}
-                                                            onClick={() => form.setValue('time', slot)}
+                                                            onClick={() => form.setValue('requestedTime', slot)}
                                                             className='cursor-pointer *:hover:bg-secondary *:hover:text-secondary-foreground font-normal text-base p-3'
                                                         >
                                                             {slot}
@@ -186,6 +203,7 @@ const Page = (props: Props) => {
                     </Card>
                 </Card>
             </div>
+            <ToastContainer />
         </Layout>
     );
 };

@@ -1,5 +1,7 @@
 import React from 'react'
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Calendar, ChevronRight } from 'lucide-react';
+import { Phone, Mail, MapPin,Calendar, ChevronRight } from 'lucide-react';
+import { FaFacebook , FaInstagram , FaTwitter } from 'react-icons/fa';
+
 import { Button } from '../ui/button'
 
 const Footer = () => {
@@ -142,19 +144,16 @@ const Footer = () => {
               </div>
               <div className="flex gap-4">
                 {[
-                  { Icon: Facebook, href: '#' },
-                  { Icon: Instagram, href: '#' },
-                  { Icon: Twitter, href: '#' }
-                ].map(({ Icon, href }) => (
+                  { Icon: FaFacebook, href: '#' ,name:"facebook"},
+                  { Icon: FaInstagram, href: '#', name: "instagram" },
+                  { Icon: FaTwitter, href: '#', name: "twitter" },
+                ].map(({ Icon, href ,name}) => (
                   <a
-                    key={href}
+                    key={name}
                     href={href}
-                    className="p-2 rounded-full transition-colors"
+                    className="p-2 rounded-full transition-colors hover:bg-primary-button-bg"
                     style={{
-                      backgroundColor: 'var(--tertiary-color)',
-                      ':hover': {
-                        backgroundColor: 'var(--primary-button-bg)'
-                      }
+                      backgroundColor: 'var(--tertiary-color)'
                     }}
                   >
                     <Icon className="w-5 h-5" />
