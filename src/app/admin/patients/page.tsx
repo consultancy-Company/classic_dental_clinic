@@ -7,9 +7,8 @@ import { SectionCards } from '@/components/admin/sidebar/section-cards'
 import { AlertTriangleIcon, CalendarCheckIcon, CircleCheckBig, TrendingDownIcon, TrendingUpIcon, Users } from 'lucide-react'
 import PatientForm from '@/components/admin/forms/patientForm'
 
-type Props = {}
 
-const Page = (props: Props) => {
+const Page = () => {
     const [showForm, setShowForm] = useState(false); // State to manage form visibility
 
     const cardData = [
@@ -42,6 +41,18 @@ const Page = (props: Props) => {
             badge: { text: "Critical", icon: <TrendingDownIcon className="size-3" />, color: "green", textColor: "green", borderColor: "green" },
         },
     ];
+
+    const dataWithDefaults = data.map(item => ({
+        ...item,
+        id: Number(item.id), // Convert id to number
+        header: "Default Header",
+        type: "Default Type",
+        status: "Default Status",
+        target: "Default Target",
+        limit: "Default Limit",
+        reviewer: "Default Reviewer"
+    }));
+
     return (
         <>
             <div className={`flex flex-col gap-5 py-4 md:gap-6 md:py-6 px-4 lg:px-6 ${showForm ? 'opacity-50 pointer-events-none' : ''}`}>
@@ -61,7 +72,7 @@ const Page = (props: Props) => {
                     </div>
                 </div>
                 <SectionCards data={cardData} />
-                <DataTable data={data} />
+                <DataTable data={dataWithDefaults} isDashboard={false} />
             </div>
             {showForm && <PatientForm show={showForm} setShow={setShowForm} />}
         </>

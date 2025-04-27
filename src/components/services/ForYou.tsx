@@ -7,38 +7,38 @@ const ForYou = () => {
     {
       title: "Transparent Pricing",
       description: `At ${CLINIC_NAME} Dental, the cost of cosmetic dentistry treatment is clear and affordable.`,
-      icon: <CheckCircle size={40} className="text-blue-600" />,
+      icon: <CheckCircle size={32} className="text-blue-600" />,
     },
     {
       title: "A Dental Spa",
       description: "Essential oils, a warm compress — time to relax and have some fun.",
-      icon: <Smile size={40} className="text-blue-600" />,
+      icon: <Smile size={32} className="text-blue-600" />,
     },
     {
       title: "Efficient Care",
       description: "We know you’re busy. Your time with us will be efficient and well worth it.",
-      icon: <Clock size={40} className="text-blue-600" />,
+      icon: <Clock size={32} className="text-blue-600" />,
     },
     {
       title: "Safety First",
       description: "Medical-grade sterilization, enhanced PPE, and more to keep you safe.",
-      icon: <Shield size={40} className="text-blue-600" />,
+      icon: <Shield size={32} className="text-blue-600" />,
     },
   ];
 
   return (
-    <div className="bg-gray-50 py-24 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-12">This part is all for you</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div className="bg-white py-20 px-6 md:px-12">
+      <div className="max-w-5xl mx-auto text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-16">This part is all for you</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col items-center p-6 bg-white rounded-xl shadow-lg transition-transform transform hover:scale-105"
+              className="border border-gray-200 rounded-lg p-6 flex flex-col items-center text-center bg-gray-50"
             >
               {item.icon}
-              <h3 className="text-2xl font-semibold mt-6 text-gray-800">{item.title}</h3>
-              <p className="text-lg text-gray-600 mt-3">{item.description}</p>
+              <h3 className="text-xl font-semibold text-gray-800 mt-4">{item.title}</h3>
+              <p className="text-base text-gray-600 mt-2">{item.description}</p>
             </div>
           ))}
         </div>

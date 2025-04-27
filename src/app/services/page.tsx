@@ -10,7 +10,7 @@ import TreatmentSteps from '@/components/services/treatmentSteps '
 import React from 'react'
 
 
-const page = (props: Props) => {
+const page = () => {
     return (
         <Layout>
             <HeroSection

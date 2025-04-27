@@ -2,56 +2,73 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { FaUserDoctor } from 'react-icons/fa6';
+import { FaCalendarAlt, FaTooth } from 'react-icons/fa';
 
-type GetStartedProps = {
-  title: string;
-  subtitle: string;
-};
-// data for get started section
+
 const data = [
-  { image: '/images/services/stage1.png', description: 'Schedule an exam' },
-  { image: '/images/services/stage2.png', description: 'Speak with a dentist about your goals' },
-  { image: '/images/services/stage3.png', description: 'Create a plan and start your smile journey' }
-]
-const GetStarted: React.FC<GetStartedProps> = ({ title, subtitle }) => {
-  return (
-    <div className='bg-[#F4F6F3] w-full'>
-      <div className="py-32 px-4 max-w-7xl mx-auto ">
-        <h1 className="text-5xl font-bold text-center text-classic_yellow">{title}</h1>
-        <p className="text-xl text-center mt-2 pb-8">{subtitle}</p>
+  { image: '/images/services/stage1.png', title:"Make Appointment" , description: 'Schedule an appointment ', icon: <FaCalendarAlt /> },
+  { image: '/images/services/stage2.png', title: "Expert Dental Care", description: 'Speak with a dentist about your goals', icon:<FaUserDoctor /> },
+  { image: '/images/services/stage3.png', title: "Radiate Confidence", description: 'Create a plan and start your smile journey', icon:<FaTooth />}
+];
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          {data.map((item: any, idx) => (
-            <div key={idx} className="relative flex flex-col items-center">
-              <Image
-                src={`${item.image}`}
-                alt={`Stage ${idx + 1}`}
-                width={350}
-                height={250}
-                className="rounded-lg"
-              />
+const GetStarted = () => {
+  return (
+    <div className="relative bg-gradient-to-b from-[#F4F6F3] to-white">
+      <div className="max-w-7xl mx-auto px-4 py-24 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className=" mb-16"
+        >
+          <p className="text-base text-gray-500 mb-4">How It Work</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 w-[50%]">Your Journey to a Healthy Smile Starts Here</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {data.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.2 }}
+              viewport={{ once: true }}
+              className="relative "
+            >
+              <div className=" text-4xl w-[100px] h-[100px] flex items-center justify-center bg-primary text-white">{item.icon}</div>
               <div className="">
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -mt-5">
-                  <div className="bg-classic_yellow text-white rounded-full w-10 h-10  flex items-center justify-center">
-                    {idx + 1}
-                  </div>
-                </div>
+                <p className="text-2xl font-semibold text-gray-800 mt-2">
+                  {item.title}
+                </p>
+                <p className="text-base text-gray-600 mt-2">{item.description}</p>
               </div>
-              <p className="mt-2 text-center text-lg">{item.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="my-14 flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
           <Link href="/appointment">
-            <Button variant="classic_primary">Request Appointment</Button>
+            <Button
+              variant="default"
+              className="px-8 py-6 text-lg font-semibold rounded-lg hover:transform hover:scale-105 transition-all duration-300"
+            >
+              Request Appointment
+            </Button>
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default GetStarted
+export default GetStarted;

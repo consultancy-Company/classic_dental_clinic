@@ -8,6 +8,7 @@ import { AlertTriangleIcon, CalendarCheckIcon, CircleCheckBig, TrendingDownIcon,
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import AppointmentForm from '@/components/admin/forms/appointmentForm';
+import AppointmentCalendar from '@/components/admin/appointment/AppointmentCalendar';
 
 const Page = () => {
     const [activeTab, setActiveTab] = useState<'accepted' | 'queue' | 'archive'>('accepted');
@@ -50,7 +51,7 @@ const Page = () => {
                 <h1 className='text-2xl font-semibold'>Appointments</h1>
                 <Button
                     size="lg"
-                    className="bg-[#0E4E81] hover:bg-[#0E4E81] font-semibold"
+                    className="bg-[#407C82] hover:bg-[#366A70] font-semibold"
                     onClick={() => setShowForm(!showForm)} // Toggle form visibility
                 >
                     {showForm ? "Close Form" : "Add Appointment"}
@@ -58,6 +59,8 @@ const Page = () => {
             </div>
 
             <SectionCards data={cardData} />
+
+            <AppointmentCalendar/>
 
             {/* Tab Navigation */}
             <div className="flex gap-4 border-b-2 py-2 px-4">
@@ -68,7 +71,6 @@ const Page = () => {
                     Accepted
                     <div className={`absolute left-0 bottom-0 w-full h-[2px] bg-blue-600 transition-all duration-300 ${activeTab === 'accepted' ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}></div>
                 </button>
-
                 <button
                     className={`relative px-4 py-2 text-gray-700 transition-all duration-300 ${activeTab === 'queue' ? 'font-semibold' : 'text-gray-500'}`}
                     onClick={() => setActiveTab('queue')}
@@ -76,7 +78,6 @@ const Page = () => {
                     In Queue
                     <div className={`absolute left-0 bottom-0 w-full h-[2px] bg-blue-600 transition-all duration-300 ${activeTab === 'queue' ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`}></div>
                 </button>
-
                 <button
                     className={`relative px-4 py-2 text-gray-700 transition-all duration-300 ${activeTab === 'archive' ? 'font-semibold' : 'text-gray-500'}`}
                     onClick={() => setActiveTab('archive')}

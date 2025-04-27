@@ -13,7 +13,7 @@ import {
     getSortedRowModel,
     useReactTable,
 } from "@tanstack/react-table"
-import { ArrowUpDown, Eye, Edit, Trash2 } from "lucide-react"
+import { Eye, Edit, Trash2 } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -183,7 +183,7 @@ export const columns: ColumnDef<Patient>[] = [
     {
         id: "actions",
         header: "Actions",
-        cell: ({ row }) => (
+        cell: () => (
             <div className="flex space-x-2">
                 <Button variant="ghost" size="sm">
                     <Eye className="w-4 h-4" />

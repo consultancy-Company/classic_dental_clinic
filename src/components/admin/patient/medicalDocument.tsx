@@ -1,11 +1,9 @@
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardHeader } from '@/components/ui/card';
 import { MoreHorizontal } from 'lucide-react';
 import React from 'react';
 import { AiOutlineCloudDownload } from "react-icons/ai";
 
-type Props = {}
-
-const MedicalDocument = (props: Props) => {
+const MedicalDocument = () => {
     return (
         <Card className='pb-4'>
             <CardHeader >

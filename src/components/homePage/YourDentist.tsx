@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Button } from '../ui/button'
-import { MdOutlineMan4 } from "react-icons/md";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -45,8 +44,7 @@ const YourDentist : React.FC<YourDentistProps> = ({
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                     >
-                        <Button className='bg-[#104B82] w-fit hover:bg-[#dd9639] rounded-none shadow-md text-xl px-8 py-8 border-none mt-10 flex'>
-                            <MdOutlineMan4 className='text-2xl mr-2'/>
+                        <Button variant="default" className=' w-fit rounded-none shadow-md text-xl px-8 py-8 border-none mt-10 flex'>
                             About Us
                         </Button>
                     </motion.div>

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import {  Bar, BarChart, CartesianGrid, XAxis } from "recharts"
 
 import { useIsMobile } from "@/hooks/use-mobile"
 import {
@@ -26,10 +26,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import {
-    ToggleGroup,
-    ToggleGroupItem,
-} from "@/components/ui/toggle-group"
+
 const chartData = [
     { date: "2024-04-01", desktop: 222, mobile: 150 },
     { date: "2024-04-02", desktop: 97, mobile: 180 },
@@ -130,11 +127,11 @@ const chartConfig = {
     },
     desktop: {
         label: "Desktop",
-        color: "hsl(var(--chart-1))",
+        color: "#1E6091",
     },
     mobile: {
         label: "Mobile",
-        color: "hsl(var(--chart-2))",
+        color: "#FFC857",
     },
 } satisfies ChartConfig
 

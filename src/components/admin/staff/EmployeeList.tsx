@@ -5,7 +5,6 @@ import { Separator } from '@/components/ui/separator'
 import { Users, Ellipsis, ArrowRight } from 'lucide-react'
 import React from 'react'
 
-type Props = {}
 
 const employees = [
     { name: 'Abel Mekonn', position: 'Manager', department: 'Sales', contact: '987-654-3210' },
@@ -14,10 +13,10 @@ const employees = [
     { name: 'Emily Smith', position: 'Designer', department: 'Creative', contact: '222-333-4444' },
 ]
 
-const EmployeeList = (props: Props) => {
+const EmployeeList = () => {
     return (
         <div>
-            <Card className='p-6'>
+            <Card className='p-6 min-h-[430px]'>
                 <div className='flex justify-between mb-6'>
                     <p className='text-lg font-semibold flex gap-2'>
                         <Users className='self-center text-base text-[#3383c8]' />
@@ -31,7 +30,7 @@ const EmployeeList = (props: Props) => {
                             <div className='flex flex-col'>
                                 <p className='text-[17px]'>{employee.name}</p>
                                 <span className='text-gray-600 text-sm'>{employee.position}</span>
-                                <span className='text-gray-600 text-sm'>{employee.department}</span>
+                                {/* <span className='text-gray-600 text-sm'>{employee.department}</span> */}
                             </div>
                             <div className='flex flex-col items-center'>
                                 <p className='text-sm'>{employee.contact}</p>

@@ -22,17 +22,35 @@ const initialData = [
 
 const DentalHistoryTable = () => {
     const [data] = useState(initialData);
-    const [selectedHistory, setSelectedHistory] = useState<any | null>(null);
+    const [selectedHistory, setSelectedHistory] = useState<{
+        id: number;
+        treatmentType: string;
+        date: string;
+        treatmentStatus: string;
+        paymentStatus: string;
+    } | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Function to open modal and set selected history data
-    const handleViewDetail = (history: any) => {
+    const handleViewDetail = (history: { 
+        id: number;
+        treatmentType: string;
+        date: string;
+        treatmentStatus: string;
+        paymentStatus: string;
+    }) => {
         setSelectedHistory(history);
         setIsModalOpen(true);
     };
 
     // Define columns inside the component so it has access to `handleViewDetail`
-    const columns: ColumnDef<any>[] = [
+    const columns: ColumnDef<{
+        id: number;
+        treatmentType: string;
+        date: string;
+        treatmentStatus: string;
+        paymentStatus: string;
+    }>[] = [
         { accessorKey: "id", header: "ID" },
         {
             accessorKey: "treatmentType",

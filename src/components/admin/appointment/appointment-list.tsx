@@ -5,7 +5,6 @@ import { Separator } from '@/components/ui/separator'
 import { ArrowRight, ClipboardPlus, Ellipsis } from 'lucide-react'
 import React from 'react'
 
-type Props = {}
 
 const appointments = [
     { name: 'Abel Mekonn', type: 'Canal test', date: 'Tomorrow', time: '10:00 AM' },
@@ -14,13 +13,13 @@ const appointments = [
     { name: 'Emily Smith', type: 'Braces Checkup', date: 'March 22', time: '3:30 PM' },
 ]
 
-const AppointmentList = (props: Props) => {
+const AppointmentList = () => {
     return (
         <div>
-            <Card className='p-6'>
+            <Card className='p-6 min-h-[410px]'>
                 <div className='flex justify-between mb-6'>
                     <p className='text-lg font-semibold flex gap-2'>
-                        <ClipboardPlus className='self-center text-base text-[#3383c8]' />
+                        <ClipboardPlus className='self-center text-base text-primary' />
                         Appointment List
                     </p>
                     <Ellipsis />
@@ -43,7 +42,7 @@ const AppointmentList = (props: Props) => {
                 ))}
                 <div className='flex items-center justify-center py-2'>
                 <Button
-                        className="card-bg font-semibold hover:scale-105 transition-all ease-in-out duration-300"
+                        className="bg-primary-button-bg hover:bg-primary-button-hover-bg text-button-text-color font-semibold hover:scale-105 transition-all ease-in-out duration-300"
                         onClick={() => { window.location.href = "admin/patients" }}
                     >
                         All Patients <ArrowRight />

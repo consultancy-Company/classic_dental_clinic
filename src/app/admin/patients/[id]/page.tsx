@@ -1,15 +1,10 @@
 "use client"
-import DentalHistoryTable from '@/components/admin/patient/dentalHistory'
-import MedicalDocument from '@/components/admin/patient/medicalDocument'
 import PatientDetail from '@/components/admin/patient/patientDetail'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
 
-
-type Props = {}
-
-const page = (props: Props) => {
+const page = () => {
     return (
         <div className='flex flex-col gap-5 py-4 md:gap-6 md:py-6 px-4 lg:px-6 '>
             <div className='flex justify-between mt-3'>

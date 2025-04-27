@@ -13,7 +13,7 @@ import {
     UserPlusIcon,
     BoxIcon,
     Stethoscope,
-    User
+    UserIcon,
 } from "lucide-react"
 
 import { NavMain } from "./nav-main"
@@ -26,7 +26,6 @@ import {
     SidebarHeader,
     SidebarRail,
 } from "@/components/ui/sidebar"
-import { FaRegUser} from "react-icons/fa"
 
 // This is sample data.
 const data = {
@@ -120,7 +119,7 @@ const data = {
         {
             title: "Patients",
             url: "/patients",
-            icon:Stethoscope,
+            icon: Stethoscope,
         },
         {
             title: "Billing",
@@ -128,9 +127,9 @@ const data = {
             icon: ClipboardListIcon,
         },
         {
-            title:"Staff list",
-            url:"/staff",
-            icon: FaRegUser ,
+            title: "Staff list",
+            url: "/staff",
+            icon: UserIcon,
         }
     ],
     physicalAssets: [

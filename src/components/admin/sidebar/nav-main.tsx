@@ -1,8 +1,7 @@
 "use client"
 
-import { MailIcon, PlusCircleIcon, type LucideIcon } from "lucide-react"
+import { type LucideIcon } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import {
     SidebarGroup,
     SidebarGroupContent,
@@ -29,10 +28,10 @@ export function NavMain({
                 {name && <SidebarGroupLabel><span className="text-[16px]">{name}</span></SidebarGroupLabel>}
                 <SidebarMenu>
                     {items.map((item) => (
-                        <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton tooltip={item.title} >
-                                <Link href={item.url.startsWith('/admin') ? item.url : `/admin${item.url}`} className="flex items-center gap-2">
-                                    {item.icon && <item.icon size={24} className="text-[#0E4E81]"/>}
+                        <SidebarMenuItem key={item.title} className="py-2">
+                            <SidebarMenuButton tooltip={item.title} className="py-3">
+                                <Link href={item.url.startsWith('/admin') ? item.url : `/admin${item.url}`} className="flex items-center gap-2 py-3">
+                                    {item.icon && <item.icon size={24} className=""/>}
                                     <span className="text-[16px]">{item.title}</span>
                                 </Link>
                             </SidebarMenuButton>

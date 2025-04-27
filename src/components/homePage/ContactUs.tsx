@@ -16,7 +16,7 @@ const ContactUs = () => {
         >
             <div className='w-[95%] md:w-[84%]  mx-auto my-auto flex items-center md:items-end justify-center md:justify-end lg:px-3 h-full'>
                 <motion.div
-                    className='bg-[#FFF] lg:py-16 py-10 lg:px-16 px-10 flex flex-col gap-4 rounded-tl-[40px] rounded-br-[40px]'
+                    className='bg-[#F4F6F3] lg:py-16 py-10 lg:px-16 px-10 flex flex-col gap-4 rounded-tl-[50px] rounded-br-[40px]'
                     initial={{ opacity: 0, y: 50 }} // Initial state: off-screen and invisible
                     animate={{ opacity: 1, y: 0 }} // Final state: visible and in place
                     transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition effect
@@ -79,7 +79,7 @@ const ContactUs = () => {
                         whileHover={{ scale: 1.05 }} // Add scale effect when hovered
                         whileTap={{ scale: 0.95 }}  // Reduce size on tap
                     >
-                        <Button className="h-[50px] w-fit mt-5 px-8 hover:bg-[#dd9639] bg-[#104B82] rounded-none shadow-md text-xl">
+                        <Button variant="default" className="h-[50px] w-fit mt-5 px-8  rounded-none shadow-md text-xl">
                             Request Appointment
                         </Button>
                     </motion.div>
