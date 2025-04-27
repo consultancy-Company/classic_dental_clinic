@@ -5,9 +5,8 @@ import { Check, ClipboardPlus, Plus } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
-type Props = {}
 
-const InQueue = (props: Props) => {
+const InQueue = () => {
     return (
         <div className='grid grid-cols-1 md:grid-col-2 lg:grid-cols-3'>
             <Card>

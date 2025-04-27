@@ -2,13 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { ClipboardIcon, PhoneCall, User, UserPlus } from "lucide-react";
+import { ClipboardIcon, PhoneCall, User } from "lucide-react";
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { format } from "date-fns";
@@ -18,14 +17,12 @@ import { z } from "zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast"
-import { ToastAction } from "@/components/ui/toast"
 import { FaTooth } from "react-icons/fa";
 interface PatientFormProps {
   show: boolean;
@@ -273,7 +270,7 @@ const PatientForm = ({ show, setShow }: PatientFormProps) => {
                   <FormField
                     control={form.control}
                     name="dateOfBirth"
-                    render={({ field }) => (
+                    render={() => (
                       <FormItem>
                         <FormLabel>Date of Birth</FormLabel>
                         <Popover>
@@ -532,7 +529,7 @@ const PatientForm = ({ show, setShow }: PatientFormProps) => {
                 <FormField
                   control={form.control}
                   name="lastDentalVisit"
-                  render={({ field }) => (
+                  render={() => (
                     <FormItem>
                       <FormLabel>Last Dental Visit</FormLabel>
                       <Popover>

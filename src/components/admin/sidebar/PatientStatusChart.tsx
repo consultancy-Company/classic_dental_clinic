@@ -1,15 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { Square, User } from "lucide-react"
-import { Label, Pie, PieChart, Legend, Sector } from "recharts"
+import { Square } from "lucide-react"
+import { Label, Pie, PieChart, Sector } from "recharts"
 import { PieSectorDataItem } from "recharts/types/polar/Pie"
 
 import {
     Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -50,9 +47,6 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function PatientStatusChart() {
-    const totalPatients = React.useMemo(() => {
-        return sortedChartData.reduce((acc, curr) => acc + curr.patients, 0)
-    }, [])
 
     return (
         <Card className="flex flex-col">

@@ -2,7 +2,6 @@
 
 import React from 'react'
 import { Button } from '../ui/button'
-import { MdOutlineMan4 } from "react-icons/md";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 

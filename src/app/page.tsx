@@ -40,7 +40,7 @@ export default function Home() {
                 </>
               }
               buttonText="Request Appointment"
-              backgroundImage="/images/jose-vazquez-4SUyx4KQ5Ik-unsplash.jpg"
+              backgroundImage="/images/atikah-akhtar-XJptUS8nbhs-unsplash.jpg"
               phoneNumbers={["+251909696945", "+251909696946"]}
               location="Bisrate Gebrale, Adot Cinema, Addis Ababa"
             />

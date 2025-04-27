@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { format, addDays, startOfWeek, eachDayOfInterval, addMonths, startOfMonth, endOfMonth, isSameMonth, isSameDay, parseISO } from "date-fns";
+import { format, addDays, startOfWeek, eachDayOfInterval, addMonths, startOfMonth, endOfMonth, isSameMonth, isSameDay } from "date-fns";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -69,7 +69,17 @@ console.log(timeSlots);
 export default function Home() {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedSlot, setSelectedSlot] = useState<{ date: Date; time: string } | null>(null);
-    const [selectedAppointment, setSelectedAppointment] = useState<any>(null);
+    const [selectedAppointment, setSelectedAppointment] = useState<{
+        id: number;
+        date: Date;
+        time: string;
+        duration: number;
+        patient: string;
+        type: string;
+        phone: string;
+        email: string;
+        notes: string;
+    } | null>(null);
     const [view, setView] = useState("day");
 
     // ... (helper functions remain unchanged)

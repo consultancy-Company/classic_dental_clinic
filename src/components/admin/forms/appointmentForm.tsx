@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { boolean, z } from "zod";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
     Form,
@@ -63,9 +63,8 @@ export function AppointmentForm({ show, setShow }: AppointmentFormProps) {
         },
     });
 
-    const [selectedDate, setSelectedDate] = React.useState<Date>();
 
-    const onSubmit = (data: any) => {
+    const onSubmit = (data: z.infer<typeof appointmentSchema>) => {
         console.log("Appointment Data:", data);
     };
     if (!show) return null;

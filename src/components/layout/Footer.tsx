@@ -2,7 +2,6 @@ import React from 'react'
 import { Phone, Mail, MapPin,Calendar, ChevronRight } from 'lucide-react';
 import { FaFacebook , FaInstagram , FaTwitter } from 'react-icons/fa';
 
-import { Button } from '../ui/button'
 
 const Footer = () => {
   return (
@@ -121,13 +120,10 @@ const Footer = () => {
                   }}
                 />
                 <button
-                  className="w-full py-2 rounded-lg transition-colors"
+                  className="w-full py-2 rounded-lg transition-colors hover:bg-primary-button-hover-bg"
                   style={{
                     backgroundColor: 'var(--primary-button-bg)',
-                    color: 'var(--button-text-color)',
-                    ':hover': {
-                      backgroundColor: 'var(--primary-button-hover-bg)'
-                    }
+                    color: 'var(--button-text-color)'
                   }}
                 >
                   Subscribe

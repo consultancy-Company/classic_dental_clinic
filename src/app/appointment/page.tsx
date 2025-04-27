@@ -56,11 +56,7 @@ const Page = () => {
 
     useEffect(() => {
         if (showToast) {
-            toast({
-                title: "Success",
-                description: "You have successfully logged in.",
-                variant: "success",
-            });
+            toast.success("You have successfully logged in.");
             setShowToast(false);
         }
     }, [showToast]);

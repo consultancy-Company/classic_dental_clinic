@@ -5,7 +5,6 @@ import { Separator } from '@/components/ui/separator'
 import { Users, Ellipsis, ArrowRight } from 'lucide-react'
 import React from 'react'
 
-type Props = {}
 
 const employees = [
     { name: 'Abel Mekonn', position: 'Manager', department: 'Sales', contact: '987-654-3210' },
@@ -14,7 +13,7 @@ const employees = [
     { name: 'Emily Smith', position: 'Designer', department: 'Creative', contact: '222-333-4444' },
 ]
 
-const EmployeeList = (props: Props) => {
+const EmployeeList = () => {
     return (
         <div>
             <Card className='p-6 min-h-[430px]'>

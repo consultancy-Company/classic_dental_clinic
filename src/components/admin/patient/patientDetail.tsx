@@ -22,7 +22,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 
-const PatientDetail = (props: Props) => {
+const PatientDetail = () => {
   return (
     <div className='flex justify-between gap-5'>
       <div className='grid grid-cols-1 gap-3 w-[65%]'>

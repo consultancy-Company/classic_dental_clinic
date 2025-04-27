@@ -97,6 +97,7 @@ const navigation = [
 const Header = () => {
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
     const [openSections, setOpenSections] = React.useState<Record<string, boolean>>({});
+    const [isScrolled, setIsScrolled] = React.useState(false);
 
     const toggleSection = (section: string) => {
         setOpenSections((prev) => ({
@@ -104,11 +105,25 @@ const Header = () => {
             [section]: !prev[section]
         }));
     };
+    React.useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 60) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     return (
         <header className="fixed w-screen inset-x-0 top-0 z-50 transition-all duration-500 ">
             <nav aria-label="Global" className="flex flex-col">
-                <div className="flex items-center justify-between shadow-sm  bg-[#FFF]  px-8 lg:px-14 pb-1 pt-2">
+                <div className={`flex items-center justify-between transition-all duration-500 shadow-sm  ${isScrolled ? "bg-[#FFF] shadow-sm" : "bg-transparent"}  px-8 lg:px-14 pb-1 pt-2`}>
                     {/* Logo */}
                     <Link href={"/"} className="flex items-center gap-2">
                         <div
@@ -132,7 +147,7 @@ const Header = () => {
                         <button
                             type="button"
                             onClick={() => setMobileMenuOpen((prev) => !prev)}
-                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 transition-all ease-linear duration-300"
+                            className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 ${isScrolled ? "text-gray-900": "text-white" }  transition-all ease-linear duration-300`}
                         >
                             {mobileMenuOpen ? (
                                 <svg
@@ -160,7 +175,7 @@ const Header = () => {
                         {navigation.map((item) =>
                             item.isDropdown ? (
                                 <div key={item.name} className="group inline-block relative">
-                                    <Link href={item.href} className=" text-gray-900 hover:text-primary-500 cursor-pointer ">
+                                    <Link href={item.href} className={`${isScrolled ? "text-gray-900": "text-white" } hover:text-primary-500 cursor-pointer `}>
                                         {item.name}
                                     </Link>
                                     {/* Main dropdown menu */}
@@ -207,14 +222,14 @@ const Header = () => {
                                 <Link
                                     key={item.name}
                                     href={item.href}
-                                    className="text-gray-900 hover:text-primary-500"
+                                    className={`${isScrolled ? "text-gray-900": "text-white" }  hover:text-primary-500`}
                                 >
                                     {item.name}
                                 </Link>
                             )
                         )}
                         <div>
-                            <Link  href={"/appointment"}>
+                            <Link href={"/appointment"}>
                                 <Button variant="default" className="h-[50px] md:ml-20">
                                     Request Appointment
                                 </Button>

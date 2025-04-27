@@ -40,6 +40,17 @@ export default function Page() {
         },
     ];
 
+    const dataWithDefaults = data.map(item => ({
+        ...item,
+        id: Number(item.id),
+        header: "Default Header",
+        type: "Default Type",
+        status: "Default Status",
+        target: "Default Target",
+        limit: "Default Limit",
+        reviewer: "Default Reviewer"
+    }));
+
     return (
         <div className="flex flex-1 flex-col px-4 lg:px-6">
             <div className="@container/main flex flex-1 flex-col gap-2">
@@ -63,7 +74,7 @@ export default function Page() {
                         </div>
                     </div>
                     <div className="w-full">
-                        <DataTable data={data} isDashboard={true} />
+                        <DataTable data={dataWithDefaults} isDashboard={true} />
                     </div>
 
                 </div>

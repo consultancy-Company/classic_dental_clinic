@@ -5,7 +5,6 @@ import { Separator } from '@/components/ui/separator'
 import { ArrowRight, ClipboardPlus, Ellipsis } from 'lucide-react'
 import React from 'react'
 
-type Props = {}
 
 const appointments = [
     { name: 'Abel Mekonn', type: 'Canal test', date: 'Tomorrow', time: '10:00 AM' },
@@ -14,7 +13,7 @@ const appointments = [
     { name: 'Emily Smith', type: 'Braces Checkup', date: 'March 22', time: '3:30 PM' },
 ]
 
-const AppointmentList = (props: Props) => {
+const AppointmentList = () => {
     return (
         <div>
             <Card className='p-6 min-h-[410px]'>

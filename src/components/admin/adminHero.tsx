@@ -2,9 +2,8 @@ import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader } from '../ui/card'
 import { Button } from '../ui/button'
 
-type Props = {}
 
-const AdminHero = (props: Props) => {
+const AdminHero = () => {
     return (
         <Card className='card-bg '>
             <CardHeader className='text-3xl text-white font-heading'>

@@ -7,10 +7,12 @@ import VisitUs from '@/components/homePage/VisitUs';
 
 import FAQComponent from '@/components/commonUi/faq';
 import GetStarted from '@/components/services/GetStarted';
-import ForYou from '@/components/services/ForYou';
 import AllSolutions from '@/components/services/AllSolutions';
 import ReachOut from '@/components/services/ReachOut';
 import Layout from '@/components/layout/Layout';
+import { servicesData } from '@/lib/constants';
+import ServiceDetail from '@/components/services/ServiceDetail';
+import ForYou from '@/components/services/ForYou';
 
 const faqs = [
   {
@@ -36,6 +38,12 @@ const toSentenceCase = (str: string) => {
 
 const Service = async ({ params }: { params: Promise<{ service: string }> }) => {
   const { service } = await params;
+  // let filter the servicesData array and return the service that matches the service parameter
+  const serviceData = servicesData.find((serviceData) => {
+    return serviceData.params.toLowerCase() === service.toLowerCase();
+  });
+  
+  
   return (
     <Layout>
       <HeroSection
@@ -56,9 +64,9 @@ const Service = async ({ params }: { params: Promise<{ service: string }> }) => 
         phoneNumbers={["+251909696945", "+251909696946"]}
         location="Bisrate Gebrale, Adot Cinema, Addis Ababa"
       />
-
+      <ServiceDetail serviceName={serviceData?.name as string} imageSrc={serviceData?.imageSrc as string} />
       <AllSolutions />
-      <GetStarted title="Get Started" subtitle="3 Simple steps for achieving your best smile" />
+      <GetStarted />
 
       <ContactUs />
       <JoinUs />

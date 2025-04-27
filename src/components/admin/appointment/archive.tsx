@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const Archive = (props: Props) => {
+const Archive = () => {
   return (
     <div>archive</div>
   )

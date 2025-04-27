@@ -110,7 +110,7 @@ export const columns: ColumnDef<z.infer<typeof schema>>[] = [
             <Link href={`/admin/patients/${row.original.id}`} className="flex gap-2 items-center">
                 <div>
                     <Image
-                        src={"https://randomuser.me/api/portraits/women/2.jpg"}
+                        src={"/images/download.jpg"}
                         alt="pp"
                         width={40}
                         height={40}
@@ -215,7 +215,7 @@ export const columns: ColumnDef<z.infer<typeof schema>>[] = [
                                 className="flex gap-2 px-3 py-2 hover:bg-slate-50 border-none rounded-md"
                                 onClick={() => {
                                     if (typeof window !== 'undefined') {
-                                        navigator.clipboard.writeText(patient.id)
+                                        navigator.clipboard.writeText(String(patient.id))
                                     }
                                 }}
                             >

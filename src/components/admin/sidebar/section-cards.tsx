@@ -1,4 +1,3 @@
-import { TrendingDownIcon, TrendingUpIcon, UserCheckIcon, SmileIcon, CalendarCheckIcon, AlertTriangleIcon, Users, CircleCheckBig } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import {
