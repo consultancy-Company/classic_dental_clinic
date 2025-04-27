@@ -15,7 +15,6 @@ const navigation = [
         subSections: [
             { name: "Careers", href: "/about/careers" },
             { name: "Meet the Team", href: "/about/meet-team" },
-            { name: "Blog", href: "/about/blog" },
             { name: "About Our Clinic", href: "/about/clinic" },
         ]
     },
@@ -92,6 +91,7 @@ const navigation = [
         ]
     },
     { name: "Contact Us", href: "/contact" },
+
 ]
 
 const Header = () => {
@@ -171,7 +171,7 @@ const Header = () => {
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden lg:flex lg:gap-x-8 items-center text-xl  font-semibold">
+                    <div className="hidden lg:flex lg:gap-x-8 items-center text-lg font-semibold">
                         {navigation.map((item) =>
                             item.isDropdown ? (
                                 <div key={item.name} className="group inline-block relative">
